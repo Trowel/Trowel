@@ -1,0 +1,122 @@
+@function class--get-attribute-property($object, $attribute, $property) {
+  @return map-get(map-get($object, $attribute), $property);
+}
+
+@function class--get-name($object) {
+  @return class--get-attribute-property($object, '~', 'classname');
+};
+
+@function class--get-attribute-type($object, $attribute) {
+  @return class--get-attribute-property($object, $attribute, 'type');
+};
+
+@function class--get-attribute-value($object, $attribute, $nth: null) {
+  $value: class--get-attribute-property($object, $attribute, 'value');
+
+  @if type-of($value) == 'list' and class--get-attribute-collection($object, $attribute) and type-of($nth) == 'number' {
+    $value: nth($value, $nth);
+  }
+
+  @return $value;
+};
+
+@function class--get-attribute-nullable($object, $attribute) {
+  @return class--get-attribute-property($object, $attribute, 'nullable');
+};
+
+@function class--get-attribute-choices($object, $attribute) {
+  @return class--get-attribute-property($object, $attribute, 'choices');
+};
+
+@function class--get-attribute-collection($object, $attribute) {
+  @return class--get-attribute-property($object, $attribute, 'collection');
+};
+
+@function class--attribute-nullable-is-ok($attribute, $value, $classname, $nullable) {
+  $nullable--is-ok: ($value == null and $nullable) or $value != null;
+
+  @if not $nullable--is-ok {
+    @error 'the attribute \"#{$attribute}\" from the \"#{$classname}\" cannot be null';
+    @return false;
+  }
+
+  @return $nullable--is-ok;
+}
+
+@function class--attribute-choices-is-ok($attribute, $value, $classname, $choices, $nullable) {
+  $choices--is-ok: ($choices and index($choices, $value)) or not $choices or (not index($choices, $value) and $value == null and $nullable);
+  @if not $choices--is-ok {
+    $choices--error: 'the attribute \"#{$attribute}\" from the \"#{$classname}\" must be ';
+    @for $index from 1 through length($choices) {
+      @if $index > 1 {
+        $choices--error: $choices--error + if($index == length($choices), ' or ', ', ');
+      }
+      $choices--error: $choices--error + nth($choices, $index);
+    }
+    @error $choices--error;
+    @return false;
+  }
+
+  @return $choices--is-ok;
+}
+
+@function class--attribute-type-is-ok($attribute, $value, $classname, $type, $nullable) {
+  $type--is-ok: (type-of($value) == $type) or ($value == null and $nullable);
+  @if not $type--is-ok {
+    @error 'the attribute \"#{$attribute}\" from the \"#{$classname}\" class must be a \"#{$type}\" (currently \"#{type-of($value)}\")';
+    @return false;
+  }
+
+  @return $type--is-ok;
+}
+
+@function class--attribute-is-ok($attribute, $value, $classname, $nullable, $choices, $type) {
+// @function class--attribute-is-ok($attribute, $value, $classname, $nullable) {
+  $nullable--is-ok: class--attribute-nullable-is-ok($attribute, $value, $classname, $nullable);
+  $choices--is-ok: class--attribute-choices-is-ok($attribute, $value, $classname, $choices, $nullable);
+  $type--is-ok: class--attribute-type-is-ok($attribute, $value, $classname, $type, $nullable);
+
+  @return $nullable--is-ok and $choices--is-ok and $type--is-ok;
+  // @return $nullable--is-ok;
+}
+
+
+@function class--set-attribute-value($object, $attribute, $value, $previous-value: null) {
+  $classname: '$' + class--get-name($object);
+
+  // Get attributes options
+  $collection: class--get-attribute-collection($object, $attribute);
+  $nullable: class--get-attribute-nullable($object, $attribute);
+  $choices: class--get-attribute-choices($object, $attribute);
+  $type: class--get-attribute-type($object, $attribute);
+
+  $is-ok: false;
+  @if $collection {
+    @if type-of($previous-value) != 'list' {
+      $previous-value: ();
+    }
+
+    @if type-of($value) != 'list' and $value != null {
+      // transform the value into a list of length 1 with as nth(1) the non list value passed before
+      $value: append($previous-value, $value);
+    }
+
+    @for $index from 1 through length($value) {
+      $value-tested: nth($value, $index);
+      $is-ok: class--attribute-is-ok($attribute, $value-tested, $classname, $nullable, $choices, $type);
+      // $is-ok: class--attribute-is-ok($attribute, $value-tested, $classname, $nullable);
+    }
+  } @else {
+    // Check if attributes options are ok with the value
+    $is-ok: class--attribute-is-ok($attribute, $value, $classname, $nullable, $choices, $type);
+    // $is-ok: class--attribute-is-ok($attribute, $value, $classname, $nullable);
+  }
+
+
+  @if $is-ok {
+    $attribute-properties: map-merge(map-get($object, $attribute), ('value': $value));
+    $object: map-merge($object, ($attribute: $attribute-properties));
+  }
+
+  @return $object;
+};

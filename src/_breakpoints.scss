@@ -1,0 +1,12 @@
+$breakpoints: (
+  'xs': (
+    'max': 10rem,
+  ),
+  'sm': (
+    'min': 10rem,
+    'max': 20rem,
+  ),
+  'md': (
+    'min': 20rem,
+  )
+) !default;

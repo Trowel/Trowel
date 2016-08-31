@@ -35,3 +35,9 @@ jspm_packages
 
 # Optional REPL history
 .node_repl_history
+
+# Test dest folder
+test/dest
+
+# Bower components
+bower_components

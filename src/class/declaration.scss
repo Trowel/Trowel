@@ -1,0 +1,80 @@
+@import 'utils';
+@import 'selector';
+
+$declaration--prototype: (
+  '~': (
+    'classname': 'declaration',
+  ),
+  'selector': (
+    'type': 'map',
+  ),
+);
+
+@function declaration--constructor($selector) {
+  $this: $declaration--prototype;
+  $this: declaration--set-selector($this, $selector);
+
+  @return $this;
+};
+
+/// @name get selector
+/// @access public
+/// @group class declaration
+/// @param {map} $this - the `declaration class object`
+/// @return {string} selector
+@function declaration--get-selector($this) {
+  @return class--get-attribute-value($this, 'selector');
+}
+
+/// @name set selector
+/// @access public
+/// @group class declaration
+/// @param {map} $declaration
+/// @param {string} $selector
+/// @return {map} declaration class object updated with new 'selector' value
+@function declaration--set-selector($this, $selector) {
+  @return class--set-attribute-value($this, 'selector', $selector);
+}
+
+@mixin declaration ($property, $value, $selector: $selector, $default: true) {
+  @if type-of($value) != 'map' {
+    @include print-declaration($property, $value, $selector, $default);
+  } @else {
+    @each $flag, $value in $value {
+      $new-selector: $selector;
+
+      $flag-type: str-slice($flag, 0, 1);
+      $flag-name: str-slice($flag, 2);
+
+      @if $flag-type == ':' {
+        $new-selector: selector--append-states($new-selector, $flag-name);
+      }
+
+      @if $flag-type == '<' {
+        $new-selector: selector--set-tag($new-selector, $flag-name);
+      }
+
+      @if $flag-type == '@' {
+        $new-selector: selector--set-breakpoint($new-selector, $flag-name);
+      }
+
+      @if $flag-type == '-' {
+        $new-selector: selector--append-modifier($new-selector, $flag-name);
+      }
+
+      @include declaration($property, $value, $new-selector, false);
+    }
+  }
+};
+
+@mixin print-declaration($property, $value, $selector, $default) {
+  @if $default {
+    #{$property}: $value;
+  } @else {
+    $selector: selector--set-is-nested($selector, true);
+
+    @include selector($selector) {
+      #{$property}: $value;
+    }
+  }
+}

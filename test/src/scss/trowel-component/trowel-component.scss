@@ -1,0 +1,37 @@
+// scss-lint:disable DeclarationOrder
+@import 'variables';
+@import '../../../../src/trowel';
+
+
+$selector: selector--constructor('.', $button--prefix, 'button');
+
+@include selector($selector) {
+  // Positioning
+  @include declaration('vertical-align', $button--vertical-align);
+
+  // Display & Box Model
+  box-sizing: border-box;
+  @include declaration('border-width', $button--border-width);
+  @include declaration('display', $button--display);
+  @include declaration('padding-top', $button--padding-y);
+  @include declaration('padding-right', $button--padding-x);
+  @include declaration('padding-bottom', $button--padding-y);
+  @include declaration('padding-left', $button--padding-x);
+
+  // Color
+  @include declaration('background-color', $button--background-color);
+  @include declaration('border-color', $button--border-color);
+  @include declaration('color', $button--color);
+
+  // Text
+  user-select: none;
+  white-space: nowrap;
+  @include declaration('font-size', $button--font-size);
+  @include declaration('font-weight', $button--font-weight);
+  @include declaration('text-align', $button--text-align);
+  @include declaration('text-decoration', $button--text-decoration);
+
+  // Other
+  @include declaration('border-radius', $button--border-radius);
+  @include declaration('border-style', $button--border-style);
+}
