@@ -2,15 +2,16 @@
 @import 'variables';
 @import '../../../../src/trowel';
 
-
 $selector: selector--constructor('.', $button--prefix, 'button');
 
 @include selector($selector) {
+  @include block--start;
+
   // Positioning
   @include declaration('vertical-align', $button--vertical-align);
 
   // Display & Box Model
-  box-sizing: border-box;
+  @include declaration('box-sizing', border-box);
   @include declaration('border-width', $button--border-width);
   @include declaration('display', $button--display);
   @include declaration('padding-top', $button--padding-y);
@@ -24,8 +25,8 @@ $selector: selector--constructor('.', $button--prefix, 'button');
   @include declaration('color', $button--color);
 
   // Text
-  user-select: none;
-  white-space: nowrap;
+  @include declaration('user-select', none);
+  @include declaration('white-space', nowrap);
   @include declaration('font-size', $button--font-size);
   @include declaration('font-weight', $button--font-weight);
   @include declaration('text-align', $button--text-align);
@@ -34,4 +35,6 @@ $selector: selector--constructor('.', $button--prefix, 'button');
   // Other
   @include declaration('border-radius', $button--border-radius);
   @include declaration('border-style', $button--border-style);
+
+  @include block--end;
 }
