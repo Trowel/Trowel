@@ -1,5 +1,6 @@
 @import 'utils';
 @import 'breakpoints';
+@import 'block';
 
 $selector--prototype: (
   '~': (
@@ -366,6 +367,7 @@ $selector--prototype: (
 
 @mixin selector($this) {
   $breakpoint-fork: selector--get-breakpoint($this);
+  $block: () !global;
 
   @if selector--get-is-nested($this) {
     @at-root #{selector--get-print($this)} {
