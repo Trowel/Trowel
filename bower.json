@@ -1,0 +1,24 @@
+{
+  "name": "trowel",
+  "description": "Core of trowel, framework for sass libraries",
+  "main": "src/trowel.scss",
+  "authors": [
+    "Loïc Goyet <loic@troopers.email>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "scss",
+    "trowel"
+  ],
+  "homepage": "https://github.com/Trowel/trowel",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "sassy-maps": "^0.4.0"
+  }
+}
