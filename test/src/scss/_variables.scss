@@ -1,27 +1,13 @@
-$button--padding-y: (
-  'default': 6px,
-  '-large': 10px,
-  '-small': 5px,
-);
-
-$button--padding-x: (
-  'default': 12px,
-  '-large': 16px,
-  '-small': 10px,
+$button--padding: (
+  'default': 6px 12px,
+  '-large': 10px 16px,
+  '-small': 5px 10px,
 );
 
 // Color
 $button--background-color: (
   'default': #fff,
-  ':hover': #e6e6e6,
-  ':active': #e6e6e6,
-  ':focus': #e6e6e6,
-  '-primary': (
-    'default': #337ab7,
-    ':hover': #286090,
-    ':active': #286090,
-    ':focus': #286090,
-  ),
+  '-primary': #337ab7,
 );
 
 $button--border-width: (

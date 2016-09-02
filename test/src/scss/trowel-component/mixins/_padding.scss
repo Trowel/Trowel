@@ -1,9 +1,0 @@
-@mixin padding-y ($value, $flags) {
-  @include declaration('padding-top', $value, $flags);
-  @include declaration('padding-bottom', $value, $flags);
-}
-
-@mixin padding-x ($value, $flags) {
-  @include declaration('padding-right', $value, $flags);
-  @include declaration('padding-left', $value, $flags);
-}
