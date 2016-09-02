@@ -26,9 +26,6 @@ $button--background-color: (
 
 $button--border-width: (
   'default': 1px,
-  '-primary': (
-    '-small': 3px,
-  ),
 );
 
 $button--border-color:  (
@@ -41,7 +38,6 @@ $button--border-color:  (
     ':hover': #204d74,
     ':active': #204d74,
     ':focus': #204d74,
-    '-small': violet,
   ),
 );
 

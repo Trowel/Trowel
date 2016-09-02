@@ -4,7 +4,6 @@
 @import '../modules/sort';
 @import '../modules/smart-map-merge';
 
-
 $declaration--prototype: (
   '~': (
     'classname': 'declaration',
@@ -57,18 +56,25 @@ $declaration--prototype: (
       @include declaration($property, $value, $new-flags)
     }
   } @else {
-    @if length($flags) >= 1 {
-      $previous-block: map-get-deep($block, append($flags, 'default'));
-
-      @if $previous-block {
-        $previous-block: smart-map-merge($previous-block, ($property: $value));
-        $block: map-set-deep($block, append($flags, 'default'), $previous-block) !global;
-      } @else {
-        $block: map-set-deep($block, append($flags, 'default'), ($property: $value)) !global;
+    @if str-slice($property, 1, 9) == '-include-' {
+      @if mixin-exists(mixin-dispatcher) {
+        @include mixin-dispatcher($value, $flags, str-slice($property, 10));
       }
     } @else {
-      $block: smart-map-merge($block, ('default': ($property: $value))) !global;
+      @if length($flags) >= 1 {
+        $previous-block: map-get-deep($block, append($flags, 'default'));
+
+        @if $previous-block {
+          $previous-block: smart-map-merge($previous-block, ($property: $value));
+          $block: map-set-deep($block, append($flags, 'default'), $previous-block) !global;
+        } @else {
+          $block: map-set-deep($block, append($flags, 'default'), ($property: $value)) !global;
+        }
+      } @else {
+        $block: smart-map-merge($block, ('default': ($property: $value))) !global;
+      }
     }
+
   }
 };
 

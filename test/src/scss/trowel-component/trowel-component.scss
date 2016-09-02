@@ -1,8 +1,17 @@
 // scss-lint:disable DeclarationOrder
 @import 'variables';
+@import 'mixins/padding';
 @import '../../../../src/trowel';
 
 $selector: selector--constructor('.', $button--prefix, 'button');
+
+@mixin mixin-dispatcher($value, $flags, $mixin) {
+  @if $mixin == 'padding-y' {
+    @include padding-y($value, $flags);
+  } @elseif $mixin == 'padding-x' {
+    @include padding-x($value, $flags);
+  }
+};
 
 @include selector($selector) {
   @include block--start;
@@ -14,10 +23,9 @@ $selector: selector--constructor('.', $button--prefix, 'button');
   @include declaration('box-sizing', border-box);
   @include declaration('border-width', $button--border-width);
   @include declaration('display', $button--display);
-  @include declaration('padding-top', $button--padding-y);
-  @include declaration('padding-right', $button--padding-x);
-  @include declaration('padding-bottom', $button--padding-y);
-  @include declaration('padding-left', $button--padding-x);
+
+  @include declaration('-include-padding-y', $button--padding-y);
+  @include declaration('-include-padding-x', $button--padding-y);
 
   // Color
   @include declaration('background-color', $button--background-color);
