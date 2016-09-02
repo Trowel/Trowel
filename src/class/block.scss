@@ -1,4 +1,4 @@
-@mixin block--generate {
+@mixin block-generation {
   @include block--generation($selector, $block);
   $block: null !global;
 }

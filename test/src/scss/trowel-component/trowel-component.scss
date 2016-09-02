@@ -42,5 +42,5 @@ $selector: selector--constructor('.', $button--prefix, 'button');
   @include declaration('border-radius', $button--border-radius);
   @include declaration('border-style', $button--border-style);
 
-  @include block--generate;
+  @include block-generation;
 }
