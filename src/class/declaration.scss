@@ -74,7 +74,6 @@ $declaration--prototype: (
         $block: smart-map-merge($block, ('default': ($property: $value))) !global;
       }
     }
-
   }
 };
 
