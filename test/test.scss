@@ -1,0 +1,15 @@
+@import '../node_modules/sassytester/sass/SassyTester';
+
+@function add($a, $b) {
+  @return ($a + $b);
+}
+
+$tests-add: (
+  (0, 1): 1,
+  (1, 4): 5,
+  (2, 3): 5,
+  (3, 1): 4,
+  (4, 0): 4,
+);
+
+@include run(test('add', $tests-add));

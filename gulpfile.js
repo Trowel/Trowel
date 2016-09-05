@@ -41,6 +41,11 @@ gulp.task('scss', function () {
     .pipe(gulp.dest('demo/dest'));
 });
 
+gulp.task('test', function () {
+    return gulp.src('test/test.scss')
+    .pipe($.sass());
+});
+
 gulp.task('watch', ['default'], function() {
   browserSync({
     notify: false,
