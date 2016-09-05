@@ -1,30 +1,1501 @@
-@include run(test('selector--constructor', $var));
-@include run(test('selector--get-type', $var));
-@include run(test('selector--set-type', $var));
-@include run(test('selector--get-prefix', $var));
-@include run(test('selector--set-prefix', $var));
-@include run(test('selector--get-print-prefix', $var));
-@include run(test('selector--get-block', $var));
-@include run(test('selector--set-block', $var));
-@include run(test('selector--get-tag', $var));
-@include run(test('selector--set-tag', $var));
-@include run(test('selector--get-print-tag', $var));
-@include run(test('selector--get-states', $var));
-@include run(test('selector--set-states', $var));
-@include run(test('selector--append-states', $var));
-@include run(test('selector--get-print-states', $var));
-@include run(test('selector--get-element', $var));
-@include run(test('selector--set-element', $var));
-@include run(test('selector--get-print-element', $var));
-@include run(test('selector--get-modifier', $var));
-@include run(test('selector--set-modifier', $var));
-@include run(test('selector--append-modifier', $var));
-@include run(test('selector--get-print-modifier', $var));
-@include run(test('selector--get-is-nested', $var));
-@include run(test('selector--set-is-nested', $var));
-@include run(test('selector--get-breakpoint', $var));
-@include run(test('selector--set-breakpoint', $var));
-@include run(test('selector--get-pseudo-element', $var));
-@include run(test('selector--set-pseudo-element', $var));
-@include run(test('selector--get-print-pseudo-element', $var));
-@include run(test('selector--get-print', $var));
+$selector-object-1: (
+  '~': (
+    'classname': 'selector',
+  ),
+  'prefix': (
+    'type': 'string',
+    'nullable': true,
+  ),
+  'type': (
+    'type': 'string',
+    'choices': ('.', '#'),
+  ),
+  'block': (
+    'type': 'string',
+  ),
+  'element': (
+    'type': 'string',
+    'nullable': true,
+  ),
+  'modifier': (
+    'type': 'string',
+    'nullable': true,
+    'collection': true,
+  ),
+  'tag': (
+    'type': 'string',
+    'nullable': true,
+  ),
+  'states': (
+    'type': 'string',
+    'nullable': true,
+    'collection': true,
+    'choices': ('hover', 'focus', 'active', 'visited'),
+  ),
+  'pseudo-element': (
+    'type': 'string',
+    'nullable': true,
+  ),
+  'breakpoint': (
+    'type': 'string',
+    'nullable': true,
+  ),
+  'is-nested': (
+    'type': 'bool',
+  ),
+);
+
+$selector-object-2: (
+  '~': (
+    'classname': 'selector',
+  ),
+  'prefix': (
+    'type': 'string',
+    'nullable': true,
+    'value': 'c-',
+  ),
+  'type': (
+    'type': 'string',
+    'choices': ('.', '#'),
+    'value': '.',
+  ),
+  'block': (
+    'type': 'string',
+    'value': 'button',
+  ),
+  'element': (
+    'type': 'string',
+    'nullable': true,
+    'value': null,
+  ),
+  'modifier': (
+    'type': 'string',
+    'nullable': true,
+    'collection': true,
+    'value': null,
+  ),
+  'tag': (
+    'type': 'string',
+    'nullable': true,
+    'value': null,
+  ),
+  'states': (
+    'type': 'string',
+    'nullable': true,
+    'collection': true,
+    'choices': ('hover', 'focus', 'active', 'visited'),
+    'value': null,
+  ),
+  'pseudo-element': (
+    'type': 'string',
+    'nullable': true,
+    'value': null,
+  ),
+  'breakpoint': (
+    'type': 'string',
+    'nullable': true,
+    'value': null,
+  ),
+  'is-nested': (
+    'type': 'bool',
+    'value': false,
+  ),
+);
+
+$selector-object-3: (
+  '~': (
+    'classname': 'selector',
+  ),
+  'prefix': (
+    'type': 'string',
+    'nullable': true,
+    'value': 'c-',
+  ),
+  'type': (
+    'type': 'string',
+    'choices': ('.', '#'),
+    'value': '.',
+  ),
+  'block': (
+    'type': 'string',
+    'value': 'button',
+  ),
+  'element': (
+    'type': 'string',
+    'nullable': true,
+    'value': 'label',
+  ),
+  'modifier': (
+    'type': 'string',
+    'nullable': true,
+    'collection': true,
+    'value': null,
+  ),
+  'tag': (
+    'type': 'string',
+    'nullable': true,
+    'value': 'span',
+  ),
+  'states': (
+    'type': 'string',
+    'nullable': true,
+    'collection': true,
+    'choices': ('hover', 'focus', 'active', 'visited'),
+    'value': ('hover',),
+  ),
+  'pseudo-element': (
+    'type': 'string',
+    'nullable': true,
+    'value': 'before',
+  ),
+  'breakpoint': (
+    'type': 'string',
+    'nullable': true,
+    'value': 'md',
+  ),
+  'is-nested': (
+    'type': 'bool',
+    'value': false,
+  ),
+);
+
+$selector-object-4: (
+  '~': (
+    'classname': 'selector',
+  ),
+  'prefix': (
+    'type': 'string',
+    'nullable': true,
+    'value': 'c-',
+  ),
+  'type': (
+    'type': 'string',
+    'choices': ('.', '#'),
+    'value': '.',
+  ),
+  'block': (
+    'type': 'string',
+    'value': 'button',
+  ),
+  'element': (
+    'type': 'string',
+    'nullable': true,
+    'value': 'label',
+  ),
+  'modifier': (
+    'type': 'string',
+    'nullable': true,
+    'collection': true,
+    'value': ('primary', 'large'),
+  ),
+  'tag': (
+    'type': 'string',
+    'nullable': true,
+    'value': 'span',
+  ),
+  'states': (
+    'type': 'string',
+    'nullable': true,
+    'collection': true,
+    'choices': ('hover', 'focus', 'active', 'visited'),
+    'value': ('hover', 'focus'),
+  ),
+  'pseudo-element': (
+    'type': 'string',
+    'nullable': true,
+    'value': 'after',
+  ),
+  'breakpoint': (
+    'type': 'string',
+    'nullable': true,
+    'value': 'md',
+  ),
+  'is-nested': (
+    'type': 'bool',
+    'value': true,
+  ),
+);
+
+@include run(test('selector--constructor', (
+  ('.', 'c-', 'button'): $selector-object-2,
+  ('.', 'c-', 'button', 'span', ('hover',), 'label', null, 'before', 'md'): $selector-object-3,
+)));
+
+@include run(test('selector--get-type', (
+  ($selector-object-1,): null,
+  ($selector-object-2,): '.',
+  ($selector-object-3,): '.',
+)));
+
+@include run(test('selector--set-type', (
+  ($selector-object-1, '.'): (
+    '~': (
+      'classname': 'selector',
+    ),
+    'prefix': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'type': (
+      'type': 'string',
+      'choices': ('.', '#'),
+      'value': '.',
+    ),
+    'block': (
+      'type': 'string',
+    ),
+    'element': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'modifier': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+    ),
+    'tag': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'states': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+      'choices': ('hover', 'focus', 'active', 'visited'),
+    ),
+    'pseudo-element': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'breakpoint': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'is-nested': (
+      'type': 'bool',
+    ),
+  ),
+  ($selector-object-1, '#'): (
+    '~': (
+      'classname': 'selector',
+    ),
+    'prefix': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'type': (
+      'type': 'string',
+      'choices': ('.', '#'),
+      'value': '#',
+    ),
+    'block': (
+      'type': 'string',
+    ),
+    'element': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'modifier': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+    ),
+    'tag': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'states': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+      'choices': ('hover', 'focus', 'active', 'visited'),
+    ),
+    'pseudo-element': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'breakpoint': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'is-nested': (
+      'type': 'bool',
+    ),
+  )
+)));
+
+@include run(test('selector--get-prefix', (
+  ($selector-object-1,): null,
+  ($selector-object-2,): 'c-',
+)));
+
+@include run(test('selector--set-prefix', (
+  ($selector-object-1, 'c-'): (
+    '~': (
+      'classname': 'selector',
+    ),
+    'prefix': (
+      'type': 'string',
+      'nullable': true,
+      'value': 'c-'
+    ),
+    'type': (
+      'type': 'string',
+      'choices': ('.', '#'),
+    ),
+    'block': (
+      'type': 'string',
+    ),
+    'element': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'modifier': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+    ),
+    'tag': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'states': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+      'choices': ('hover', 'focus', 'active', 'visited'),
+    ),
+    'pseudo-element': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'breakpoint': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'is-nested': (
+      'type': 'bool',
+    ),
+  ),
+  ($selector-object-1, 'blabla07'): (
+    '~': (
+      'classname': 'selector',
+    ),
+    'prefix': (
+      'type': 'string',
+      'nullable': true,
+      'value': 'blabla07'
+    ),
+    'type': (
+      'type': 'string',
+      'choices': ('.', '#'),
+    ),
+    'block': (
+      'type': 'string',
+    ),
+    'element': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'modifier': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+    ),
+    'tag': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'states': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+      'choices': ('hover', 'focus', 'active', 'visited'),
+    ),
+    'pseudo-element': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'breakpoint': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'is-nested': (
+      'type': 'bool',
+    ),
+  ),
+)));
+
+@include run(test('selector--get-print-prefix', (
+  ($selector-object-1,): '',
+  ($selector-object-2,): 'c-',
+)));
+
+@include run(test('selector--get-block', (
+  ($selector-object-1,): null,
+  ($selector-object-2,): 'button',
+)));
+
+@include run(test('selector--set-block', (
+  ($selector-object-1, 'button'): (
+    '~': (
+      'classname': 'selector',
+    ),
+    'prefix': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'type': (
+      'type': 'string',
+      'choices': ('.', '#'),
+    ),
+    'block': (
+      'type': 'string',
+      'value': 'button',
+    ),
+    'element': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'modifier': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+    ),
+    'tag': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'states': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+      'choices': ('hover', 'focus', 'active', 'visited'),
+    ),
+    'pseudo-element': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'breakpoint': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'is-nested': (
+      'type': 'bool',
+    ),
+  ),
+  ($selector-object-1, 'lkdqjs dlqskjd qslkdjqs ldkqsj dqlskdjqslkjdqs'): (
+    '~': (
+      'classname': 'selector',
+    ),
+    'prefix': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'type': (
+      'type': 'string',
+      'choices': ('.', '#'),
+    ),
+    'block': (
+      'type': 'string',
+      'value': 'lkdqjs dlqskjd qslkdjqs ldkqsj dqlskdjqslkjdqs',
+    ),
+    'element': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'modifier': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+    ),
+    'tag': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'states': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+      'choices': ('hover', 'focus', 'active', 'visited'),
+    ),
+    'pseudo-element': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'breakpoint': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'is-nested': (
+      'type': 'bool',
+    ),
+  ),
+)));
+
+@include run(test('selector--get-tag', (
+  ($selector-object-1,): null,
+  ($selector-object-2,): null,
+  ($selector-object-3,): 'span',
+)));
+
+@include run(test('selector--set-tag', (
+  ($selector-object-1, 'a'): (
+    '~': (
+      'classname': 'selector',
+    ),
+    'prefix': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'type': (
+      'type': 'string',
+      'choices': ('.', '#'),
+    ),
+    'block': (
+      'type': 'string',
+    ),
+    'element': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'modifier': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+    ),
+    'tag': (
+      'type': 'string',
+      'nullable': true,
+      'value': 'a'
+    ),
+    'states': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+      'choices': ('hover', 'focus', 'active', 'visited'),
+    ),
+    'pseudo-element': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'breakpoint': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'is-nested': (
+      'type': 'bool',
+    ),
+  ),
+  ($selector-object-1, 'button'): (
+    '~': (
+      'classname': 'selector',
+    ),
+    'prefix': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'type': (
+      'type': 'string',
+      'choices': ('.', '#'),
+    ),
+    'block': (
+      'type': 'string',
+    ),
+    'element': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'modifier': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+    ),
+    'tag': (
+      'type': 'string',
+      'nullable': true,
+      'value': 'button'
+    ),
+    'states': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+      'choices': ('hover', 'focus', 'active', 'visited'),
+    ),
+    'pseudo-element': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'breakpoint': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'is-nested': (
+      'type': 'bool',
+    ),
+  ),
+)));
+
+@include run(test('selector--get-print-tag', (
+  ($selector-object-1,): '',
+  ($selector-object-2,): '',
+  ($selector-object-3,): 'span',
+)));
+
+@include run(test('selector--get-states', (
+  ($selector-object-1,): null,
+  ($selector-object-2,): null,
+  ($selector-object-3,): ('hover',),
+  ($selector-object-3, 2): null,
+  ($selector-object-4, 1): 'hover',
+  ($selector-object-4, 2): 'focus',
+)));
+
+@include run(test('selector--set-states', (
+  ($selector-object-1, ('hover',)): (
+    '~': (
+      'classname': 'selector',
+    ),
+    'prefix': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'type': (
+      'type': 'string',
+      'choices': ('.', '#'),
+    ),
+    'block': (
+      'type': 'string',
+    ),
+    'element': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'modifier': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+    ),
+    'tag': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'states': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+      'choices': ('hover', 'focus', 'active', 'visited'),
+      'value': ('hover',),
+    ),
+    'pseudo-element': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'breakpoint': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'is-nested': (
+      'type': 'bool',
+    ),
+  ),
+  ($selector-object-1, ('hover', 'active')): (
+    '~': (
+      'classname': 'selector',
+    ),
+    'prefix': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'type': (
+      'type': 'string',
+      'choices': ('.', '#'),
+    ),
+    'block': (
+      'type': 'string',
+    ),
+    'element': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'modifier': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+    ),
+    'tag': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'states': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+      'choices': ('hover', 'focus', 'active', 'visited'),
+      'value': ('hover', 'active'),
+    ),
+    'pseudo-element': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'breakpoint': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'is-nested': (
+      'type': 'bool',
+    ),
+  ),
+  ($selector-object-1, null): (
+    '~': (
+      'classname': 'selector',
+    ),
+    'prefix': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'type': (
+      'type': 'string',
+      'choices': ('.', '#'),
+    ),
+    'block': (
+      'type': 'string',
+    ),
+    'element': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'modifier': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+    ),
+    'tag': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'states': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+      'choices': ('hover', 'focus', 'active', 'visited'),
+      'value': null,
+    ),
+    'pseudo-element': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'breakpoint': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'is-nested': (
+      'type': 'bool',
+    ),
+  ),
+)));
+
+@include run(test('selector--append-states', (
+  ($selector-object-1, 'hover'):  (
+    '~': (
+      'classname': 'selector',
+    ),
+    'prefix': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'type': (
+      'type': 'string',
+      'choices': ('.', '#'),
+    ),
+    'block': (
+      'type': 'string',
+    ),
+    'element': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'modifier': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+    ),
+    'tag': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'states': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+      'choices': ('hover', 'focus', 'active', 'visited'),
+      'value': ('hover',),
+    ),
+    'pseudo-element': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'breakpoint': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'is-nested': (
+      'type': 'bool',
+    ),
+  ),
+  ($selector-object-1, ('hover', 'active')):  (
+    '~': (
+      'classname': 'selector',
+    ),
+    'prefix': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'type': (
+      'type': 'string',
+      'choices': ('.', '#'),
+    ),
+    'block': (
+      'type': 'string',
+    ),
+    'element': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'modifier': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+    ),
+    'tag': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'states': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+      'choices': ('hover', 'focus', 'active', 'visited'),
+      'value': ('hover', 'active'),
+    ),
+    'pseudo-element': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'breakpoint': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'is-nested': (
+      'type': 'bool',
+    ),
+  ),
+)));
+
+@include run(test('selector--get-print-states', (
+  ($selector-object-1, 1): '',
+  ($selector-object-1, 2): '',
+  ($selector-object-3, 1): ':hover',
+  ($selector-object-3, 2): '',
+  ($selector-object-4, 1): ':hover',
+  ($selector-object-4, 2): ':focus',
+)));
+
+@include run(test('selector--get-element', (
+  ($selector-object-1,): null,
+  ($selector-object-2,): null,
+  ($selector-object-3,): 'label',
+)));
+
+@include run(test('selector--set-element', (
+  ($selector-object-1, 'label'): (
+    '~': (
+      'classname': 'selector',
+    ),
+    'prefix': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'type': (
+      'type': 'string',
+      'choices': ('.', '#'),
+    ),
+    'block': (
+      'type': 'string',
+    ),
+    'element': (
+      'type': 'string',
+      'nullable': true,
+      'value': 'label'
+    ),
+    'modifier': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+    ),
+    'tag': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'states': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+      'choices': ('hover', 'focus', 'active', 'visited'),
+    ),
+    'pseudo-element': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'breakpoint': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'is-nested': (
+      'type': 'bool',
+    ),
+  ),
+  ($selector-object-1, 'lorem ipsum'): (
+    '~': (
+      'classname': 'selector',
+    ),
+    'prefix': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'type': (
+      'type': 'string',
+      'choices': ('.', '#'),
+    ),
+    'block': (
+      'type': 'string',
+    ),
+    'element': (
+      'type': 'string',
+      'nullable': true,
+      'value': 'lorem ipsum'
+    ),
+    'modifier': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+    ),
+    'tag': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'states': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+      'choices': ('hover', 'focus', 'active', 'visited'),
+    ),
+    'pseudo-element': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'breakpoint': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'is-nested': (
+      'type': 'bool',
+    ),
+  ),
+)));
+
+@include run(test('selector--get-print-element', (
+  ($selector-object-2, ): '',
+  ($selector-object-3, ): '__label',
+)));
+
+@include run(test('selector--get-modifier', (
+  ($selector-object-1, ): null,
+  ($selector-object-2, ): null,
+  ($selector-object-3, ): null,
+  ($selector-object-4, ): ('primary', 'large'),
+  ($selector-object-4, 1): 'primary',
+  ($selector-object-4, 2): 'large',
+  ($selector-object-4, 3): null,
+)));
+
+@include run(test('selector--set-modifier', (
+  ($selector-object-1, ('lorem', )): (
+    '~': (
+      'classname': 'selector',
+    ),
+    'prefix': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'type': (
+      'type': 'string',
+      'choices': ('.', '#'),
+    ),
+    'block': (
+      'type': 'string',
+    ),
+    'element': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'modifier': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+      'value': ('lorem',)
+    ),
+    'tag': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'states': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+      'choices': ('hover', 'focus', 'active', 'visited'),
+    ),
+    'pseudo-element': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'breakpoint': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'is-nested': (
+      'type': 'bool',
+    ),
+  ),
+  ($selector-object-1, ('lorem', 'ipsum')): (
+    '~': (
+      'classname': 'selector',
+    ),
+    'prefix': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'type': (
+      'type': 'string',
+      'choices': ('.', '#'),
+    ),
+    'block': (
+      'type': 'string',
+    ),
+    'element': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'modifier': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+      'value': ('lorem', 'ipsum')
+    ),
+    'tag': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'states': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+      'choices': ('hover', 'focus', 'active', 'visited'),
+    ),
+    'pseudo-element': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'breakpoint': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'is-nested': (
+      'type': 'bool',
+    ),
+  ),
+)));
+
+@include run(test('selector--append-modifier', (
+  ($selector-object-1, 'lorem'): (
+    '~': (
+      'classname': 'selector',
+    ),
+    'prefix': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'type': (
+      'type': 'string',
+      'choices': ('.', '#'),
+    ),
+    'block': (
+      'type': 'string',
+    ),
+    'element': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'modifier': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+      'value': ('lorem',)
+    ),
+    'tag': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'states': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+      'choices': ('hover', 'focus', 'active', 'visited'),
+    ),
+    'pseudo-element': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'breakpoint': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'is-nested': (
+      'type': 'bool',
+    ),
+  ),
+  ($selector-object-1, ('lorem', 'ipsum')): (
+    '~': (
+      'classname': 'selector',
+    ),
+    'prefix': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'type': (
+      'type': 'string',
+      'choices': ('.', '#'),
+    ),
+    'block': (
+      'type': 'string',
+    ),
+    'element': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'modifier': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+      'value': ('lorem', 'ipsum')
+    ),
+    'tag': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'states': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+      'choices': ('hover', 'focus', 'active', 'visited'),
+    ),
+    'pseudo-element': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'breakpoint': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'is-nested': (
+      'type': 'bool',
+    ),
+  ),
+)));
+
+@include run(test('selector--get-print-modifier', (
+  ($selector-object-1, 1): '',
+  ($selector-object-2, 1): '',
+  ($selector-object-3, 1): '',
+  ($selector-object-4, 1): '--primary',
+  ($selector-object-4, 2): '--large',
+  ($selector-object-4, 3): '',
+)));
+
+@include run(test('selector--get-is-nested', (
+  ($selector-object-1, ): null,
+  ($selector-object-2, ): false,
+  ($selector-object-3, ): false,
+  ($selector-object-4, ): true,
+)));
+
+@include run(test('selector--set-is-nested', (
+  ($selector-object-1, true): (
+    '~': (
+      'classname': 'selector',
+    ),
+    'prefix': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'type': (
+      'type': 'string',
+      'choices': ('.', '#'),
+    ),
+    'block': (
+      'type': 'string',
+    ),
+    'element': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'modifier': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+    ),
+    'tag': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'states': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+      'choices': ('hover', 'focus', 'active', 'visited'),
+    ),
+    'pseudo-element': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'breakpoint': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'is-nested': (
+      'type': 'bool',
+      'value': true,
+    ),
+  ),
+  ($selector-object-1, false): (
+    '~': (
+      'classname': 'selector',
+    ),
+    'prefix': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'type': (
+      'type': 'string',
+      'choices': ('.', '#'),
+    ),
+    'block': (
+      'type': 'string',
+    ),
+    'element': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'modifier': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+    ),
+    'tag': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'states': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+      'choices': ('hover', 'focus', 'active', 'visited'),
+    ),
+    'pseudo-element': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'breakpoint': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'is-nested': (
+      'type': 'bool',
+      'value': false,
+    ),
+  ),
+)));
+
+@include run(test('selector--get-breakpoint', (
+  ($selector-object-1,): null,
+  ($selector-object-2,): null,
+  ($selector-object-3,): 'md',
+  ($selector-object-4,): 'md',
+)));
+
+@include run(test('selector--set-breakpoint', (
+  ($selector-object-1, 'md'): (
+    '~': (
+      'classname': 'selector',
+    ),
+    'prefix': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'type': (
+      'type': 'string',
+      'choices': ('.', '#'),
+    ),
+    'block': (
+      'type': 'string',
+    ),
+    'element': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'modifier': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+    ),
+    'tag': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'states': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+      'choices': ('hover', 'focus', 'active', 'visited'),
+    ),
+    'pseudo-element': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'breakpoint': (
+      'type': 'string',
+      'nullable': true,
+      'value': 'md',
+    ),
+    'is-nested': (
+      'type': 'bool',
+    ),
+  ),
+)));
+
+@include run(test('selector--get-pseudo-element', (
+  ($selector-object-1,): null,
+  ($selector-object-2,): null,
+  ($selector-object-3,): 'before',
+  ($selector-object-4,): 'after',
+)));
+
+@include run(test('selector--set-pseudo-element', (
+  ($selector-object-1, 'before'): (
+    '~': (
+      'classname': 'selector',
+    ),
+    'prefix': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'type': (
+      'type': 'string',
+      'choices': ('.', '#'),
+    ),
+    'block': (
+      'type': 'string',
+    ),
+    'element': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'modifier': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+    ),
+    'tag': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'states': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+      'choices': ('hover', 'focus', 'active', 'visited'),
+    ),
+    'pseudo-element': (
+      'type': 'string',
+      'nullable': true,
+      'value': 'before',
+    ),
+    'breakpoint': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'is-nested': (
+      'type': 'bool',
+    ),
+  ),
+  ($selector-object-1, 'after'): (
+    '~': (
+      'classname': 'selector',
+    ),
+    'prefix': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'type': (
+      'type': 'string',
+      'choices': ('.', '#'),
+    ),
+    'block': (
+      'type': 'string',
+    ),
+    'element': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'modifier': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+    ),
+    'tag': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'states': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+      'choices': ('hover', 'focus', 'active', 'visited'),
+    ),
+    'pseudo-element': (
+      'type': 'string',
+      'nullable': true,
+      'value': 'after',
+    ),
+    'breakpoint': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'is-nested': (
+      'type': 'bool',
+    ),
+  ),
+)));
+
+@include run(test('selector--get-print-pseudo-element', (
+  ($selector-object-1,): '',
+  ($selector-object-2,): '',
+  ($selector-object-3,): '::before',
+  ($selector-object-4,): '::after',
+)));
+
+@include run(test('selector--get-print', (
+  ($selector-object-2,): '.c-button',
+  ($selector-object-3,): 'span.c-button__label:hover::before',
+  ($selector-object-4,): '.c-button--primary.c-button--large span.c-button__label:hover:focus::after',
+)));
