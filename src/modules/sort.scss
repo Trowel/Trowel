@@ -1,0 +1,33 @@
+@function swap($list, $index-a, $index-b) {
+  @if abs($index-a) > length($list) or abs($index-b) > length($list) {
+    @return $list;
+  }
+  $tmp: nth($list, $index-a);
+  $list: set-nth($list, $index-a, nth($list, $index-b));
+  $list: set-nth($list, $index-b, $tmp);
+  @return $list;
+}
+
+@function sort($list) {
+  $order: 'a' 'b' 'c' 'd' 'e' 'f' 'g' 'h' 'i' 'j' 'k' 'l' 'm' 'n' 'o' 'p' 'q' 'r' 's' 't' 'u' 'v' 'w' 'x' 'y' 'd' '-' '<' ':' '@' !default;
+
+  // Cycle through each item in the list
+  @for $i from 1 through length($list) {
+
+    // Compare the item with the previous items in the list
+    @for $j from $i * -1 through -1 {
+
+      // abs() trick to loop backward
+      $j: abs($j);
+
+      // Compare both values
+      @if $j > 1 and str-compare(nth($list, $j), nth($list, $j - 1), $order) {
+        // If the item should go before the other, swap them
+        $list: swap($list, $j, $j - 1);
+      }
+    }
+  }
+
+  // Return the sorted list
+  @return $list;
+}

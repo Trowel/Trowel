@@ -1,0 +1,4 @@
+// In order to avoid sassy-maps to popup untimely warnings
+@function map-get-deep-warning($warn, $get) {
+  @return null;
+}

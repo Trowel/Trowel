@@ -1,0 +1,90 @@
+@import 'utils';
+@import 'selector';
+@import '../modules/sassy-maps';
+@import '../modules/sort';
+@import '../modules/smart-map-merge';
+
+$declaration--prototype: (
+  '~': (
+    'classname': 'declaration',
+  ),
+  'selector': (
+    'type': 'map',
+  ),
+);
+
+@function declaration--constructor($selector) {
+  $this: $declaration--prototype;
+  $this: declaration--set-selector($this, $selector);
+
+  @return $this;
+};
+
+/// @name get selector
+/// @access public
+/// @group class declaration
+/// @param {map} $this - the `declaration class object`
+/// @return {string} selector
+@function declaration--get-selector($this) {
+  @return class--get-attribute-value($this, 'selector');
+}
+
+/// @name set selector
+/// @access public
+/// @group class declaration
+/// @param {map} $declaration
+/// @param {string} $selector
+/// @return {map} declaration class object updated with new 'selector' value
+@function declaration--set-selector($this, $selector) {
+  @return class--set-attribute-value($this, 'selector', $selector);
+}
+
+@mixin declaration ($property, $value, $flags: ()) {
+  @if not variable-exists('block') or $block == null {
+    $block: () !global;
+  }
+
+  @if type-of($value) == 'map' {
+    @each $flag, $value in $value {
+      $new-flags: $flags;
+
+      @if index((':', '<', '@', '-'), str-slice($flag, 0, 1)) {
+        $new-flags: append($new-flags, $flag);
+        $new-flags: sort($new-flags);
+      }
+
+      @include declaration($property, $value, $new-flags)
+    }
+  } @else {
+    @if str-slice($property, 1, 9) == '-include-' {
+      @if mixin-exists(mixin-dispatcher) {
+        @include mixin-dispatcher($value, $flags, str-slice($property, 10));
+      }
+    } @else {
+      @if length($flags) >= 1 {
+        $previous-block: map-get-deep($block, append($flags, 'default'));
+
+        @if $previous-block {
+          $previous-block: smart-map-merge($previous-block, ($property: $value));
+          $block: map-set-deep($block, append($flags, 'default'), $previous-block) !global;
+        } @else {
+          $block: map-set-deep($block, append($flags, 'default'), ($property: $value)) !global;
+        }
+      } @else {
+        $block: smart-map-merge($block, ('default': ($property: $value))) !global;
+      }
+    }
+  }
+};
+
+@mixin print-declaration($property, $value, $selector, $default) {
+  @if $default {
+    #{$property}: $value;
+  } @else {
+    $selector: selector--set-is-nested($selector, true);
+
+    @include selector($selector) {
+      #{$property}: $value;
+    }
+  }
+}

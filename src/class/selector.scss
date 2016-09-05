@@ -1,0 +1,385 @@
+@import 'utils';
+@import 'breakpoints';
+@import 'block';
+
+$selector--prototype: (
+  '~': (
+    'classname': 'selector',
+  ),
+  'prefix': (
+    'type': 'string',
+    'nullable': true,
+  ),
+  'type': (
+    'type': 'string',
+    'choices': ('.', '#'),
+  ),
+  'block': (
+    'type': 'string',
+  ),
+  'element': (
+    'type': 'string',
+    'nullable': true,
+  ),
+  'modifier': (
+    'type': 'string',
+    'nullable': true,
+    'collection': true,
+  ),
+  'tag': (
+    'type': 'string',
+    'nullable': true,
+  ),
+  'states': (
+    'type': 'string',
+    'nullable': true,
+    'collection': true,
+    'choices': ('hover', 'focus', 'active', 'visited'),
+  ),
+  'pseudo-element': (
+    'type': 'string',
+    'nullable': true,
+  ),
+  'breakpoint': (
+    'type': 'string',
+    'nullable': true,
+  ),
+  'is-nested': (
+    'type': 'bool',
+  ),
+);
+
+@function selector--constructor($type, $prefix, $block, $tag: null, $states: null, $element: null, $modifier: null, $pseudo-element: null, $breakpoint: null, $is-nested: false) {
+  $this: $selector--prototype;
+  $this: selector--set-type($this, $type);
+  $this: selector--set-prefix($this, $prefix);
+  $this: selector--set-block($this, $block);
+  $this: selector--set-element($this, $element);
+  $this: selector--set-modifier($this, $modifier);
+  $this: selector--set-pseudo-element($this, $pseudo-element);
+  $this: selector--set-tag($this, $tag);
+  $this: selector--set-states($this, $states);
+  $this: selector--set-breakpoint($this, $breakpoint);
+  $this: selector--set-is-nested($this, $is-nested);
+
+  @return $this;
+};
+
+/// @name get type
+/// @access public
+/// @group class selector
+/// @param {map} $this - the `selector class object`
+/// @return {string} type
+@function selector--get-type($this) {
+  @return class--get-attribute-value($this, 'type');
+}
+
+/// @name set type
+/// @access public
+/// @group class selector
+/// @param {map} $selector
+/// @param {string} $type
+/// @return {map} selector class object updated with new 'type' value
+@function selector--set-type($this, $type) {
+  @return class--set-attribute-value($this, 'type', $type);
+}
+
+/// @name get prefix
+/// @access public
+/// @group class selector
+/// @param {map} $this - the `selector class object`
+/// @return {string} prefix
+@function selector--get-prefix($this) {
+  @return class--get-attribute-value($this, 'prefix');
+}
+
+/// @name set prefix
+/// @access public
+/// @group class selector
+/// @param {map} $selector
+/// @param {string} $prefix
+/// @return {map} selector class object updated with new 'prefix' value
+@function selector--set-prefix($this, $prefix) {
+  @return class--set-attribute-value($this, 'prefix', $prefix);
+}
+
+/// @name get print prefix
+/// @access public
+/// @group class selector
+/// @param {map} $this - the `selector class object`
+/// @return {string} prefix or empty array if no prefix is setted
+@function selector--get-print-prefix($this) {
+  @return if(selector--get-prefix($this), selector--get-prefix($this), '');
+}
+
+/// @name get block
+/// @access public
+/// @group class selector
+/// @param {map} $this - the `selector class object`
+/// @return {string} block
+@function selector--get-block($this) {
+  @return class--get-attribute-value($this, 'block');
+}
+
+/// @name set block
+/// @access public
+/// @group class selector
+/// @param {map} $this
+/// @param {string} $block
+/// @return {map} selector class object updated with new 'block' value
+@function selector--set-block($this, $block) {
+  @return class--set-attribute-value($this, 'block', $block);
+}
+/// @name get tag
+/// @access public
+/// @group class selector
+/// @param {map} $this - the `selector class object`
+/// @return {string} tag
+@function selector--get-tag($this) {
+  @return class--get-attribute-value($this, 'tag');
+}
+
+/// @name set tag
+/// @access public
+/// @group class selector
+/// @param {map} $selector
+/// @param {string} $tag
+/// @return {map} selector class object updated with new 'tag' value
+@function selector--set-tag($this, $tag) {
+  @return class--set-attribute-value($this, 'tag', $tag);
+}
+
+/// @name get print tag
+/// @access public
+/// @group class selector
+/// @param {map} $this - the `selector class object`
+/// @return {string} tag or empty array if no tag is setted
+@function selector--get-print-tag($this) {
+  @return if(selector--get-tag($this), selector--get-tag($this), '');
+}
+
+/// @name get states
+/// @access public
+/// @group class selector
+/// @param {map} $this - the `selector class object`
+/// @return {string} states
+@function selector--get-states($this, $nth: null) {
+  @return class--get-attribute-value($this, 'states', $nth);
+}
+
+/// @name set states
+/// @access public
+/// @group class selector
+/// @param {map} $selector
+/// @param {string} $states
+/// @return {map} selector class object updated with new 'states' value
+@function selector--set-states($this, $states) {
+  @return class--set-attribute-value($this, 'states', $states);
+}
+
+/// @name append states
+/// @access public
+/// @group class selector
+/// @param {map} $selector
+/// @param {string} $states
+/// @return {map} selector class object updated with new 'states' appended to the previous list
+@function selector--append-states($this, $states) {
+  $previous-value: selector--get-states($this);
+  @return class--set-attribute-value($this, 'states', $states, $previous-value);
+}
+
+/// @name get print tag
+/// @access public
+/// @group class selector
+/// @param {map} $this - the `selector class object`
+/// @return {string} tag or empty array if no tag is setted
+@function selector--get-print-states($this, $nth) {
+  @return if(selector--get-states($this, $nth), ':' + selector--get-states($this, $nth), '');
+}
+
+/// @name get element
+/// @access public
+/// @group class selector
+/// @param {map} $this - the `selector class object`
+/// @return {string} element
+@function selector--get-element($this) {
+  @return class--get-attribute-value($this, 'element');
+}
+
+/// @name set element
+/// @access public
+/// @group class selector
+/// @param {map} $selector
+/// @param {string} $element
+/// @return {map} selector class object updated with new 'element' value
+@function selector--set-element($this, $element) {
+  @return class--set-attribute-value($this, 'element', $element);
+}
+
+/// @name get print element
+/// @access public
+/// @group class selector
+/// @param {map} $this - the `selector class object`
+/// @return {string} element or empty array if no element is setted
+@function selector--get-print-element($this) {
+  @return if(selector--get-element($this), '__' + selector--get-element($this), '');
+}
+
+/// @name get modifier
+/// @access public
+/// @group class selector
+/// @param {map} $this - the `selector class object`
+/// @return {string} modifier
+@function selector--get-modifier($this, $nth: null) {
+  @return class--get-attribute-value($this, 'modifier', $nth);
+}
+
+/// @name set modifier
+/// @access public
+/// @group class selector
+/// @param {map} $selector
+/// @param {string} $modifier
+/// @return {map} selector class object updated with new 'modifier' value
+@function selector--set-modifier($this, $modifier) {
+  @return class--set-attribute-value($this, 'modifier', $modifier);
+}
+
+/// @name append modifier
+/// @access public
+/// @group class selector
+/// @param {map} $selector
+/// @param {string} $modifier
+/// @return {map} selector class object updated with new 'modifier' appended to the previous list
+@function selector--append-modifier($this, $modifier) {
+  $previous-value: selector--get-modifier($this);
+  @return class--set-attribute-value($this, 'modifier', $modifier, $previous-value);
+}
+
+/// @name get print modifier
+/// @access public
+/// @group class selector
+/// @param {map} $this - the `selector class object`
+/// @param {map} $nth - the index of the modifier item
+/// @return {string} modifier or empty array if no modifier is setted
+@function selector--get-print-modifier($this, $nth) {
+  @return if(selector--get-modifier($this, $nth), '--' + selector--get-modifier($this, $nth), '');
+}
+/// @name get is-nested
+/// @access public
+/// @group class selector
+/// @param {map} $this - the `selector class object`
+/// @return {string} is-nested
+@function selector--get-is-nested($this) {
+  @return class--get-attribute-value($this, 'is-nested');
+}
+
+/// @name set is-nested
+/// @access public
+/// @group class selector
+/// @param {map} $selector
+/// @param {string} $is-nested
+/// @return {map} selector class object updated with new 'is-nested' value
+@function selector--set-is-nested($this, $is-nested) {
+  @return class--set-attribute-value($this, 'is-nested', $is-nested);
+}
+
+/// @name get breakpoint
+/// @access public
+/// @group class selector
+/// @param {map} $this - the `selector class object`
+/// @return {string} breakpoint
+@function selector--get-breakpoint($this) {
+  @return class--get-attribute-value($this, 'breakpoint');
+}
+
+/// @name set breakpoint
+/// @access public
+/// @group class selector
+/// @param {map} $selector
+/// @param {string} $breakpoint
+/// @return {map} selector class object updated with new 'breakpoint' value
+@function selector--set-breakpoint($this, $breakpoint) {
+  @return class--set-attribute-value($this, 'breakpoint', $breakpoint);
+}
+
+/// @name get pseudo-element
+/// @access public
+/// @group class selector
+/// @param {map} $this - the `selector class object`
+/// @return {string} pseudo-element
+@function selector--get-pseudo-element($this) {
+  @return class--get-attribute-value($this, 'pseudo-element');
+}
+
+/// @name set pseudo-element
+/// @access public
+/// @group class selector
+/// @param {map} $selector
+/// @param {string} $pseudo-element
+/// @return {map} selector class object updated with new 'pseudo-element' value
+@function selector--set-pseudo-element($this, $pseudo-element) {
+  @return class--set-attribute-value($this, 'pseudo-element', $pseudo-element);
+}
+
+/// @name get print pseudo-element
+/// @access public
+/// @group class selector
+/// @param {map} $this - the `selector class object`
+/// @return {string} pseudo-element or empty array if no pseudo-element is setted
+@function selector--get-print-pseudo-element($this) {
+  @return if(class--get-attribute-value($this, 'pseudo-element'), '::' + class--get-attribute-value($this, 'pseudo-element'), '');
+}
+
+@function selector--get-print($this) {
+  $print--tag: selector--get-print-tag($this);
+  $print--type: selector--get-type($this);
+  $print--prefix: selector--get-print-prefix($this);
+  $print--block: selector--get-block($this);
+  $print--element: selector--get-print-element($this);
+  $print--pseudo-element: selector--get-print-pseudo-element($this);
+
+  $print--base: $print--type + $print--prefix + $print--block;
+
+  $print--modifier: '';
+  @if selector--get-modifier($this) {
+    @for $index from 1 through length(selector--get-modifier($this)) {
+      $print--modifier: $print--modifier + $print--base + selector--get-print-modifier($this, $index);
+    }
+  }
+
+  $print--states: '';
+  @if selector--get-states($this) {
+    @for $index from 1 through length(selector--get-states($this)) {
+      $print--states: $print--states + selector--get-print-states($this, $index);
+    }
+  }
+
+  @if selector--get-modifier($this) and selector--get-element($this) {
+    @return $print--modifier + ' ' + $print--tag + $print--base + $print--element + $print--states + $print--pseudo-element;
+  }
+
+  @if selector--get-modifier($this) {
+    @return $print--tag + $print--modifier + $print--states + $print--pseudo-element;
+  }
+
+  @return $print--tag + $print--base + $print--element + $print--states + $print--pseudo-element;
+}
+
+@mixin selector($this) {
+  $breakpoint-fork: selector--get-breakpoint($this);
+  $block: () !global;
+
+  @if selector--get-is-nested($this) {
+    @at-root #{selector--get-print($this)} {
+      @include media-query($breakpoint-fork) {
+        @content;
+      }
+    }
+  } @else {
+    #{selector--get-print($this)} {
+      @include media-query($breakpoint-fork) {
+        @content;
+      }
+    }
+  }
+}

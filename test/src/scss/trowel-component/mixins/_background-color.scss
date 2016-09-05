@@ -1,0 +1,6 @@
+@mixin background-color ($value, $flags) {
+  @include declaration('background-color', $value, $flags);
+  @include declaration('background-color', darken($value, 10%), append($flags, ':hover'));
+  @include declaration('background-color', darken($value, 10%), append($flags, ':active'));
+  @include declaration('background-color', darken($value, 10%), append($flags, ':focus'));
+}

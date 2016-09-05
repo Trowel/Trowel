@@ -1,0 +1,65 @@
+@function value-correspondant--get-value($value) {
+  @return map-get($value, 'value');
+}
+
+@function value-correspondant--get-flags($value) {
+  @return map-get($value, 'flags');
+}
+
+@function value-correspondant--get-flags-length($value) {
+  @return length(value-correspondant--get-flags($value));
+}
+
+@function value($value, $flags: null) {
+  @if type-of($value) != 'map' {
+    @return $value;
+  }
+
+  @if $flags == null {
+    @return map-get($value, 'default');
+  }
+
+  $values-correspondant: values-correspondant($value, $flags);
+
+  @if length($values-correspondant) == 0 {
+    @return map-get($value, 'default');
+  }
+
+  $value: nth($values-correspondant, 1);
+  @each $value-correspondant in $values-correspondant {
+    @if value-correspondant--get-flags-length($value-correspondant) >= value-correspondant--get-flags-length($value) {
+      $value: $value-correspondant;
+    }
+  }
+
+  @return value-correspondant--get-value($value);
+}
+
+
+@function values-correspondant($value, $flags, $values-correspondant: (), $flag-current: ()) {
+  @each $flag, $value in $value {
+
+    @if type-of($value) == 'map' {
+      $flag-current-new: if($flag == 'default', $flag-current, append($flag-current, $flag));
+      $values-correspondant: values-correspondant($value, $flags, $values-correspondant, $flag-current-new);
+    } @else {
+      $flag-current-new: if($flag == 'default', $flag-current, append($flag-current, $flag));
+
+      $correspondant: if(length($flag-current-new) > 0, true, false);
+      @each $flag in $flag-current-new {
+        @if index($flags, $flag) == null {
+          $correspondant: false;
+        }
+      }
+
+      @if $correspondant {
+        $values-correspondant: append($values-correspondant, (
+          'value': $value,
+          'flags': $flag-current-new,
+        ));
+      }
+    }
+
+  }
+  @return $values-correspondant;
+}
