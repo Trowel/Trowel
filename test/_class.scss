@@ -1,0 +1,12 @@
+@include run(test('class--get-attribute-property', $var));
+@include run(test('class--get-name', $var));
+@include run(test('class--get-attribute-type', $var));
+@include run(test('class--get-attribute-value', $var));
+@include run(test('class--get-attribute-nullable', $var));
+@include run(test('class--get-attribute-choices', $var));
+@include run(test('class--get-attribute-collection', $var));
+@include run(test('class--attribute-nullable-is-ok', $var));
+@include run(test('class--attribute-choices-is-ok', $var));
+@include run(test('class--attribute-type-is-ok', $var));
+@include run(test('class--attribute-is-ok', $var));
+@include run(test('class--set-attribute-value', $var));

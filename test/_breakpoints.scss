@@ -1,0 +1,7 @@
+@include run(test('breakpoints--constructor', $var));
+@include run(test('breakpoints--get-forks', $var));
+@include run(test('breakpoints--set-forks', $var));
+@include run(test('breakpoints--get-key-fork', $var));
+@include run(test('breakpoints--get-fork-min-width', $var));
+@include run(test('breakpoints--get-fork-max-width', $var));
+@include run(test('breakpoint--get-fork-query', $var));

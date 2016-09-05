@@ -1,0 +1,5 @@
+@include run(test('value-correspondant--get-value', $var));
+@include run(test('value-correspondant--get-flags', $var));
+@include run(test('value-correspondant--get-flags-length', $var));
+@include run(test('value', $var));
+@include run(test('values-correspondant', $var));
