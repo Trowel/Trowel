@@ -49,7 +49,7 @@ $breakpoints--prototype: (
 @function breakpoints--get-fork-min-width($this, $key) {
   $key-fork: breakpoints--get-key-fork($this, $key);
 
-  @if not (map-has-key($key-fork, 'min')) {
+  @if not $key-fork or not (map-has-key($key-fork, 'min')) {
     @return null;
   }
 
@@ -59,7 +59,7 @@ $breakpoints--prototype: (
 @function breakpoints--get-fork-max-width($this, $key) {
   $key-fork: breakpoints--get-key-fork($this, $key);
 
-  @if not (map-has-key($key-fork, 'max')) {
+  @if not $key-fork or not (map-has-key($key-fork, 'max')) {
     @return null;
   }
 
