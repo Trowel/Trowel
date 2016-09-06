@@ -1,5 +1,5 @@
 {
-  "name": "trowel",
+  "name": "trowel-core",
   "description": "Core of trowel, framework for sass libraries",
   "main": "src/trowel.scss",
   "authors": [
@@ -12,11 +12,13 @@
   ],
   "homepage": "https://github.com/Trowel/trowel",
   "ignore": [
-    "**/.*",
+    ".gitignore",
+    "gulpfile.js",
+    "manifest-fr.md",
     "node_modules",
     "bower_components",
     "test",
-    "tests"
+    "demo"
   ],
   "dependencies": {
     "sassy-maps": "^0.4.0"
