@@ -32,9 +32,7 @@
     "gulp-load-plugins": "^1.2.4",
     "gulp-notify": "^2.2.0",
     "gulp-sass": "^2.3.2",
-    "gulp-sourcemaps": "^1.6.0"
-  },
-  "dependencies": {
+    "gulp-sourcemaps": "^1.6.0",
     "sassytester": "^1.0.0"
   }
 }
