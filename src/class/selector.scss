@@ -184,6 +184,10 @@ $selector--prototype: (
 /// @param {string} $states
 /// @return {map} selector class object updated with new 'states' appended to the previous list
 @function selector--append-states($this, $states) {
+  @if type-of($states) != 'list' {
+    $states: ($states,);
+  }
+
   $previous-value: selector--get-states($this);
   @return class--set-attribute-value($this, 'states', $states, $previous-value);
 }
@@ -251,6 +255,10 @@ $selector--prototype: (
 /// @param {string} $modifier
 /// @return {map} selector class object updated with new 'modifier' appended to the previous list
 @function selector--append-modifier($this, $modifier) {
+  @if type-of($modifier) != 'list' {
+    $modifier: ($modifier,);
+  }
+
   $previous-value: selector--get-modifier($this);
   @return class--set-attribute-value($this, 'modifier', $modifier, $previous-value);
 }

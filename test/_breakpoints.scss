@@ -1,0 +1,175 @@
+// Data examples
+// -------------
+
+$breakpoints-1: (
+  'xs': (
+    'max': 11rem,
+  ),
+  'sm': (
+    'min': 11rem,
+    'max': 21rem,
+  ),
+  'md': (
+    'min': 21rem,
+  )
+);
+
+$breakpoints-2: (
+  'xs': (
+    'max': 12rem,
+  ),
+  'md': (
+    'min': 22rem,
+  )
+);
+
+$breakpoints-3: (
+  'xs': (
+    'max': 13rem,
+  )
+);
+
+$breakpoints-4: (
+  'md': (
+    'min': 24rem,
+  )
+);
+
+$breakpoints-object-init: (
+  '~': (
+    'classname': 'breakpoints',
+  ),
+  'forks': (
+    'type': 'map',
+    'nullable': true,
+  )
+);
+
+$breakpoints-object-1: (
+  '~': (
+    'classname': 'breakpoints',
+  ),
+  'forks': (
+    'type': 'map',
+    'nullable': true,
+    'value': $breakpoints-1,
+  )
+);
+
+$breakpoints-object-2: (
+  '~': (
+    'classname': 'breakpoints',
+  ),
+  'forks': (
+    'type': 'map',
+    'nullable': true,
+    'value': $breakpoints-2,
+  )
+);
+
+$breakpoints-object-3: (
+  '~': (
+    'classname': 'breakpoints',
+  ),
+  'forks': (
+    'type': 'map',
+    'nullable': true,
+    'value': $breakpoints-3,
+  )
+);
+
+$breakpoints-object-4: (
+  '~': (
+    'classname': 'breakpoints',
+  ),
+  'forks': (
+    'type': 'map',
+    'nullable': true,
+    'value': $breakpoints-4,
+  )
+);
+
+
+// Tests
+// -----
+
+@include run(test('breakpoints--constructor', (
+  ($breakpoints-1,): $breakpoints-object-1,
+  ($breakpoints-2,): $breakpoints-object-2,
+  ($breakpoints-3,): $breakpoints-object-3,
+  ($breakpoints-4,): $breakpoints-object-4,
+)));
+
+@include run(test('breakpoints--get-forks', (
+  ($breakpoints-object-1,): $breakpoints-1,
+  ($breakpoints-object-2,): $breakpoints-2,
+  ($breakpoints-object-3,): $breakpoints-3,
+  ($breakpoints-object-4,): $breakpoints-4,
+)));
+
+@include run(test('breakpoints--set-forks', (
+  ($breakpoints-object-init, $breakpoints-1): $breakpoints-object-1,
+  ($breakpoints-object-init, $breakpoints-2): $breakpoints-object-2,
+  ($breakpoints-object-init, $breakpoints-3): $breakpoints-object-3,
+  ($breakpoints-object-init, $breakpoints-4): $breakpoints-object-4,
+)));
+
+@include run(test('breakpoints--get-key-fork', (
+  ($breakpoints-object-1, 'xs'): ('max': 11rem),
+  ($breakpoints-object-1, 'sm'): ('min': 11rem, 'max': 21rem),
+  ($breakpoints-object-1, 'md'): ('min': 21rem),
+  ($breakpoints-object-1, 'lg'): null,
+  ($breakpoints-object-2, 'xs'): ('max': 12rem),
+  ($breakpoints-object-2, 'md'): ('min': 22rem),
+  ($breakpoints-object-3, 'xs'): ('max': 13rem),
+  ($breakpoints-object-4, 'md'): ('min': 24rem),
+)));
+
+@include run(test('breakpoints--get-fork-min-width', (
+  ($breakpoints-object-1, 'xs'): null,
+  ($breakpoints-object-1, 'sm'): 11rem,
+  ($breakpoints-object-1, 'md'): 21rem,
+  ($breakpoints-object-1, 'lg'): null,
+  ($breakpoints-object-2, 'xs'): null,
+  ($breakpoints-object-2, 'md'): 22rem,
+  ($breakpoints-object-3, 'xs'): null,
+  ($breakpoints-object-4, 'md'): 24rem,
+)));
+
+@include run(test('breakpoints--get-fork-max-width', (
+  ($breakpoints-object-1, 'xs'): 11rem,
+  ($breakpoints-object-1, 'sm'): 21rem,
+  ($breakpoints-object-1, 'md'): null,
+  ($breakpoints-object-1, 'lg'): null,
+  ($breakpoints-object-2, 'xs'): 12rem,
+  ($breakpoints-object-2, 'md'): null,
+  ($breakpoints-object-3, 'xs'): 13rem,
+  ($breakpoints-object-4, 'md'): null,
+)));
+
+@include run(test('breakpoint--get-fork-query', (
+  ($breakpoints-object-1, 'xs', 'and-more'): null,
+  ($breakpoints-object-1, 'xs', 'and-less'): '(max-width: 11rem)',
+  ($breakpoints-object-1, 'xs', 'only'): '(max-width: 11rem)',
+  ($breakpoints-object-1, 'sm', 'and-more'): '(min-width: 11rem)',
+  ($breakpoints-object-1, 'sm', 'and-less'): '(max-width: 21rem)',
+  ($breakpoints-object-1, 'sm', 'only'): '(min-width: 11rem) and (max-width: 21rem)',
+  ($breakpoints-object-1, 'md', 'and-more'): '(min-width: 21rem)',
+  ($breakpoints-object-1, 'md', 'and-less'): null,
+  ($breakpoints-object-1, 'md', 'only'): '(min-width: 21rem)',
+  ($breakpoints-object-1, 'lg', 'and-more'): null,
+  ($breakpoints-object-1, 'lg', 'and-less'): null,
+  ($breakpoints-object-1, 'lg', 'only'): null,
+  ($breakpoints-object-2, 'xs', 'and-more'): null,
+  ($breakpoints-object-2, 'xs', 'and-less'): '(max-width: 12rem)',
+  ($breakpoints-object-2, 'xs', 'only'): '(max-width: 12rem)',
+  ($breakpoints-object-2, 'md', 'and-more'): '(min-width: 22rem)',
+  ($breakpoints-object-2, 'md', 'and-less'): null,
+  ($breakpoints-object-2, 'md', 'only'): '(min-width: 22rem)',
+  ($breakpoints-object-3, 'xs', 'and-more'): null,
+  ($breakpoints-object-3, 'xs', 'and-less'): '(max-width: 13rem)',
+  ($breakpoints-object-3, 'xs', 'only'): '(max-width: 13rem)',
+  ($breakpoints-object-4, 'md', 'and-more'): '(min-width: 24rem)',
+  ($breakpoints-object-4, 'md', 'and-less'): null,
+  ($breakpoints-object-4, 'md', 'only'): '(min-width: 24rem)',
+)));

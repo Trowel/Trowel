@@ -1,0 +1,55 @@
+$test-map-11: (
+  'foo1': 'bar1',
+);
+$test-map-12: (
+  'foo2': 'bar2',
+);
+
+
+$test-map-21: (
+  'pod': (
+    'foo1': 'bar1',
+  ),
+);
+$test-map-22: (
+  'pod': (
+    'foo2': 'bar2',
+  ),
+);
+
+
+$test-map-31: (
+  'pod': (
+    'foo1': 'bar1',
+    'foo2': 'bar2',
+  ),
+);
+$test-map-32: (
+  'pod': (
+    'pod1': (
+      'foo3': 'bar3',
+    )
+  ),
+);
+
+@include run(test('smart-map-merge', (
+  ($test-map-11, $test-map-12): (
+    'foo1': 'bar1',
+    'foo2': 'bar2',
+  ),
+  ($test-map-21, $test-map-22): (
+    'pod': (
+      'foo1': 'bar1',
+      'foo2': 'bar2',
+    )
+  ),
+  ($test-map-31, $test-map-32): (
+    'pod': (
+      'foo1': 'bar1',
+      'foo2': 'bar2',
+      'pod1': (
+        'foo3': 'bar3',
+      )
+    ),
+  )
+)));

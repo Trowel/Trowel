@@ -1,3 +1,27 @@
+@function str-compare($string-a, $string-b, $order: $default-sort-order) {
+  // Cast values to strings
+  $string-a: to-lower-case($string-a + unquote(''));
+  $string-b: to-lower-case($string-b + unquote(''));
+
+  // Loop through and compare the characters of each string...
+  @for $i from 1 through min(str-length($string-a), str-length($string-b)) {
+
+    // Extract a character from each string
+    $char-a: str-slice($string-a, $i, $i);
+    $char-b: str-slice($string-b, $i, $i);
+
+    // If characters exist in $order list and are different
+    // return true if first comes before second
+    @if $char-a and $char-b and index($order, $char-a) != index($order, $char-b) {
+      @return index($order, $char-a) < index($order, $char-b);
+    }
+  }
+
+  // In case they are equal after all characters in one string are compared,
+  // return the shortest first
+  @return str-length($string-a) < str-length($string-b);
+}
+
 @function swap($list, $index-a, $index-b) {
   @if abs($index-a) > length($list) or abs($index-b) > length($list) {
     @return $list;
@@ -9,7 +33,8 @@
 }
 
 @function sort($list) {
-  $order: 'a' 'b' 'c' 'd' 'e' 'f' 'g' 'h' 'i' 'j' 'k' 'l' 'm' 'n' 'o' 'p' 'q' 'r' 's' 't' 'u' 'v' 'w' 'x' 'y' 'd' '-' '<' ':' '@' !default;
+  $order: 'a' 'b' 'c' 'e' 'f' 'g' 'h' 'i' 'j' 'k' 'l' 'm' 'n' 'o' 'p' 'q' 'r' 's' 't' 'u' 'v' 'w' 'x' 'y' 'd' '-' '<' ':' '@' !default;
+  // $order: '@' ':' '<' '-' 'd' 'y' 'x' 'w' 'v' 'u' 't' 's' 'r' 'q' 'p' 'o' 'n' 'm' 'l' 'k' 'j' 'i' 'h' 'g' 'f' 'e' 'c' 'b' 'a' !default;
 
   // Cycle through each item in the list
   @for $i from 1 through length($list) {

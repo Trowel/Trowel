@@ -41,3 +41,6 @@ test/dest
 
 # Bower components
 bower_components
+
+# Demo
+demo/dest/

@@ -1,0 +1,10 @@
+@include run(test('sort', (
+  (('@viewport', ':state', '<tag', '-modifier'), ): ('-modifier', '<tag', ':state', '@viewport'),
+  ((':state', '@viewport', '<tag', '-modifier'), ): ('-modifier', '<tag', ':state', '@viewport'),
+  (('-modifier', ':state', '@viewport', '<tag'), ): ('-modifier', '<tag', ':state', '@viewport'),
+  (('<tag', '-modifier', '@viewport', ':state'), ): ('-modifier', '<tag', ':state', '@viewport'),
+  ((':state', '<tag', '-modifier'), ): ('-modifier', '<tag', ':state'),
+  (('<tag', '-modifier', '@viewport'), ): ('-modifier', '<tag', '@viewport'),
+  (('-modifier', '@viewport', ':state'), ): ('-modifier', ':state', '@viewport'),
+  (('<tag', '@viewport', ':state'), ): ('<tag', ':state', '@viewport'),
+)));

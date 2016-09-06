@@ -14,7 +14,7 @@
   $value: class--get-attribute-property($object, $attribute, 'value');
 
   @if type-of($value) == 'list' and class--get-attribute-collection($object, $attribute) and type-of($nth) == 'number' {
-    $value: nth($value, $nth);
+    $value: if(length($value) >= $nth, nth($value, $nth), null);
   }
 
   @return $value;

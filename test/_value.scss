@@ -1,0 +1,42 @@
+$value-1: 1.1rem;
+
+$value-2: (
+  'default': 2.1rem,
+  '-large': 2.2rem,
+  '-small': 2.3rem,
+);
+
+$value-3: (
+  'default': 3.1rem,
+  ':hover': 3.2rem,
+  ':active': 3.3rem,
+  ':focus': 3.4rem,
+  '-primary': (
+    'default': 3.51rem,
+    ':hover': 3.52rem,
+    ':active': 3.53rem,
+    ':focus': 3.54rem,
+  ),
+);
+
+$value-4: (
+  'default': 4.1rem,
+  '-primary': 4.2rem,
+  ':hover': 4.3rem,
+);
+
+@include run(test('value', (
+  ($value-1,): 1.1rem,
+  ($value-1, ('-large')): 1.1rem,
+  ($value-1, ('-primary')): 1.1rem,
+  ($value-1, ('-primary', ':hover')): 1.1rem,
+  ($value-2,): 2.1rem,
+  ($value-2, ('-large')): 2.2rem,
+  ($value-2, ('-primary')): 2.1rem,
+  ($value-2, ('-primary', ':hover')): 2.1rem,
+  ($value-3,): 3.1rem,
+  ($value-3, ('-large')): 3.1rem,
+  ($value-3, ('-primary')): 3.51rem,
+  ($value-3, ('-primary', ':hover')): 3.52rem,
+  ($value-4, ('-primary', ':hover')): 4.3rem, // don't know yet if it better return 4.2em or 4.3em
+)));
