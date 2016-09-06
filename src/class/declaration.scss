@@ -1,43 +1,7 @@
-@import 'utils';
 @import 'selector';
 @import '../modules/sassy-maps';
 @import '../modules/sort';
 @import '../modules/smart-map-merge';
-
-$declaration--prototype: (
-  '~': (
-    'classname': 'declaration',
-  ),
-  'selector': (
-    'type': 'map',
-  ),
-);
-
-@function declaration--constructor($selector) {
-  $this: $declaration--prototype;
-  $this: declaration--set-selector($this, $selector);
-
-  @return $this;
-};
-
-/// @name get selector
-/// @access public
-/// @group class declaration
-/// @param {map} $this - the `declaration class object`
-/// @return {string} selector
-@function declaration--get-selector($this) {
-  @return class--get-attribute-value($this, 'selector');
-}
-
-/// @name set selector
-/// @access public
-/// @group class declaration
-/// @param {map} $declaration
-/// @param {string} $selector
-/// @return {map} declaration class object updated with new 'selector' value
-@function declaration--set-selector($this, $selector) {
-  @return class--set-attribute-value($this, 'selector', $selector);
-}
 
 @mixin declaration ($property, $value, $flags: ()) {
   @if not variable-exists('block') or $block == null {
