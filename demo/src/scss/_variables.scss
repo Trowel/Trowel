@@ -1,0 +1,47 @@
+$button--padding: (
+  'default': 6px 12px,
+  '-large': 10px 16px,
+  '-small': 5px 10px,
+);
+
+// Color
+$button--background-color: (
+  'default': #fff,
+  '-primary': #337ab7,
+);
+
+$button--border-width: (
+  'default': 1px,
+);
+
+$button--border-color:  (
+  'default': #ccc,
+  ':hover': #adadad,
+  ':active': #adadad,
+  ':focus': #adadad,
+  '-primary': (
+    'default': #2e6da4,
+    ':hover': #204d74,
+    ':active': #204d74,
+    ':focus': #204d74,
+  ),
+);
+
+$button--color: (
+  'default': #333,
+  '-primary': #fff,
+);
+
+// Text
+$button--font-size:  (
+  'default': 14px,
+  '-large': 18px,
+  '-small': 12px,
+);
+
+// Other
+$button--border-radius:  (
+  'default': 4px,
+  '-large': 6px,
+  '-small': 3px,
+);
