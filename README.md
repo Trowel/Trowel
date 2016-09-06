@@ -1,6 +1,11 @@
 # trowel
 Core of trowel, framework for sass libraries
 
+## install
+```sh
+bower info trowel-core
+```
+
 ## Run the demo
 ```sh
 npm install
