@@ -20,6 +20,7 @@
   }
 
   $values-correspondant: values-correspondant($value, $flags);
+  @debug $values-correspondant;
 
   @if length($values-correspondant) == 0 {
     @return map-get($value, 'default');
