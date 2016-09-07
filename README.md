@@ -3,7 +3,7 @@ Core of trowel, framework for sass libraries
 
 ## install
 ```sh
-bower info trowel-core
+bower install trowel-core
 ```
 
 Then include thoses lines before any trowel library in your `.scss` file
