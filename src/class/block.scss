@@ -27,6 +27,10 @@
         $new-selector: selector--append-modifier($new-selector, $flag-name);
       }
 
+      @if $flag-type == '[' {
+        $new-selector: selector--append-attribute($new-selector, $flag-name);
+      }
+
       @include block--generation($new-selector, $block, $flag)
     }
   } @else {

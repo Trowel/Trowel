@@ -12,7 +12,7 @@
     @each $flag, $value in $value {
       $new-flags: $flags;
 
-      @if index((':', '<', '@', '-'), str-slice($flag, 0, 1)) {
+      @if index((':', '<', '@', '-', '['), str-slice($flag, 0, 1)) {
         $new-flags: append($new-flags, $flag);
         $new-flags: sort($new-flags);
       }
@@ -40,15 +40,3 @@
     }
   }
 };
-
-@mixin print-declaration($property, $value, $selector, $default) {
-  @if $default {
-    #{$property}: $value;
-  } @else {
-    $selector: selector--set-is-nested($selector, true);
-
-    @include selector($selector) {
-      #{$property}: $value;
-    }
-  }
-}
