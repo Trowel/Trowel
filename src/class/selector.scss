@@ -40,6 +40,11 @@ $selector--prototype: (
     'type': 'string',
     'nullable': true,
   ),
+  'attribute': (
+    'type': 'string',
+    'nullable': true,
+    'collection': true,
+  ),
   'breakpoint': (
     'type': 'string',
     'nullable': true,
@@ -49,7 +54,7 @@ $selector--prototype: (
   ),
 );
 
-@function selector--constructor($type, $prefix, $block, $tag: null, $states: null, $element: null, $modifier: null, $pseudo-element: null, $breakpoint: null, $is-nested: false) {
+@function selector--constructor($type, $prefix, $block, $tag: null, $states: null, $element: null, $modifier: null, $pseudo-element: null, $attribute: null, $breakpoint: null, $is-nested: false) {
   $this: $selector--prototype;
   $this: selector--set-type($this, $type);
   $this: selector--set-prefix($this, $prefix);
@@ -57,6 +62,7 @@ $selector--prototype: (
   $this: selector--set-element($this, $element);
   $this: selector--set-modifier($this, $modifier);
   $this: selector--set-pseudo-element($this, $pseudo-element);
+  $this: selector--set-attribute($this, $attribute);
   $this: selector--set-tag($this, $tag);
   $this: selector--set-states($this, $states);
   $this: selector--set-breakpoint($this, $breakpoint);
@@ -272,6 +278,51 @@ $selector--prototype: (
 @function selector--get-print-modifier($this, $nth) {
   @return if(selector--get-modifier($this, $nth), '--' + selector--get-modifier($this, $nth), '');
 }
+
+/// @name get attribute
+/// @access public
+/// @group class selector
+/// @param {map} $this - the `selector class object`
+/// @return {string} attribute
+@function selector--get-attribute($this, $nth: null) {
+  @return class--get-attribute-value($this, 'attribute', $nth);
+}
+
+/// @name set attribute
+/// @access public
+/// @group class selector
+/// @param {map} $selector
+/// @param {string} $attribute
+/// @return {map} selector class object updated with new 'attribute' value
+@function selector--set-attribute($this, $attribute) {
+  @return class--set-attribute-value($this, 'attribute', $attribute);
+}
+
+/// @name append attribute
+/// @access public
+/// @group class selector
+/// @param {map} $selector
+/// @param {string} $attribute
+/// @return {map} selector class object updated with new 'attribute' appended to the previous list
+@function selector--append-attribute($this, $attribute) {
+  @if type-of($attribute) != 'list' {
+    $attribute: ($attribute,);
+  }
+
+  $previous-value: selector--get-attribute($this);
+  @return class--set-attribute-value($this, 'attribute', $attribute, $previous-value);
+}
+
+/// @name get print attribute
+/// @access public
+/// @group class selector
+/// @param {map} $this - the `selector class object`
+/// @param {map} $nth - the index of the attribute item
+/// @return {string} attribute or empty array if no attribute is setted
+@function selector--get-print-attribute($this, $nth) {
+  @return if(selector--get-attribute($this, $nth), '[' + selector--get-attribute($this, $nth) + ']', '');
+}
+
 /// @name get is-nested
 /// @access public
 /// @group class selector
@@ -355,6 +406,13 @@ $selector--prototype: (
     }
   }
 
+  $print--attribute: '';
+  @if selector--get-attribute($this) {
+    @for $index from 1 through length(selector--get-attribute($this)) {
+      $print--attribute: $print--attribute + selector--get-print-attribute($this, $index);
+    }
+  }
+
   $print--states: '';
   @if selector--get-states($this) {
     @for $index from 1 through length(selector--get-states($this)) {
@@ -363,14 +421,15 @@ $selector--prototype: (
   }
 
   @if selector--get-modifier($this) and selector--get-element($this) {
-    @return $print--modifier + ' ' + $print--tag + $print--base + $print--element + $print--states + $print--pseudo-element;
+    @return $print--modifier + ' ' + $print--tag + $print--base + $print--element + $print--attribute + $print--states + $print--pseudo-element;
   }
 
   @if selector--get-modifier($this) {
-    @return $print--tag + $print--modifier + $print--states + $print--pseudo-element;
+    @return $print--tag + $print--modifier + $print--attribute + $print--states + $print--pseudo-element;
   }
 
-  @return $print--tag + $print--base + $print--element + $print--states + $print--pseudo-element;
+  // @return $print--tag + $print--base + $print--element + $print--attribute + $print--states + $print--pseudo-element;
+  @return $print--tag + $print--base + $print--element + $print--attribute + $print--states + $print--pseudo-element;
 }
 
 @mixin selector($this) {

@@ -36,6 +36,11 @@ $selector-object-1: (
     'type': 'string',
     'nullable': true,
   ),
+  'attribute': (
+    'type': 'string',
+    'nullable': true,
+    'collection': true,
+  ),
   'breakpoint': (
     'type': 'string',
     'nullable': true,
@@ -89,6 +94,12 @@ $selector-object-2: (
   'pseudo-element': (
     'type': 'string',
     'nullable': true,
+    'value': null,
+  ),
+  'attribute': (
+    'type': 'string',
+    'nullable': true,
+    'collection': true,
     'value': null,
   ),
   'breakpoint': (
@@ -148,6 +159,12 @@ $selector-object-3: (
     'nullable': true,
     'value': 'before',
   ),
+  'attribute': (
+    'type': 'string',
+    'nullable': true,
+    'collection': true,
+    'value': null,
+  ),
   'breakpoint': (
     'type': 'string',
     'nullable': true,
@@ -205,6 +222,12 @@ $selector-object-4: (
     'nullable': true,
     'value': 'after',
   ),
+  'attribute': (
+    'type': 'string',
+    'nullable': true,
+    'collection': true,
+    'value': ('disable', ),
+  ),
   'breakpoint': (
     'type': 'string',
     'nullable': true,
@@ -218,7 +241,7 @@ $selector-object-4: (
 
 @include run(test('selector--constructor', (
   ('.', 'c-', 'button'): $selector-object-2,
-  ('.', 'c-', 'button', 'span', ('hover',), 'label', null, 'before', 'md'): $selector-object-3,
+  ('.', 'c-', 'button', 'span', ('hover',), 'label', null, 'before', null, 'md'): $selector-object-3,
 )));
 
 @include run(test('selector--get-type', (
@@ -267,6 +290,11 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
     ),
+    'attribute': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+    ),
     'breakpoint': (
       'type': 'string',
       'nullable': true,
@@ -313,6 +341,11 @@ $selector-object-4: (
     'pseudo-element': (
       'type': 'string',
       'nullable': true,
+    ),
+    'attribute': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
     ),
     'breakpoint': (
       'type': 'string',
@@ -369,6 +402,11 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
     ),
+    'attribute': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+    ),
     'breakpoint': (
       'type': 'string',
       'nullable': true,
@@ -415,6 +453,11 @@ $selector-object-4: (
     'pseudo-element': (
       'type': 'string',
       'nullable': true,
+    ),
+    'attribute': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
     ),
     'breakpoint': (
       'type': 'string',
@@ -476,6 +519,11 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
     ),
+    'attribute': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+    ),
     'breakpoint': (
       'type': 'string',
       'nullable': true,
@@ -522,6 +570,11 @@ $selector-object-4: (
     'pseudo-element': (
       'type': 'string',
       'nullable': true,
+    ),
+    'attribute': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
     ),
     'breakpoint': (
       'type': 'string',
@@ -579,6 +632,11 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
     ),
+    'attribute': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+    ),
     'breakpoint': (
       'type': 'string',
       'nullable': true,
@@ -625,6 +683,11 @@ $selector-object-4: (
     'pseudo-element': (
       'type': 'string',
       'nullable': true,
+    ),
+    'attribute': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
     ),
     'breakpoint': (
       'type': 'string',
@@ -691,6 +754,11 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
     ),
+    'attribute': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+    ),
     'breakpoint': (
       'type': 'string',
       'nullable': true,
@@ -738,6 +806,11 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
     ),
+    'attribute': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+    ),
     'breakpoint': (
       'type': 'string',
       'nullable': true,
@@ -784,6 +857,11 @@ $selector-object-4: (
     'pseudo-element': (
       'type': 'string',
       'nullable': true,
+    ),
+    'attribute': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
     ),
     'breakpoint': (
       'type': 'string',
@@ -835,6 +913,11 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
     ),
+    'attribute': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+    ),
     'breakpoint': (
       'type': 'string',
       'nullable': true,
@@ -881,6 +964,11 @@ $selector-object-4: (
     'pseudo-element': (
       'type': 'string',
       'nullable': true,
+    ),
+    'attribute': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
     ),
     'breakpoint': (
       'type': 'string',
@@ -947,6 +1035,11 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
     ),
+    'attribute': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+    ),
     'breakpoint': (
       'type': 'string',
       'nullable': true,
@@ -993,6 +1086,11 @@ $selector-object-4: (
     'pseudo-element': (
       'type': 'string',
       'nullable': true,
+    ),
+    'attribute': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
     ),
     'breakpoint': (
       'type': 'string',
@@ -1059,6 +1157,11 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
     ),
+    'attribute': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+    ),
     'breakpoint': (
       'type': 'string',
       'nullable': true,
@@ -1105,6 +1208,11 @@ $selector-object-4: (
     'pseudo-element': (
       'type': 'string',
       'nullable': true,
+    ),
+    'attribute': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
     ),
     'breakpoint': (
       'type': 'string',
@@ -1156,6 +1264,11 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
     ),
+    'attribute': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+    ),
     'breakpoint': (
       'type': 'string',
       'nullable': true,
@@ -1203,6 +1316,11 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
     ),
+    'attribute': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+    ),
     'breakpoint': (
       'type': 'string',
       'nullable': true,
@@ -1219,6 +1337,238 @@ $selector-object-4: (
   ($selector-object-3, 1): '',
   ($selector-object-4, 1): '--primary',
   ($selector-object-4, 2): '--large',
+  ($selector-object-4, 3): '',
+)));
+
+@include run(test('selector--get-attribute', (
+  ($selector-object-1, ): null,
+  ($selector-object-2, ): null,
+  ($selector-object-3, ): null,
+  ($selector-object-4, ): ('disable',),
+  ($selector-object-4, 1): 'disable',
+  ($selector-object-4, 2): null,
+)));
+
+@include run(test('selector--set-attribute', (
+  ($selector-object-1, ('disable', )): (
+    '~': (
+      'classname': 'selector',
+    ),
+    'prefix': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'type': (
+      'type': 'string',
+      'choices': ('.', '#'),
+    ),
+    'block': (
+      'type': 'string',
+    ),
+    'element': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'modifier': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+    ),
+    'tag': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'states': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+      'choices': ('hover', 'focus', 'active', 'visited'),
+    ),
+    'pseudo-element': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'attribute': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+      'value': ('disable', ),
+    ),
+    'breakpoint': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'is-nested': (
+      'type': 'bool',
+    ),
+  ),
+  ($selector-object-1, ('disable', 'data-test')): (
+    '~': (
+      'classname': 'selector',
+    ),
+    'prefix': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'type': (
+      'type': 'string',
+      'choices': ('.', '#'),
+    ),
+    'block': (
+      'type': 'string',
+    ),
+    'element': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'modifier': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+    ),
+    'tag': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'states': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+      'choices': ('hover', 'focus', 'active', 'visited'),
+    ),
+    'pseudo-element': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'attribute': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+      'value': ('disable', 'data-test'),
+    ),
+    'breakpoint': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'is-nested': (
+      'type': 'bool',
+    ),
+  ),
+)));
+
+@include run(test('selector--append-attribute', (
+  ($selector-object-1, 'data-test'): (
+    '~': (
+      'classname': 'selector',
+    ),
+    'prefix': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'type': (
+      'type': 'string',
+      'choices': ('.', '#'),
+    ),
+    'block': (
+      'type': 'string',
+    ),
+    'element': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'modifier': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+    ),
+    'tag': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'states': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+      'choices': ('hover', 'focus', 'active', 'visited'),
+    ),
+    'pseudo-element': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'attribute': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+      'value': ('data-test', ),
+    ),
+    'breakpoint': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'is-nested': (
+      'type': 'bool',
+    ),
+  ),
+  ($selector-object-1, ('disable', 'data-test')): (
+    '~': (
+      'classname': 'selector',
+    ),
+    'prefix': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'type': (
+      'type': 'string',
+      'choices': ('.', '#'),
+    ),
+    'block': (
+      'type': 'string',
+    ),
+    'element': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'modifier': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+    ),
+    'tag': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'states': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+      'choices': ('hover', 'focus', 'active', 'visited'),
+    ),
+    'pseudo-element': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'attribute': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+      'value': ('disable', 'data-test'),
+    ),
+    'breakpoint': (
+      'type': 'string',
+      'nullable': true,
+    ),
+    'is-nested': (
+      'type': 'bool',
+    ),
+  ),
+)));
+
+@include run(test('selector--get-print-attribute', (
+  ($selector-object-1, 1): '',
+  ($selector-object-2, 1): '',
+  ($selector-object-3, 1): '',
+  ($selector-object-4, 1): '[disable]',
+  ($selector-object-4, 2): '',
   ($selector-object-4, 3): '',
 )));
 
@@ -1268,6 +1618,11 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
     ),
+    'attribute': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+    ),
     'breakpoint': (
       'type': 'string',
       'nullable': true,
@@ -1314,6 +1669,11 @@ $selector-object-4: (
     'pseudo-element': (
       'type': 'string',
       'nullable': true,
+    ),
+    'attribute': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
     ),
     'breakpoint': (
       'type': 'string',
@@ -1371,6 +1731,11 @@ $selector-object-4: (
     'pseudo-element': (
       'type': 'string',
       'nullable': true,
+    ),
+    'attribute': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
     ),
     'breakpoint': (
       'type': 'string',
@@ -1430,6 +1795,11 @@ $selector-object-4: (
       'nullable': true,
       'value': 'before',
     ),
+    'attribute': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+    ),
     'breakpoint': (
       'type': 'string',
       'nullable': true,
@@ -1477,6 +1847,11 @@ $selector-object-4: (
       'nullable': true,
       'value': 'after',
     ),
+    'attribute': (
+      'type': 'string',
+      'nullable': true,
+      'collection': true,
+    ),
     'breakpoint': (
       'type': 'string',
       'nullable': true,
@@ -1497,5 +1872,5 @@ $selector-object-4: (
 @include run(test('selector--get-print', (
   ($selector-object-2,): '.c-button',
   ($selector-object-3,): 'span.c-button__label:hover::before',
-  ($selector-object-4,): '.c-button--primary.c-button--large span.c-button__label:hover:focus::after',
+  ($selector-object-4,): '.c-button--primary.c-button--large span.c-button__label[disable]:hover:focus::after',
 )));
