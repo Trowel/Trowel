@@ -1,7 +1,9 @@
 dependencies:
   pre:
     - npm install
+    - bower install
 
 test:
   override:
     - npm test
+    - gulp scss
