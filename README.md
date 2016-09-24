@@ -1,6 +1,8 @@
 # trowel
 Core of trowel, framework for sass libraries
 
+[![CircleCI](https://circleci.com/gh/Trowel/trowel.svg?style=svg)](https://circleci.com/gh/Trowel/trowel)
+
 ## install
 ```sh
 bower install trowel-core
