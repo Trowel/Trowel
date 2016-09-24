@@ -246,7 +246,7 @@ $selector-object-4: (
 
 @include run(test('selector--get-type', (
   ($selector-object-1,): null,
-  ($selector-object-2,): '...',
+  ($selector-object-2,): '.',
   ($selector-object-3,): '.',
 )));
 
