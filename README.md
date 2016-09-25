@@ -7,7 +7,11 @@ Core of trowel, framework for sass libraries
 
 ## install
 ```sh
+# with bower
 bower install trowel-core
+
+# with npm
+npm install trowel-core
 ```
 
 Then include thoses lines before any trowel library in your `.scss` file
