@@ -1,6 +1,6 @@
 {
-  "name": "trowel",
-  "version": "0.0.0",
+  "name": "trowel-core",
+  "version": "1.0.0",
   "description": "Core of trowel, framework for sass libraries",
   "scripts": {
     "test": "gulp test",
@@ -12,7 +12,7 @@
     "type": "git",
     "url": "git+https://github.com/Trowel/trowel.git"
   },
-  "author": "Loïc Goyet <loic@troopers.email>",
+  "author": "Trowel Team <loic@troopers.email>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Trowel/trowel/issues"
