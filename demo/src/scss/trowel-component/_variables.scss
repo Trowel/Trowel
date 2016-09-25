@@ -1,4 +1,11 @@
-$button--prefix: 'c-' !default;
+$button--synthax: (
+  'prefix': 'c',
+  'separator': (
+    'prefix': '-',
+    'element': '__',
+    'modifier': '--',
+  ),
+) !default;
 
 // Positioning
 $button--vertical-align: middle !default;

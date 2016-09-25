@@ -10,9 +10,10 @@ $selector--prototype: (
     'type': 'string',
     'nullable': true,
   ),
-  'type': (
+  'prefix-separator': (
     'type': 'string',
-    'choices': ('.', '#'),
+    'nullable': false,
+    'value': '-'
   ),
   'block': (
     'type': 'string',
@@ -21,10 +22,20 @@ $selector--prototype: (
     'type': 'string',
     'nullable': true,
   ),
+  'element-separator': (
+    'type': 'string',
+    'nullable': false,
+    'value': '__'
+  ),
   'modifier': (
     'type': 'string',
     'nullable': true,
     'collection': true,
+  ),
+  'modifier-separator': (
+    'type': 'string',
+    'nullable': false,
+    'value': '--'
   ),
   'tag': (
     'type': 'string',
@@ -54,10 +65,32 @@ $selector--prototype: (
   ),
 );
 
-@function selector--constructor($type, $prefix, $block, $tag: null, $states: null, $element: null, $modifier: null, $pseudo-element: null, $attribute: null, $breakpoint: null, $is-nested: false) {
+@function selector--constructor($synthax, $block, $tag: null, $states: null, $element: null, $modifier: null, $pseudo-element: null, $attribute: null, $breakpoint: null, $is-nested: false) {
   $this: $selector--prototype;
-  $this: selector--set-type($this, $type);
-  $this: selector--set-prefix($this, $prefix);
+
+  // Synthax
+  @if $synthax {
+    @if map-has-key($synthax, 'prefix') {
+      $this: selector--set-prefix($this, map-get($synthax, 'prefix'));
+    }
+
+    @if map-has-key($synthax, 'separator') {
+      $separators: map-get($synthax, 'separator');
+
+      @if map-has-key($separators, 'prefix') {
+        $this: selector--set-prefix-separator($this, map-get($separators, 'prefix'));
+      }
+
+      @if map-has-key($separators, 'element') {
+        $this: selector--set-element-separator($this, map-get($separators, 'element'));
+      }
+
+      @if map-has-key($separators, 'modifier') {
+        $this: selector--set-modifier-separator($this, map-get($separators, 'modifier'));
+      }
+    }
+  }
+
   $this: selector--set-block($this, $block);
   $this: selector--set-element($this, $element);
   $this: selector--set-modifier($this, $modifier);
@@ -70,25 +103,6 @@ $selector--prototype: (
 
   @return $this;
 };
-
-/// @name get type
-/// @access public
-/// @group class selector
-/// @param {map} $this - the `selector class object`
-/// @return {string} type
-@function selector--get-type($this) {
-  @return class--get-attribute-value($this, 'type');
-}
-
-/// @name set type
-/// @access public
-/// @group class selector
-/// @param {map} $selector
-/// @param {string} $type
-/// @return {map} selector class object updated with new 'type' value
-@function selector--set-type($this, $type) {
-  @return class--set-attribute-value($this, 'type', $type);
-}
 
 /// @name get prefix
 /// @access public
@@ -109,13 +123,33 @@ $selector--prototype: (
   @return class--set-attribute-value($this, 'prefix', $prefix);
 }
 
+/// @name get prefix-separator
+/// @access public
+/// @group class selector
+/// @param {map} $this - the `selector class object`
+/// @return {string} prefix-separator
+@function selector--get-prefix-separator($this) {
+  @return class--get-attribute-value($this, 'prefix-separator');
+}
+
+/// @name set prefix-separator
+/// @access public
+/// @group class selector
+/// @param {map} $selector
+/// @param {string} $prefix-separator
+/// @return {map} selector class object updated with new 'prefix-separator' value
+@function selector--set-prefix-separator($this, $prefix-separator) {
+  @return class--set-attribute-value($this, 'prefix-separator', $prefix-separator);
+}
+
 /// @name get print prefix
 /// @access public
 /// @group class selector
 /// @param {map} $this - the `selector class object`
 /// @return {string} prefix or empty array if no prefix is setted
 @function selector--get-print-prefix($this) {
-  @return if(selector--get-prefix($this), selector--get-prefix($this), '');
+  $separator: selector--get-prefix-separator($this);
+  @return if(selector--get-prefix($this), selector--get-prefix($this) + $separator, '');
 }
 
 /// @name get block
@@ -226,13 +260,33 @@ $selector--prototype: (
   @return class--set-attribute-value($this, 'element', $element);
 }
 
+/// @name get element-separator
+/// @access public
+/// @group class selector
+/// @param {map} $this - the `selector class object`
+/// @return {string} element-separator
+@function selector--get-element-separator($this) {
+  @return class--get-attribute-value($this, 'element-separator');
+}
+
+/// @name set element-separator
+/// @access public
+/// @group class selector
+/// @param {map} $selector
+/// @param {string} $element-separator
+/// @return {map} selector class object updated with new 'element-separator' value
+@function selector--set-element-separator($this, $element-separator) {
+  @return class--set-attribute-value($this, 'element-separator', $element-separator);
+}
+
 /// @name get print element
 /// @access public
 /// @group class selector
 /// @param {map} $this - the `selector class object`
 /// @return {string} element or empty array if no element is setted
 @function selector--get-print-element($this) {
-  @return if(selector--get-element($this), '__' + selector--get-element($this), '');
+  $separator: selector--get-element-separator($this);
+  @return if(selector--get-element($this), $separator + selector--get-element($this), '');
 }
 
 /// @name get modifier
@@ -269,6 +323,26 @@ $selector--prototype: (
   @return class--set-attribute-value($this, 'modifier', $modifier, $previous-value);
 }
 
+
+/// @name get modifier-separator
+/// @access public
+/// @group class selector
+/// @param {map} $this - the `selector class object`
+/// @return {string} modifier-separator
+@function selector--get-modifier-separator($this) {
+  @return class--get-attribute-value($this, 'modifier-separator');
+}
+
+/// @name set modifier-separator
+/// @access public
+/// @group class selector
+/// @param {map} $selector
+/// @param {string} $modifier-separator
+/// @return {map} selector class object updated with new 'modifier-separator' value
+@function selector--set-modifier-separator($this, $modifier-separator) {
+  @return class--set-attribute-value($this, 'modifier-separator', $modifier-separator);
+}
+
 /// @name get print modifier
 /// @access public
 /// @group class selector
@@ -276,7 +350,8 @@ $selector--prototype: (
 /// @param {map} $nth - the index of the modifier item
 /// @return {string} modifier or empty array if no modifier is setted
 @function selector--get-print-modifier($this, $nth) {
-  @return if(selector--get-modifier($this, $nth), '--' + selector--get-modifier($this, $nth), '');
+  $separator: selector--get-modifier-separator($this);
+  @return if(selector--get-modifier($this, $nth), $separator + selector--get-modifier($this, $nth), '');
 }
 
 /// @name get attribute
@@ -391,13 +466,12 @@ $selector--prototype: (
 
 @function selector--get-print($this) {
   $print--tag: selector--get-print-tag($this);
-  $print--type: selector--get-type($this);
   $print--prefix: selector--get-print-prefix($this);
   $print--block: selector--get-block($this);
   $print--element: selector--get-print-element($this);
   $print--pseudo-element: selector--get-print-pseudo-element($this);
 
-  $print--base: $print--type + $print--prefix + $print--block;
+  $print--base: '.' + $print--prefix + $print--block;
 
   $print--modifier: '';
   @if selector--get-modifier($this) {
