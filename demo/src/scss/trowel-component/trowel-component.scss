@@ -9,17 +9,8 @@
   }
 };
 
-// $synthax: (
-//   'prefix': $button--prefix,
-//   'separator': (
-//     'prefix': '-',
-//     'element': '__',
-//     'modifier': '--',
-//   ),
-// );
 
-// $selector: selector--constructor($synthax, 'button');
-$selector: selector--constructor($button--prefix, 'button');
+$selector: selector--constructor($button--synthax, 'button');
 
 @include selector($selector) {
   @include declaration('-include-background-color', $button--background-color);
