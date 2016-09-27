@@ -18,7 +18,8 @@
     "node_modules",
     "bower_components",
     "test",
-    "demo"
+    "demo",
+    "media"
   ],
   "dependencies": {
     "sassy-maps": "^0.4.0"
