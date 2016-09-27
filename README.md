@@ -1,9 +1,10 @@
+![Trowel](media/dist/banners/trowel-black-on-transparent.png)
+
 # trowel
 [![CircleCI](https://circleci.com/gh/Trowel/Trowel.svg?style=svg)](https://circleci.com/gh/Trowel/Trowel)
 [![Bower](https://img.shields.io/bower/v/trowel-core.svg?maxAge=2592000)]()
 [![npm](https://img.shields.io/npm/v/trowel-core.svg?maxAge=2592000)]()
 
-![Trowel](media/dist/banners/trowel-black-on-transparent.png)
 
 Core of trowel, framework for sass libraries
 
