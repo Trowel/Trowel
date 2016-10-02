@@ -1,5 +1,12 @@
-@mixin block-generation {
-  @include block--generation($selector, $block);
+@mixin block-generation($optional-selector: null) {
+  @if $optional-selector {
+    @include block--generation($optional-selector, $block);
+  } @elseif variable-exists('selector') {
+    @include block--generation($selector, $block);
+  } @else {
+    @error 'The block generation mixin must have access to a $selector variable or a selector object as param.'
+  }
+
   $block: null !global;
 }
 
