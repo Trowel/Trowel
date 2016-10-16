@@ -35,28 +35,9 @@ $button--selector: selector--constructor($button--synthax, 'button');
 }
 
 $button-group--selector: selector--constructor($button--synthax, 'button-group');
-/* Append one parent with default relationship
 $button--selector: selector--append-parent($button--selector, $button-group--selector);
-button--get-parents($button--selector) => (
-  (
-    'selector': $button-group--selector,
-    'relationship': ' '
-  ),
-); */
-
-
-/* Append one parent with specified relationship
-$button--selector: selector--append-parent($button--selector, $button-group--selector, '>');
-button--get-parents($button--selector) => (
-  (
-    'selector': $button-group--selector,
-    'relationship': ' > '
-  ),
-); */
-
 
 @include selector($button--selector) {
   @include declaration('content', 'test with parents');
-
   @include block-generation($button--selector);
 }
