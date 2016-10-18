@@ -45,7 +45,6 @@ $selector--prototype: (
     'type': 'string',
     'nullable': true,
     'collection': true,
-    'choices': ('hover', 'focus', 'active', 'visited'),
   ),
   'pseudo-element': (
     'type': 'string',

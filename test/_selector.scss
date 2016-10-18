@@ -41,7 +41,6 @@ $selector-object-1: (
     'type': 'string',
     'nullable': true,
     'collection': true,
-    'choices': ('hover', 'focus', 'active', 'visited'),
   ),
   'pseudo-element': (
     'type': 'string',
@@ -114,7 +113,6 @@ $selector-object-2: (
     'type': 'string',
     'nullable': true,
     'collection': true,
-    'choices': ('hover', 'focus', 'active', 'visited'),
     'value': null,
   ),
   'pseudo-element': (
@@ -193,7 +191,6 @@ $selector-object-3: (
     'type': 'string',
     'nullable': true,
     'collection': true,
-    'choices': ('hover', 'focus', 'active', 'visited'),
     'value': ('hover',),
   ),
   'pseudo-element': (
@@ -277,7 +274,6 @@ $selector-object-4: (
     'type': 'string',
     'nullable': true,
     'collection': true,
-    'choices': ('hover', 'focus', 'active', 'visited'),
     'value': ('hover', 'focus'),
   ),
   'pseudo-element': (
@@ -387,7 +383,6 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
     ),
     'pseudo-element': (
       'type': 'string',
@@ -455,7 +450,6 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
     ),
     'pseudo-element': (
       'type': 'string',
@@ -532,7 +526,6 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
     ),
     'pseudo-element': (
       'type': 'string',
@@ -599,7 +592,6 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
     ),
     'pseudo-element': (
       'type': 'string',
@@ -666,7 +658,6 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
     ),
     'pseudo-element': (
       'type': 'string',
@@ -747,7 +738,6 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
     ),
     'pseudo-element': (
       'type': 'string',
@@ -815,7 +805,6 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
     ),
     'pseudo-element': (
       'type': 'string',
@@ -892,7 +881,6 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
     ),
     'pseudo-element': (
       'type': 'string',
@@ -960,7 +948,6 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
     ),
     'pseudo-element': (
       'type': 'string',
@@ -1045,7 +1032,6 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
       'value': ('hover',),
     ),
     'pseudo-element': (
@@ -1113,7 +1099,6 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
       'value': ('hover', 'active'),
     ),
     'pseudo-element': (
@@ -1181,7 +1166,6 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
       'value': null,
     ),
     'pseudo-element': (
@@ -1252,7 +1236,6 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
       'value': ('hover',),
     ),
     'pseudo-element': (
@@ -1320,7 +1303,6 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
       'value': ('hover', 'active'),
     ),
     'pseudo-element': (
@@ -1407,7 +1389,6 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
     ),
     'pseudo-element': (
       'type': 'string',
@@ -1475,7 +1456,6 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
     ),
     'pseudo-element': (
       'type': 'string',
@@ -1552,7 +1532,6 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
     ),
     'pseudo-element': (
       'type': 'string',
@@ -1619,7 +1598,6 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
     ),
     'pseudo-element': (
       'type': 'string',
@@ -1686,7 +1664,6 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
     ),
     'pseudo-element': (
       'type': 'string',
@@ -1772,7 +1749,6 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
     ),
     'pseudo-element': (
       'type': 'string',
@@ -1840,7 +1816,6 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
     ),
     'pseudo-element': (
       'type': 'string',
@@ -1911,7 +1886,6 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
     ),
     'pseudo-element': (
       'type': 'string',
@@ -1979,7 +1953,6 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
     ),
     'pseudo-element': (
       'type': 'string',
@@ -2056,7 +2029,6 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
     ),
     'pseudo-element': (
       'type': 'string',
@@ -2123,7 +2095,6 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
     ),
     'pseudo-element': (
       'type': 'string',
@@ -2190,7 +2161,6 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
     ),
     'pseudo-element': (
       'type': 'string',
@@ -2278,7 +2248,6 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
     ),
     'pseudo-element': (
       'type': 'string',
@@ -2346,7 +2315,6 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
     ),
     'pseudo-element': (
       'type': 'string',
@@ -2417,7 +2385,6 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
     ),
     'pseudo-element': (
       'type': 'string',
@@ -2485,7 +2452,6 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
     ),
     'pseudo-element': (
       'type': 'string',
@@ -2572,7 +2538,6 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
     ),
     'pseudo-element': (
       'type': 'string',
@@ -2640,7 +2605,6 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
     ),
     'pseudo-element': (
       'type': 'string',
@@ -2718,7 +2682,6 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
     ),
     'pseudo-element': (
       'type': 'string',
@@ -2796,7 +2759,6 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
     ),
     'pseudo-element': (
       'type': 'string',
@@ -2864,7 +2826,6 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
     ),
     'pseudo-element': (
       'type': 'string',
@@ -2964,7 +2925,6 @@ $selector-object-4: (
         'type': 'string',
         'nullable': true,
         'collection': true,
-        'choices': ('hover', 'focus', 'active', 'visited'),
       ),
       'pseudo-element': (
         'type': 'string',
@@ -3032,7 +2992,6 @@ $selector-object-4: (
         'type': 'string',
         'nullable': true,
         'collection': true,
-        'choices': ('hover', 'focus', 'active', 'visited'),
       ),
       'pseudo-element': (
         'type': 'string',
@@ -3103,7 +3062,6 @@ $selector-object-4: (
         'type': 'string',
         'nullable': true,
         'collection': true,
-        'choices': ('hover', 'focus', 'active', 'visited'),
       ),
       'pseudo-element': (
         'type': 'string',
@@ -3182,7 +3140,6 @@ $selector-object-4: (
         'type': 'string',
         'nullable': true,
         'collection': true,
-        'choices': ('hover', 'focus', 'active', 'visited'),
       ),
       'pseudo-element': (
         'type': 'string',
@@ -3253,7 +3210,6 @@ $selector-object-4: (
         'type': 'string',
         'nullable': true,
         'collection': true,
-        'choices': ('hover', 'focus', 'active', 'visited'),
       ),
       'pseudo-element': (
         'type': 'string',
@@ -3324,7 +3280,6 @@ $selector-object-4: (
         'type': 'string',
         'nullable': true,
         'collection': true,
-        'choices': ('hover', 'focus', 'active', 'visited'),
       ),
       'pseudo-element': (
         'type': 'string',
@@ -3400,7 +3355,6 @@ $selector-object-4: (
         'type': 'string',
         'nullable': true,
         'collection': true,
-        'choices': ('hover', 'focus', 'active', 'visited'),
         'value': ('hover',),
       ),
       'pseudo-element': (
