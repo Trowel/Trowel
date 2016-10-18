@@ -81,7 +81,7 @@
 }
 
 
-@function class--set-attribute-value($object, $attribute, $value, $previous-value: null) {
+@function class--set-attribute-value($object, $attribute, $value) {
   $classname: '$' + class--get-name($object);
 
   // Get attributes options
@@ -92,24 +92,18 @@
 
   $is-ok: false;
   @if $collection {
-    @if type-of($previous-value) != 'list' {
-      $previous-value: ();
-    }
-
     @if type-of($value) != 'list' and $value != null {
       // transform the value into a list of length 1 with as nth(1) the non list value passed before
-      $value: append($previous-value, $value);
+      $value: ($value, );
     }
 
     @for $index from 1 through length($value) {
       $value-tested: nth($value, $index);
       $is-ok: class--attribute-is-ok($attribute, $value-tested, $classname, $nullable, $choices, $type);
-      // $is-ok: class--attribute-is-ok($attribute, $value-tested, $classname, $nullable);
     }
   } @else {
     // Check if attributes options are ok with the value
     $is-ok: class--attribute-is-ok($attribute, $value, $classname, $nullable, $choices, $type);
-    // $is-ok: class--attribute-is-ok($attribute, $value, $classname, $nullable);
   }
 
 
