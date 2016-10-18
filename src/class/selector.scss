@@ -63,9 +63,14 @@ $selector--prototype: (
   'is-nested': (
     'type': 'bool',
   ),
+  'parents': (
+    'type': 'map',
+    'nullable': true,
+    'collection': true,
+  )
 );
 
-@function selector--constructor($synthax, $block, $tag: null, $states: null, $element: null, $modifier: null, $pseudo-element: null, $attribute: null, $breakpoint: null, $is-nested: false) {
+@function selector--constructor($synthax, $block, $tag: null, $states: null, $element: null, $modifier: null, $pseudo-element: null, $attribute: null, $breakpoint: null, $is-nested: false, $parents: null) {
   $this: $selector--prototype;
 
   // Synthax
@@ -100,6 +105,7 @@ $selector--prototype: (
   $this: selector--set-states($this, $states);
   $this: selector--set-breakpoint($this, $breakpoint);
   $this: selector--set-is-nested($this, $is-nested);
+  $this: selector--set-parents($this, $parents);
 
   @return $this;
 };
@@ -464,6 +470,77 @@ $selector--prototype: (
   @return if(class--get-attribute-value($this, 'pseudo-element'), '::' + class--get-attribute-value($this, 'pseudo-element'), '');
 }
 
+/// @name get parents
+/// @access public
+/// @group class selector
+/// @param {map} $this - the `selector class object`
+/// @return {string} parents
+@function selector--get-parents($this, $nth: null) {
+  @return class--get-attribute-value($this, 'parents', $nth);
+}
+
+/// @name set parents
+/// @access public
+/// @group class selector
+/// @param {map} $selector
+/// @param {string} $parents
+/// @return {map} selector class object updated with new 'parents' value
+@function selector--set-parents($this, $parents) {
+  @return class--set-attribute-value($this, 'parents', $parents);
+}
+
+/// @name append parents
+/// @access public
+/// @group class selector
+/// @param {map} $selector
+/// @param {map} $parent
+/// @param {string} $relationship ['']
+/// @return {map} selector class object updated with new 'parents' appended to the previous list
+@function selector--append-parent($this, $parent, $relationship: '') {
+
+  // Check if parent is a selector object
+  @if map-get(map-get($parent, '~'), 'classname') != 'selector' {
+    @error 'the method selector--append-parent(), must have as second parameter a valid selector object';
+  }
+
+  $parents: ((
+    'selector': $parent,
+    'relationship': if($relationship == '', ' ', ' #{$relationship} '),
+  ), );
+
+  @if selector--get-parents($this) {
+    $parents: append(selector--get-parents($this), (
+      'selector': $parent,
+      'relationship': if($relationship == '', ' ', ' #{$relationship} '),
+    ));
+  }
+
+  @return class--set-attribute-value($this, 'parents', $parents);
+}
+
+/// @name get print parents
+/// @access public
+/// @group class selector
+/// @param {map} $selector
+/// @return {string} the selector string that must be printed before anything else
+@function selector--get-print-parents($this) {
+  $parents: selector--get-parents($this);
+  $print: '';
+
+  @if not $parents or length($parents) == 0 {
+    @return $print;
+  }
+
+  @each $parent in $parents {
+    $parent-selector: map-get($parent, 'selector');
+    $parent-relationship: map-get($parent, 'relationship');
+    $print: $print + selector--get-print($parent-selector) + $parent-relationship;
+  }
+
+  @return $print;
+}
+
+
 @function selector--get-print($this) {
   $print--tag: selector--get-print-tag($this);
   $print--prefix: selector--get-print-prefix($this);
@@ -511,13 +588,15 @@ $selector--prototype: (
   $block: () !global;
 
   @if selector--get-is-nested($this) {
-    @at-root #{selector--get-print($this)} {
+    @at-root #{selector--get-print-parents($this) selector--get-print($this)} {
+    // @at-root #{selector--get-print($this)} {
       @include media-query($breakpoint-fork) {
         @content;
       }
     }
   } @else {
-    #{selector--get-print($this)} {
+    #{selector--get-print-parents($this) selector--get-print($this)} {
+    // #{selector--get-print($this)} {
       @include media-query($breakpoint-fork) {
         @content;
       }

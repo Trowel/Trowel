@@ -10,9 +10,9 @@
 };
 
 
-$selector: selector--constructor($button--synthax, 'button');
+$button--selector: selector--constructor($button--synthax, 'button');
 
-@include selector($selector) {
+@include selector($button--selector) {
   @include declaration('-include-background-color', $button--background-color);
 
   @include declaration('vertical-align', $button--vertical-align);
@@ -31,5 +31,13 @@ $selector: selector--constructor($button--synthax, 'button');
   @include declaration('border-radius', $button--border-radius);
   @include declaration('border-style', $button--border-style);
 
-  @include block-generation;
+  @include block-generation($button--selector);
+}
+
+$button-group--selector: selector--constructor($button--synthax, 'button-group');
+$button--selector: selector--append-parent($button--selector, $button-group--selector);
+
+@include selector($button--selector) {
+  @include declaration('content', 'test with parents');
+  @include block-generation($button--selector);
 }
