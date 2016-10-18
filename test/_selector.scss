@@ -220,7 +220,12 @@ $selector-object-3: (
     'type': 'map',
     'nullable': true,
     'collection': true,
-    'value': null,
+    'value': (
+        (
+            'selector': $selector-object-2,
+            'relationship': ' > ',
+        ),
+    ),
   ),
 );
 
@@ -299,7 +304,16 @@ $selector-object-4: (
     'type': 'map',
     'nullable': true,
     'collection': true,
-    'value': null,
+    'value': (
+        (
+            'selector': $selector-object-2,
+            'relationship': ' + ',
+        ),
+        (
+            'selector': $selector-object-2,
+            'relationship': ' ',
+        ),
+    ),
   ),
 );
 
@@ -319,7 +333,7 @@ $selector-object-4: (
       'element': '-',
       'modifier': '-',
     ),
-  ), 'button', 'span', ('hover',), 'label', null, 'before', null, 'md'): $selector-object-3,
+  ), 'button', 'span', ('hover',), 'label', null, 'before', null, 'md', false, (('selector': $selector-object-2, 'relationship': ' > '),)): $selector-object-3,
 )));
 
 
@@ -2882,6 +2896,556 @@ $selector-object-4: (
   ($selector-object-2,): '',
   ($selector-object-3,): '::before',
   ($selector-object-4,): '::after',
+)));
+
+
+@include run(test('selector--get-parents', (
+  ($selector-object-1,): null,
+  ($selector-object-2,): null,
+  ($selector-object-3,): (
+      (
+          'selector': $selector-object-2,
+          'relationship': ' > ',
+      ),
+  ),
+  ($selector-object-4,): (
+      (
+          'selector': $selector-object-2,
+          'relationship': ' + ',
+      ),
+      (
+          'selector': $selector-object-2,
+          'relationship': ' ',
+      ),
+  ),
+)));
+
+@include run(test('selector--set-parents', (
+    ($selector-object-1, null): (
+      '~': (
+        'classname': 'selector',
+      ),
+      'prefix': (
+        'type': 'string',
+        'nullable': true,
+      ),
+      'prefix-separator': (
+        'type': 'string',
+        'nullable': false,
+        'value': '-'
+      ),
+      'block': (
+        'type': 'string',
+      ),
+      'element': (
+        'type': 'string',
+        'nullable': true,
+      ),
+      'element-separator': (
+        'type': 'string',
+        'nullable': false,
+        'value': '__'
+      ),
+      'modifier': (
+        'type': 'string',
+        'nullable': true,
+        'collection': true,
+      ),
+      'modifier-separator': (
+        'type': 'string',
+        'nullable': false,
+        'value': '--'
+      ),
+      'tag': (
+        'type': 'string',
+        'nullable': true,
+      ),
+      'states': (
+        'type': 'string',
+        'nullable': true,
+        'collection': true,
+        'choices': ('hover', 'focus', 'active', 'visited'),
+      ),
+      'pseudo-element': (
+        'type': 'string',
+        'nullable': true,
+      ),
+      'attribute': (
+        'type': 'string',
+        'nullable': true,
+        'collection': true,
+      ),
+      'breakpoint': (
+        'type': 'string',
+        'nullable': true,
+      ),
+      'is-nested': (
+        'type': 'bool',
+      ),
+      'parents': (
+        'type': 'map',
+        'nullable': true,
+        'collection': true,
+        'value': null,
+      )
+    ),
+    ($selector-object-1, (('selector': $selector-object-2, 'relationship': ''),)): (
+      '~': (
+        'classname': 'selector',
+      ),
+      'prefix': (
+        'type': 'string',
+        'nullable': true,
+      ),
+      'prefix-separator': (
+        'type': 'string',
+        'nullable': false,
+        'value': '-'
+      ),
+      'block': (
+        'type': 'string',
+      ),
+      'element': (
+        'type': 'string',
+        'nullable': true,
+      ),
+      'element-separator': (
+        'type': 'string',
+        'nullable': false,
+        'value': '__'
+      ),
+      'modifier': (
+        'type': 'string',
+        'nullable': true,
+        'collection': true,
+      ),
+      'modifier-separator': (
+        'type': 'string',
+        'nullable': false,
+        'value': '--'
+      ),
+      'tag': (
+        'type': 'string',
+        'nullable': true,
+      ),
+      'states': (
+        'type': 'string',
+        'nullable': true,
+        'collection': true,
+        'choices': ('hover', 'focus', 'active', 'visited'),
+      ),
+      'pseudo-element': (
+        'type': 'string',
+        'nullable': true,
+      ),
+      'attribute': (
+        'type': 'string',
+        'nullable': true,
+        'collection': true,
+      ),
+      'breakpoint': (
+        'type': 'string',
+        'nullable': true,
+      ),
+      'is-nested': (
+        'type': 'bool',
+      ),
+      'parents': (
+        'type': 'map',
+        'nullable': true,
+        'collection': true,
+        'value': ((
+            'selector': $selector-object-2,
+            'relationship': '',
+        ),),
+      )
+    ),
+    ($selector-object-1, (('selector': $selector-object-2, 'relationship': ' + '), ('selector': $selector-object-2, 'relationship': ' > '))): (
+      '~': (
+        'classname': 'selector',
+      ),
+      'prefix': (
+        'type': 'string',
+        'nullable': true,
+      ),
+      'prefix-separator': (
+        'type': 'string',
+        'nullable': false,
+        'value': '-'
+      ),
+      'block': (
+        'type': 'string',
+      ),
+      'element': (
+        'type': 'string',
+        'nullable': true,
+      ),
+      'element-separator': (
+        'type': 'string',
+        'nullable': false,
+        'value': '__'
+      ),
+      'modifier': (
+        'type': 'string',
+        'nullable': true,
+        'collection': true,
+      ),
+      'modifier-separator': (
+        'type': 'string',
+        'nullable': false,
+        'value': '--'
+      ),
+      'tag': (
+        'type': 'string',
+        'nullable': true,
+      ),
+      'states': (
+        'type': 'string',
+        'nullable': true,
+        'collection': true,
+        'choices': ('hover', 'focus', 'active', 'visited'),
+      ),
+      'pseudo-element': (
+        'type': 'string',
+        'nullable': true,
+      ),
+      'attribute': (
+        'type': 'string',
+        'nullable': true,
+        'collection': true,
+      ),
+      'breakpoint': (
+        'type': 'string',
+        'nullable': true,
+      ),
+      'is-nested': (
+        'type': 'bool',
+      ),
+      'parents': (
+        'type': 'map',
+        'nullable': true,
+        'collection': true,
+        'value': ((
+            'selector': $selector-object-2,
+            'relationship': ' + ',
+        ), (
+            'selector': $selector-object-2,
+            'relationship': ' > ',
+        )),
+      )
+    ),
+)));
+
+
+
+@include run(test('selector--append-parent', (
+    ($selector-object-1, $selector-object-2): (
+      '~': (
+        'classname': 'selector',
+      ),
+      'prefix': (
+        'type': 'string',
+        'nullable': true,
+      ),
+      'prefix-separator': (
+        'type': 'string',
+        'nullable': false,
+        'value': '-'
+      ),
+      'block': (
+        'type': 'string',
+      ),
+      'element': (
+        'type': 'string',
+        'nullable': true,
+      ),
+      'element-separator': (
+        'type': 'string',
+        'nullable': false,
+        'value': '__'
+      ),
+      'modifier': (
+        'type': 'string',
+        'nullable': true,
+        'collection': true,
+      ),
+      'modifier-separator': (
+        'type': 'string',
+        'nullable': false,
+        'value': '--'
+      ),
+      'tag': (
+        'type': 'string',
+        'nullable': true,
+      ),
+      'states': (
+        'type': 'string',
+        'nullable': true,
+        'collection': true,
+        'choices': ('hover', 'focus', 'active', 'visited'),
+      ),
+      'pseudo-element': (
+        'type': 'string',
+        'nullable': true,
+      ),
+      'attribute': (
+        'type': 'string',
+        'nullable': true,
+        'collection': true,
+      ),
+      'breakpoint': (
+        'type': 'string',
+        'nullable': true,
+      ),
+      'is-nested': (
+        'type': 'bool',
+      ),
+      'parents': (
+        'type': 'map',
+        'nullable': true,
+        'collection': true,
+        'value': ((
+            'selector': $selector-object-2,
+            'relationship': ' ',
+        ),)
+      )
+    ),
+    ($selector-object-1, $selector-object-2, ''): (
+      '~': (
+        'classname': 'selector',
+      ),
+      'prefix': (
+        'type': 'string',
+        'nullable': true,
+      ),
+      'prefix-separator': (
+        'type': 'string',
+        'nullable': false,
+        'value': '-'
+      ),
+      'block': (
+        'type': 'string',
+      ),
+      'element': (
+        'type': 'string',
+        'nullable': true,
+      ),
+      'element-separator': (
+        'type': 'string',
+        'nullable': false,
+        'value': '__'
+      ),
+      'modifier': (
+        'type': 'string',
+        'nullable': true,
+        'collection': true,
+      ),
+      'modifier-separator': (
+        'type': 'string',
+        'nullable': false,
+        'value': '--'
+      ),
+      'tag': (
+        'type': 'string',
+        'nullable': true,
+      ),
+      'states': (
+        'type': 'string',
+        'nullable': true,
+        'collection': true,
+        'choices': ('hover', 'focus', 'active', 'visited'),
+      ),
+      'pseudo-element': (
+        'type': 'string',
+        'nullable': true,
+      ),
+      'attribute': (
+        'type': 'string',
+        'nullable': true,
+        'collection': true,
+      ),
+      'breakpoint': (
+        'type': 'string',
+        'nullable': true,
+      ),
+      'is-nested': (
+        'type': 'bool',
+      ),
+      'parents': (
+        'type': 'map',
+        'nullable': true,
+        'collection': true,
+        'value': ((
+            'selector': $selector-object-2,
+            'relationship': ' ',
+        ),)
+      )
+    ),
+    ($selector-object-1, $selector-object-2, '>'): (
+      '~': (
+        'classname': 'selector',
+      ),
+      'prefix': (
+        'type': 'string',
+        'nullable': true,
+      ),
+      'prefix-separator': (
+        'type': 'string',
+        'nullable': false,
+        'value': '-'
+      ),
+      'block': (
+        'type': 'string',
+      ),
+      'element': (
+        'type': 'string',
+        'nullable': true,
+      ),
+      'element-separator': (
+        'type': 'string',
+        'nullable': false,
+        'value': '__'
+      ),
+      'modifier': (
+        'type': 'string',
+        'nullable': true,
+        'collection': true,
+      ),
+      'modifier-separator': (
+        'type': 'string',
+        'nullable': false,
+        'value': '--'
+      ),
+      'tag': (
+        'type': 'string',
+        'nullable': true,
+      ),
+      'states': (
+        'type': 'string',
+        'nullable': true,
+        'collection': true,
+        'choices': ('hover', 'focus', 'active', 'visited'),
+      ),
+      'pseudo-element': (
+        'type': 'string',
+        'nullable': true,
+      ),
+      'attribute': (
+        'type': 'string',
+        'nullable': true,
+        'collection': true,
+      ),
+      'breakpoint': (
+        'type': 'string',
+        'nullable': true,
+      ),
+      'is-nested': (
+        'type': 'bool',
+      ),
+      'parents': (
+        'type': 'map',
+        'nullable': true,
+        'collection': true,
+        'value': ((
+            'selector': $selector-object-2,
+            'relationship': ' > ',
+        ),)
+      )
+    ),
+    ($selector-object-3, $selector-object-2, '~'): (
+      '~': (
+        'classname': 'selector',
+      ),
+      'prefix': (
+        'type': 'string',
+        'nullable': true,
+        'value': 'c',
+      ),
+      'prefix-separator': (
+        'type': 'string',
+        'nullable': false,
+        'value': '-'
+      ),
+      'block': (
+        'type': 'string',
+        'value': 'button',
+      ),
+      'element': (
+        'type': 'string',
+        'nullable': true,
+        'value': 'label',
+      ),
+      'element-separator': (
+        'type': 'string',
+        'nullable': false,
+        'value': '-'
+      ),
+      'modifier': (
+        'type': 'string',
+        'nullable': true,
+        'collection': true,
+        'value': null,
+      ),
+      'modifier-separator': (
+        'type': 'string',
+        'nullable': false,
+        'value': '-'
+      ),
+      'tag': (
+        'type': 'string',
+        'nullable': true,
+        'value': 'span',
+      ),
+      'states': (
+        'type': 'string',
+        'nullable': true,
+        'collection': true,
+        'choices': ('hover', 'focus', 'active', 'visited'),
+        'value': ('hover',),
+      ),
+      'pseudo-element': (
+        'type': 'string',
+        'nullable': true,
+        'value': 'before',
+      ),
+      'attribute': (
+        'type': 'string',
+        'nullable': true,
+        'collection': true,
+        'value': null,
+      ),
+      'breakpoint': (
+        'type': 'string',
+        'nullable': true,
+        'value': 'md',
+      ),
+      'is-nested': (
+        'type': 'bool',
+        'value': false,
+      ),
+      'parents': (
+        'type': 'map',
+        'nullable': true,
+        'collection': true,
+        'value': (
+            (
+                'selector': $selector-object-2,
+                'relationship': ' > ',
+            ),
+            (
+                'selector': $selector-object-2,
+                'relationship': ' ~ ',
+            ),
+        ),
+      ),
+    )
+)));
+
+@include run(test('selector--get-print-parents', (
+    ($selector-object-1, ): '',
+    ($selector-object-2, ): '',
+    ($selector-object-3, ): '.c-button > ',
+    ($selector-object-4, ): '.c-button + .c-button ',
 )));
 
 @include run(test('selector--get-print', (
