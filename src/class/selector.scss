@@ -320,12 +320,17 @@ $selector--prototype: (
 /// @param {string} $modifier
 /// @return {map} selector class object updated with new 'modifier' appended to the previous list
 @function selector--append-modifier($this, $modifier) {
+  $new-modifier: $modifier;
+
   @if type-of($modifier) != 'list' {
-    $modifier: ($modifier,);
+    $new-modifier: ($modifier,);
   }
 
-  $previous-value: selector--get-modifier($this);
-  @return class--set-attribute-value($this, 'modifier', $modifier, $previous-value);
+  @if selector--get-modifier($this) {
+    $new-modifier: append(selector--get-modifier($this), $modifier);
+  }
+
+  @return class--set-attribute-value($this, 'modifier', $new-modifier);
 }
 
 
