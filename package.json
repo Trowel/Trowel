@@ -1,6 +1,6 @@
 {
   "name": "trowel-core",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Core of trowel, framework for sass libraries",
   "scripts": {
     "test": "gulp test",
