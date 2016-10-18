@@ -59,6 +59,11 @@ $selector-object-1: (
   'is-nested': (
     'type': 'bool',
   ),
+  'parents': (
+    'type': 'map',
+    'nullable': true,
+    'collection': true,
+  )
 );
 
 $selector-object-2: (
@@ -131,6 +136,12 @@ $selector-object-2: (
   'is-nested': (
     'type': 'bool',
     'value': false,
+  ),
+  'parents': (
+    'type': 'map',
+    'nullable': true,
+    'collection': true,
+    'value': null,
   ),
 );
 
@@ -205,6 +216,12 @@ $selector-object-3: (
     'type': 'bool',
     'value': false,
   ),
+  'parents': (
+    'type': 'map',
+    'nullable': true,
+    'collection': true,
+    'value': null,
+  ),
 );
 
 $selector-object-4: (
@@ -277,6 +294,12 @@ $selector-object-4: (
   'is-nested': (
     'type': 'bool',
     'value': true,
+  ),
+  'parents': (
+    'type': 'map',
+    'nullable': true,
+    'collection': true,
+    'value': null,
   ),
 );
 
@@ -368,6 +391,11 @@ $selector-object-4: (
     'is-nested': (
       'type': 'bool',
     ),
+    'parents': (
+      'type': 'map',
+      'nullable': true,
+      'collection': true,
+    ),
   ),
   ($selector-object-1, 'blabla07'): (
     '~': (
@@ -430,6 +458,11 @@ $selector-object-4: (
     ),
     'is-nested': (
       'type': 'bool',
+    ),
+    'parents': (
+      'type': 'map',
+      'nullable': true,
+      'collection': true,
     ),
   ),
 )));
@@ -503,6 +536,11 @@ $selector-object-4: (
     'is-nested': (
       'type': 'bool',
     ),
+    'parents': (
+      'type': 'map',
+      'nullable': true,
+      'collection': true,
+    ),
   ),
   ($selector-object-1, '_'): (
     '~': (
@@ -565,6 +603,11 @@ $selector-object-4: (
     'is-nested': (
       'type': 'bool',
     ),
+    'parents': (
+      'type': 'map',
+      'nullable': true,
+      'collection': true,
+    ),
   ),
   ($selector-object-1, 'bla-bla'): (
     '~': (
@@ -626,6 +669,11 @@ $selector-object-4: (
     ),
     'is-nested': (
       'type': 'bool',
+    ),
+    'parents': (
+      'type': 'map',
+      'nullable': true,
+      'collection': true,
     ),
   ),
 )));
@@ -703,6 +751,11 @@ $selector-object-4: (
     'is-nested': (
       'type': 'bool',
     ),
+    'parents': (
+      'type': 'map',
+      'nullable': true,
+      'collection': true,
+    ),
   ),
   ($selector-object-1, 'lkdqjs dlqskjd qslkdjqs ldkqsj dqlskdjqslkjdqs'): (
     '~': (
@@ -765,6 +818,11 @@ $selector-object-4: (
     ),
     'is-nested': (
       'type': 'bool',
+    ),
+    'parents': (
+      'type': 'map',
+      'nullable': true,
+      'collection': true,
     ),
   ),
 )));
@@ -838,6 +896,11 @@ $selector-object-4: (
     'is-nested': (
       'type': 'bool',
     ),
+    'parents': (
+      'type': 'map',
+      'nullable': true,
+      'collection': true,
+    ),
   ),
   ($selector-object-1, 'button'): (
     '~': (
@@ -900,6 +963,11 @@ $selector-object-4: (
     ),
     'is-nested': (
       'type': 'bool',
+    ),
+    'parents': (
+      'type': 'map',
+      'nullable': true,
+      'collection': true,
     ),
   ),
 )));
@@ -982,6 +1050,11 @@ $selector-object-4: (
     'is-nested': (
       'type': 'bool',
     ),
+    'parents': (
+      'type': 'map',
+      'nullable': true,
+      'collection': true,
+    ),
   ),
   ($selector-object-1, ('hover', 'active')): (
     '~': (
@@ -1045,6 +1118,11 @@ $selector-object-4: (
     'is-nested': (
       'type': 'bool',
     ),
+    'parents': (
+      'type': 'map',
+      'nullable': true,
+      'collection': true,
+    ),
   ),
   ($selector-object-1, null): (
     '~': (
@@ -1107,6 +1185,11 @@ $selector-object-4: (
     ),
     'is-nested': (
       'type': 'bool',
+    ),
+    'parents': (
+      'type': 'map',
+      'nullable': true,
+      'collection': true,
     ),
   ),
 )));
@@ -1174,6 +1257,11 @@ $selector-object-4: (
     'is-nested': (
       'type': 'bool',
     ),
+    'parents': (
+      'type': 'map',
+      'nullable': true,
+      'collection': true,
+    ),
   ),
   ($selector-object-1, ('hover', 'active')):  (
     '~': (
@@ -1236,6 +1324,11 @@ $selector-object-4: (
     ),
     'is-nested': (
       'type': 'bool',
+    ),
+    'parents': (
+      'type': 'map',
+      'nullable': true,
+      'collection': true,
     ),
   ),
 )));
@@ -1318,6 +1411,11 @@ $selector-object-4: (
     'is-nested': (
       'type': 'bool',
     ),
+    'parents': (
+      'type': 'map',
+      'nullable': true,
+      'collection': true,
+    ),
   ),
   ($selector-object-1, 'lorem ipsum'): (
     '~': (
@@ -1380,6 +1478,11 @@ $selector-object-4: (
     ),
     'is-nested': (
       'type': 'bool',
+    ),
+    'parents': (
+      'type': 'map',
+      'nullable': true,
+      'collection': true,
     ),
   ),
 )));
@@ -1453,6 +1556,11 @@ $selector-object-4: (
     'is-nested': (
       'type': 'bool',
     ),
+    'parents': (
+      'type': 'map',
+      'nullable': true,
+      'collection': true,
+    ),
   ),
   ($selector-object-1, '--'): (
     '~': (
@@ -1515,6 +1623,11 @@ $selector-object-4: (
     'is-nested': (
       'type': 'bool',
     ),
+    'parents': (
+      'type': 'map',
+      'nullable': true,
+      'collection': true,
+    ),
   ),
   ($selector-object-1, 'abcde'): (
     '~': (
@@ -1576,6 +1689,11 @@ $selector-object-4: (
     ),
     'is-nested': (
       'type': 'bool',
+    ),
+    'parents': (
+      'type': 'map',
+      'nullable': true,
+      'collection': true,
     ),
   ),
 )));
@@ -1658,6 +1776,11 @@ $selector-object-4: (
     'is-nested': (
       'type': 'bool',
     ),
+    'parents': (
+      'type': 'map',
+      'nullable': true,
+      'collection': true,
+    ),
   ),
   ($selector-object-1, ('lorem', 'ipsum')): (
     '~': (
@@ -1720,6 +1843,11 @@ $selector-object-4: (
     ),
     'is-nested': (
       'type': 'bool',
+    ),
+    'parents': (
+      'type': 'map',
+      'nullable': true,
+      'collection': true,
     ),
   ),
 )));
@@ -1787,6 +1915,11 @@ $selector-object-4: (
     'is-nested': (
       'type': 'bool',
     ),
+    'parents': (
+      'type': 'map',
+      'nullable': true,
+      'collection': true,
+    ),
   ),
   ($selector-object-1, ('lorem', 'ipsum')): (
     '~': (
@@ -1849,6 +1982,11 @@ $selector-object-4: (
     ),
     'is-nested': (
       'type': 'bool',
+    ),
+    'parents': (
+      'type': 'map',
+      'nullable': true,
+      'collection': true,
     ),
   ),
 )));
@@ -1922,6 +2060,11 @@ $selector-object-4: (
     'is-nested': (
       'type': 'bool',
     ),
+    'parents': (
+      'type': 'map',
+      'nullable': true,
+      'collection': true,
+    ),
   ),
   ($selector-object-1, '__'): (
     '~': (
@@ -1984,6 +2127,11 @@ $selector-object-4: (
     'is-nested': (
       'type': 'bool',
     ),
+    'parents': (
+      'type': 'map',
+      'nullable': true,
+      'collection': true,
+    ),
   ),
   ($selector-object-1, 'bla-bla'): (
     '~': (
@@ -2045,6 +2193,11 @@ $selector-object-4: (
     ),
     'is-nested': (
       'type': 'bool',
+    ),
+    'parents': (
+      'type': 'map',
+      'nullable': true,
+      'collection': true,
     ),
   ),
 )));
@@ -2130,6 +2283,11 @@ $selector-object-4: (
     'is-nested': (
       'type': 'bool',
     ),
+    'parents': (
+      'type': 'map',
+      'nullable': true,
+      'collection': true,
+    ),
   ),
   ($selector-object-1, ('disable', 'data-test')): (
     '~': (
@@ -2192,6 +2350,11 @@ $selector-object-4: (
     ),
     'is-nested': (
       'type': 'bool',
+    ),
+    'parents': (
+      'type': 'map',
+      'nullable': true,
+      'collection': true,
     ),
   ),
 )));
@@ -2259,6 +2422,11 @@ $selector-object-4: (
     'is-nested': (
       'type': 'bool',
     ),
+    'parents': (
+      'type': 'map',
+      'nullable': true,
+      'collection': true,
+    ),
   ),
   ($selector-object-1, ('disable', 'data-test')): (
     '~': (
@@ -2321,6 +2489,11 @@ $selector-object-4: (
     ),
     'is-nested': (
       'type': 'bool',
+    ),
+    'parents': (
+      'type': 'map',
+      'nullable': true,
+      'collection': true,
     ),
   ),
 )));
@@ -2404,6 +2577,11 @@ $selector-object-4: (
       'type': 'bool',
       'value': true,
     ),
+    'parents': (
+      'type': 'map',
+      'nullable': true,
+      'collection': true,
+    ),
   ),
   ($selector-object-1, false): (
     '~': (
@@ -2466,6 +2644,11 @@ $selector-object-4: (
     'is-nested': (
       'type': 'bool',
       'value': false,
+    ),
+    'parents': (
+      'type': 'map',
+      'nullable': true,
+      'collection': true,
     ),
   ),
 )));
@@ -2540,6 +2723,11 @@ $selector-object-4: (
     'is-nested': (
       'type': 'bool',
     ),
+    'parents': (
+      'type': 'map',
+      'nullable': true,
+      'collection': true,
+    ),
   ),
 )));
 
@@ -2613,6 +2801,11 @@ $selector-object-4: (
     'is-nested': (
       'type': 'bool',
     ),
+    'parents': (
+      'type': 'map',
+      'nullable': true,
+      'collection': true,
+    ),
   ),
   ($selector-object-1, 'after'): (
     '~': (
@@ -2675,6 +2868,11 @@ $selector-object-4: (
     ),
     'is-nested': (
       'type': 'bool',
+    ),
+    'parents': (
+      'type': 'map',
+      'nullable': true,
+      'collection': true,
     ),
   ),
 )));
