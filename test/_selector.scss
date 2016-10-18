@@ -37,11 +37,10 @@ $selector-object-1: (
     'type': 'string',
     'nullable': true,
   ),
-  'states': (
+  'pseudo-classes': (
     'type': 'string',
     'nullable': true,
     'collection': true,
-    'choices': ('hover', 'focus', 'active', 'visited'),
   ),
   'pseudo-element': (
     'type': 'string',
@@ -110,11 +109,10 @@ $selector-object-2: (
     'nullable': true,
     'value': null,
   ),
-  'states': (
+  'pseudo-classes': (
     'type': 'string',
     'nullable': true,
     'collection': true,
-    'choices': ('hover', 'focus', 'active', 'visited'),
     'value': null,
   ),
   'pseudo-element': (
@@ -189,11 +187,10 @@ $selector-object-3: (
     'nullable': true,
     'value': 'span',
   ),
-  'states': (
+  'pseudo-classes': (
     'type': 'string',
     'nullable': true,
     'collection': true,
-    'choices': ('hover', 'focus', 'active', 'visited'),
     'value': ('hover',),
   ),
   'pseudo-element': (
@@ -273,12 +270,11 @@ $selector-object-4: (
     'nullable': true,
     'value': 'span',
   ),
-  'states': (
+  'pseudo-classes': (
     'type': 'string',
     'nullable': true,
     'collection': true,
-    'choices': ('hover', 'focus', 'active', 'visited'),
-    'value': ('hover', 'focus'),
+    'value': ('nth-child(2n + 1)', 'hover', 'focus'),
   ),
   'pseudo-element': (
     'type': 'string',
@@ -383,11 +379,10 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
     ),
-    'states': (
+    'pseudo-classes': (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
     ),
     'pseudo-element': (
       'type': 'string',
@@ -451,11 +446,10 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
     ),
-    'states': (
+    'pseudo-classes': (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
     ),
     'pseudo-element': (
       'type': 'string',
@@ -528,11 +522,10 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
     ),
-    'states': (
+    'pseudo-classes': (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
     ),
     'pseudo-element': (
       'type': 'string',
@@ -595,11 +588,10 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
     ),
-    'states': (
+    'pseudo-classes': (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
     ),
     'pseudo-element': (
       'type': 'string',
@@ -662,11 +654,10 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
     ),
-    'states': (
+    'pseudo-classes': (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
     ),
     'pseudo-element': (
       'type': 'string',
@@ -743,11 +734,10 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
     ),
-    'states': (
+    'pseudo-classes': (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
     ),
     'pseudo-element': (
       'type': 'string',
@@ -811,11 +801,10 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
     ),
-    'states': (
+    'pseudo-classes': (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
     ),
     'pseudo-element': (
       'type': 'string',
@@ -888,11 +877,10 @@ $selector-object-4: (
       'nullable': true,
       'value': 'a'
     ),
-    'states': (
+    'pseudo-classes': (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
     ),
     'pseudo-element': (
       'type': 'string',
@@ -956,11 +944,10 @@ $selector-object-4: (
       'nullable': true,
       'value': 'button'
     ),
-    'states': (
+    'pseudo-classes': (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
     ),
     'pseudo-element': (
       'type': 'string',
@@ -992,16 +979,17 @@ $selector-object-4: (
   ($selector-object-3,): 'span',
 )));
 
-@include run(test('selector--get-states', (
+@include run(test('selector--get-pseudo-classes', (
   ($selector-object-1,): null,
   ($selector-object-2,): null,
   ($selector-object-3,): ('hover',),
   ($selector-object-3, 2): null,
-  ($selector-object-4, 1): 'hover',
-  ($selector-object-4, 2): 'focus',
+  ($selector-object-4, 1): 'nth-child(2n + 1)',
+  ($selector-object-4, 2): 'hover',
+  ($selector-object-4, 3): 'focus',
 )));
 
-@include run(test('selector--set-states', (
+@include run(test('selector--set-pseudo-classes', (
   ($selector-object-1, ('hover',)): (
     '~': (
       'classname': 'selector',
@@ -1041,11 +1029,10 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
     ),
-    'states': (
+    'pseudo-classes': (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
       'value': ('hover',),
     ),
     'pseudo-element': (
@@ -1109,11 +1096,10 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
     ),
-    'states': (
+    'pseudo-classes': (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
       'value': ('hover', 'active'),
     ),
     'pseudo-element': (
@@ -1177,11 +1163,10 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
     ),
-    'states': (
+    'pseudo-classes': (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
       'value': null,
     ),
     'pseudo-element': (
@@ -1208,7 +1193,7 @@ $selector-object-4: (
   ),
 )));
 
-@include run(test('selector--append-states', (
+@include run(test('selector--append-pseudo-classes', (
   ($selector-object-1, 'hover'):  (
     '~': (
       'classname': 'selector',
@@ -1248,11 +1233,10 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
     ),
-    'states': (
+    'pseudo-classes': (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
       'value': ('hover',),
     ),
     'pseudo-element': (
@@ -1316,11 +1300,10 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
     ),
-    'states': (
+    'pseudo-classes': (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
       'value': ('hover', 'active'),
     ),
     'pseudo-element': (
@@ -1347,13 +1330,14 @@ $selector-object-4: (
   ),
 )));
 
-@include run(test('selector--get-print-states', (
+@include run(test('selector--get-print-pseudo-classes', (
   ($selector-object-1, 1): '',
   ($selector-object-1, 2): '',
   ($selector-object-3, 1): ':hover',
   ($selector-object-3, 2): '',
-  ($selector-object-4, 1): ':hover',
-  ($selector-object-4, 2): ':focus',
+  ($selector-object-4, 1): ':nth-child(2n + 1)',
+  ($selector-object-4, 2): ':hover',
+  ($selector-object-4, 3): ':focus',
 )));
 
 @include run(test('selector--get-element', (
@@ -1403,11 +1387,10 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
     ),
-    'states': (
+    'pseudo-classes': (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
     ),
     'pseudo-element': (
       'type': 'string',
@@ -1471,11 +1454,10 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
     ),
-    'states': (
+    'pseudo-classes': (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
     ),
     'pseudo-element': (
       'type': 'string',
@@ -1548,11 +1530,10 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
     ),
-    'states': (
+    'pseudo-classes': (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
     ),
     'pseudo-element': (
       'type': 'string',
@@ -1615,11 +1596,10 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
     ),
-    'states': (
+    'pseudo-classes': (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
     ),
     'pseudo-element': (
       'type': 'string',
@@ -1682,11 +1662,10 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
     ),
-    'states': (
+    'pseudo-classes': (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
     ),
     'pseudo-element': (
       'type': 'string',
@@ -1768,11 +1747,10 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
     ),
-    'states': (
+    'pseudo-classes': (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
     ),
     'pseudo-element': (
       'type': 'string',
@@ -1836,11 +1814,10 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
     ),
-    'states': (
+    'pseudo-classes': (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
     ),
     'pseudo-element': (
       'type': 'string',
@@ -1907,11 +1884,10 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
     ),
-    'states': (
+    'pseudo-classes': (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
     ),
     'pseudo-element': (
       'type': 'string',
@@ -1975,11 +1951,10 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
     ),
-    'states': (
+    'pseudo-classes': (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
     ),
     'pseudo-element': (
       'type': 'string',
@@ -2052,11 +2027,10 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
     ),
-    'states': (
+    'pseudo-classes': (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
     ),
     'pseudo-element': (
       'type': 'string',
@@ -2119,11 +2093,10 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
     ),
-    'states': (
+    'pseudo-classes': (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
     ),
     'pseudo-element': (
       'type': 'string',
@@ -2186,11 +2159,10 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
     ),
-    'states': (
+    'pseudo-classes': (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
     ),
     'pseudo-element': (
       'type': 'string',
@@ -2274,11 +2246,10 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
     ),
-    'states': (
+    'pseudo-classes': (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
     ),
     'pseudo-element': (
       'type': 'string',
@@ -2342,11 +2313,10 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
     ),
-    'states': (
+    'pseudo-classes': (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
     ),
     'pseudo-element': (
       'type': 'string',
@@ -2413,11 +2383,10 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
     ),
-    'states': (
+    'pseudo-classes': (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
     ),
     'pseudo-element': (
       'type': 'string',
@@ -2481,11 +2450,10 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
     ),
-    'states': (
+    'pseudo-classes': (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
     ),
     'pseudo-element': (
       'type': 'string',
@@ -2568,11 +2536,10 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
     ),
-    'states': (
+    'pseudo-classes': (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
     ),
     'pseudo-element': (
       'type': 'string',
@@ -2636,11 +2603,10 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
     ),
-    'states': (
+    'pseudo-classes': (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
     ),
     'pseudo-element': (
       'type': 'string',
@@ -2714,11 +2680,10 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
     ),
-    'states': (
+    'pseudo-classes': (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
     ),
     'pseudo-element': (
       'type': 'string',
@@ -2792,11 +2757,10 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
     ),
-    'states': (
+    'pseudo-classes': (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
     ),
     'pseudo-element': (
       'type': 'string',
@@ -2860,11 +2824,10 @@ $selector-object-4: (
       'type': 'string',
       'nullable': true,
     ),
-    'states': (
+    'pseudo-classes': (
       'type': 'string',
       'nullable': true,
       'collection': true,
-      'choices': ('hover', 'focus', 'active', 'visited'),
     ),
     'pseudo-element': (
       'type': 'string',
@@ -2960,11 +2923,10 @@ $selector-object-4: (
         'type': 'string',
         'nullable': true,
       ),
-      'states': (
+      'pseudo-classes': (
         'type': 'string',
         'nullable': true,
         'collection': true,
-        'choices': ('hover', 'focus', 'active', 'visited'),
       ),
       'pseudo-element': (
         'type': 'string',
@@ -3028,11 +2990,10 @@ $selector-object-4: (
         'type': 'string',
         'nullable': true,
       ),
-      'states': (
+      'pseudo-classes': (
         'type': 'string',
         'nullable': true,
         'collection': true,
-        'choices': ('hover', 'focus', 'active', 'visited'),
       ),
       'pseudo-element': (
         'type': 'string',
@@ -3099,11 +3060,10 @@ $selector-object-4: (
         'type': 'string',
         'nullable': true,
       ),
-      'states': (
+      'pseudo-classes': (
         'type': 'string',
         'nullable': true,
         'collection': true,
-        'choices': ('hover', 'focus', 'active', 'visited'),
       ),
       'pseudo-element': (
         'type': 'string',
@@ -3178,11 +3138,10 @@ $selector-object-4: (
         'type': 'string',
         'nullable': true,
       ),
-      'states': (
+      'pseudo-classes': (
         'type': 'string',
         'nullable': true,
         'collection': true,
-        'choices': ('hover', 'focus', 'active', 'visited'),
       ),
       'pseudo-element': (
         'type': 'string',
@@ -3249,11 +3208,10 @@ $selector-object-4: (
         'type': 'string',
         'nullable': true,
       ),
-      'states': (
+      'pseudo-classes': (
         'type': 'string',
         'nullable': true,
         'collection': true,
-        'choices': ('hover', 'focus', 'active', 'visited'),
       ),
       'pseudo-element': (
         'type': 'string',
@@ -3320,11 +3278,10 @@ $selector-object-4: (
         'type': 'string',
         'nullable': true,
       ),
-      'states': (
+      'pseudo-classes': (
         'type': 'string',
         'nullable': true,
         'collection': true,
-        'choices': ('hover', 'focus', 'active', 'visited'),
       ),
       'pseudo-element': (
         'type': 'string',
@@ -3396,11 +3353,10 @@ $selector-object-4: (
         'nullable': true,
         'value': 'span',
       ),
-      'states': (
+      'pseudo-classes': (
         'type': 'string',
         'nullable': true,
         'collection': true,
-        'choices': ('hover', 'focus', 'active', 'visited'),
         'value': ('hover',),
       ),
       'pseudo-element': (
@@ -3451,5 +3407,5 @@ $selector-object-4: (
 @include run(test('selector--get-print', (
   ($selector-object-2,): '.c-button',
   ($selector-object-3,): 'span.c-button-label:hover::before',
-  ($selector-object-4,): '.c-button--primary.c-button--large span.c-button__label[disable]:hover:focus::after',
+  ($selector-object-4,): '.c-button--primary.c-button--large span.c-button__label[disable]:nth-child(2n + 1):hover:focus::after',
 )));
