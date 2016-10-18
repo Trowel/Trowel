@@ -229,12 +229,17 @@ $selector--prototype: (
 /// @param {string} $pseudo-classes
 /// @return {map} selector class object updated with new 'pseudo-classes' appended to the previous list
 @function selector--append-pseudo-classes($this, $pseudo-classes) {
+  $new-pseudo-classes: $pseudo-classes;
+
   @if type-of($pseudo-classes) != 'list' {
-    $pseudo-classes: ($pseudo-classes,);
+    $new-pseudo-classes: ($pseudo-classes,);
   }
 
-  $previous-value: selector--get-pseudo-classes($this);
-  @return class--set-attribute-value($this, 'pseudo-classes', $pseudo-classes, $previous-value);
+  @if selector--get-pseudo-classes($this) {
+    $new-pseudo-classes: append(selector--get-pseudo-classes($this), $pseudo-classes);
+  }
+
+  @return class--set-attribute-value($this, 'pseudo-classes', $new-pseudo-classes);
 }
 
 /// @name get print tag
@@ -320,12 +325,17 @@ $selector--prototype: (
 /// @param {string} $modifier
 /// @return {map} selector class object updated with new 'modifier' appended to the previous list
 @function selector--append-modifier($this, $modifier) {
+  $new-modifier: $modifier;
+
   @if type-of($modifier) != 'list' {
-    $modifier: ($modifier,);
+    $new-modifier: ($modifier,);
   }
 
-  $previous-value: selector--get-modifier($this);
-  @return class--set-attribute-value($this, 'modifier', $modifier, $previous-value);
+  @if selector--get-modifier($this) {
+    $new-modifier: append(selector--get-modifier($this), $modifier);
+  }
+
+  @return class--set-attribute-value($this, 'modifier', $new-modifier);
 }
 
 
@@ -385,12 +395,17 @@ $selector--prototype: (
 /// @param {string} $attribute
 /// @return {map} selector class object updated with new 'attribute' appended to the previous list
 @function selector--append-attribute($this, $attribute) {
+  $new-attribute: $attribute;
+
   @if type-of($attribute) != 'list' {
-    $attribute: ($attribute,);
+    $new-attribute: ($attribute,);
   }
 
-  $previous-value: selector--get-attribute($this);
-  @return class--set-attribute-value($this, 'attribute', $attribute, $previous-value);
+  @if selector--get-attribute($this) {
+    $new-attribute: append(selector--get-attribute($this), $attribute);
+  }
+
+  @return class--set-attribute-value($this, 'attribute', $new-attribute);
 }
 
 /// @name get print attribute
