@@ -1,10 +1,11 @@
 @include run(test('sort', (
-  (('@viewport', ':state', '<tag', '-modifier'), ): ('<tag', ':state', '@viewport', '-modifier'),
-  ((':state', '@viewport', '<tag', '-modifier'), ): ('<tag', ':state', '@viewport', '-modifier'),
-  (('-modifier', ':state', '@viewport', '<tag'), ): ('<tag', ':state', '@viewport', '-modifier'),
-  (('<tag', '-modifier', '@viewport', ':state'), ): ('<tag', ':state', '@viewport', '-modifier'),
+  (('@viewport', ':state', '<tag', '-modifier', '[disable'), ): ('<tag', '[disable', ':state', '@viewport', '-modifier'),
+  ((':state', '@viewport', '<tag', '[disable', '-modifier'), ): ('<tag', '[disable', ':state', '@viewport', '-modifier'),
+  (('-modifier', ':state', '[disable', '@viewport', '<tag'), ): ('<tag', '[disable', ':state', '@viewport', '-modifier'),
+  (('<tag', '[disable', '-modifier', '@viewport', ':state'), ): ('<tag', '[disable', ':state', '@viewport', '-modifier'),
   ((':state', '<tag', '-modifier'), ): ('<tag', ':state', '-modifier'),
   (('<tag', '-modifier', '@viewport'), ): ('<tag', '@viewport', '-modifier'),
-  (('-modifier', '@viewport', ':state'), ): (':state', '@viewport', '-modifier'),
+  (('-modifier', '@viewport', ':state', '[disable'), ): ('[disable', ':state', '@viewport', '-modifier'),
   (('<tag', '@viewport', ':state'), ): ('<tag', ':state', '@viewport'),
+  (('<tag', '[disable', '@viewport', ':state'), ): ('<tag', '[disable', ':state', '@viewport'),
 )));

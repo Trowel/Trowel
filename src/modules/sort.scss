@@ -33,7 +33,7 @@
 }
 
 @function sort($list) {
-  $order: 'a' 'b' 'c' 'e' 'f' 'g' 'h' 'i' 'j' 'k' 'l' 'm' 'n' 'o' 'p' 'q' 'r' 's' 't' 'u' 'v' 'w' 'x' 'y' 'd' '<' ':' '@' '-' !default;
+  $order: 'a' 'b' 'c' 'e' 'f' 'g' 'h' 'i' 'j' 'k' 'l' 'm' 'n' 'o' 'p' 'q' 'r' 's' 't' 'u' 'v' 'w' 'x' 'y' 'd' '<' '[' ':' '@' '-';
 
   // Cycle through each item in the list
   @for $i from 1 through length($list) {
