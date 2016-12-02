@@ -511,21 +511,23 @@ $selector--prototype: (
 /// @param {string} $relationship ['']
 /// @return {map} selector class object updated with new 'parents' appended to the previous list
 @function selector--append-parent($this, $parent, $relationship: '') {
-
-  // Check if parent is a selector object
-  @if map-get(map-get($parent, '~'), 'classname') != 'selector' {
-    @error 'the method selector--append-parent(), must have as second parameter a valid selector object';
+  @if $relationship == '' {
+    $relationship: ' ';
+  } @elseif $relationship == '&' {
+    $relationship: '';
+  } @else {
+    $relationship: ' #{$relationship} ';
   }
 
   $parents: ((
     'selector': $parent,
-    'relationship': if($relationship == '', ' ', ' #{$relationship} '),
+    'relationship': $relationship,
   ), );
 
   @if selector--get-parents($this) {
     $parents: append(selector--get-parents($this), (
       'selector': $parent,
-      'relationship': if($relationship == '', ' ', ' #{$relationship} '),
+      'relationship': $relationship,
     ));
   }
 
@@ -548,7 +550,8 @@ $selector--prototype: (
   @each $parent in $parents {
     $parent-selector: map-get($parent, 'selector');
     $parent-relationship: map-get($parent, 'relationship');
-    $print: $print + selector--get-print($parent-selector) + $parent-relationship;
+    $selector-print: if(type-of($parent-selector) == 'string', #{$parent-selector}, selector--get-print($parent-selector));
+    $print: $print + $selector-print + $parent-relationship;
   }
 
   @return $print;
@@ -593,24 +596,22 @@ $selector--prototype: (
     @return $print--tag + $print--modifier + $print--attribute + $print--pseudo-classes + $print--pseudo-element;
   }
 
-  // @return $print--tag + $print--base + $print--element + $print--attribute + $print--pseudo-classes + $print--pseudo-element;
   @return $print--tag + $print--base + $print--element + $print--attribute + $print--pseudo-classes + $print--pseudo-element;
 }
 
 @mixin selector($this) {
   $breakpoint-fork: selector--get-breakpoint($this);
   $block: () !global;
+  $selector: selector--get-print-parents($this) + selector--get-print($this);
 
   @if selector--get-is-nested($this) {
-    @at-root #{selector--get-print-parents($this) selector--get-print($this)} {
-    // @at-root #{selector--get-print($this)} {
+    @at-root #{$selector} {
       @include media-query($breakpoint-fork) {
         @content;
       }
     }
   } @else {
-    #{selector--get-print-parents($this) selector--get-print($this)} {
-    // #{selector--get-print($this)} {
+    #{$selector} {
       @include media-query($breakpoint-fork) {
         @content;
       }
