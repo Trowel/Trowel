@@ -1,4 +1,4 @@
-$Memoization-Table: () !default;
+$memoization-table: () !default;
 
 //////////////////////////////
 // Memoization Set
@@ -7,7 +7,7 @@ $Memoization-Table: () !default;
   $module: "#{$module}";
   $key: "#{$key}";
 
-  $Memoization-Table: map-set-deep($Memoization-Table, ($module $key), $value) !global;
+  $memoization-table: map-set-deep($memoization-table, ($module $key), $value) !global;
 
   @return true;
 }
@@ -23,7 +23,7 @@ $Memoization-Table: () !default;
   $module: "#{$module}";
   $key: "#{$key}";
   $private-sassy-maps-suppress-warnings: true !global;
-  $result: map-get-deep($Memoization-Table, $module, $key);
+  $result: map-get-deep($memoization-table, $module, $key);
   $private-sassy-maps-suppress-warnings: false !global;
   @return $result;
 }

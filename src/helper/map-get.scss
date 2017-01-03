@@ -22,8 +22,7 @@ $private-sassy-maps-suppress-warnings: false !default;
         @if $get == null {
           @return map-get-deep-warning($warn, $get);
         }
-      }
-      @else {
+      } @else {
         @return map-get-deep-warning($warn, $get);
       }
     }
