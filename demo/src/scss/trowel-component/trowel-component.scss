@@ -1,7 +1,7 @@
 // scss-lint:disable DeclarationOrder
 @import 'variables';
 @import 'mixins/background-color';
-@import '../../../../src/trowel';
+
 
 @mixin mixin-dispatcher($value, $flags, $mixin) {
   @if $mixin == 'background-color' {
