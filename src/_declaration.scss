@@ -1,6 +1,5 @@
-@import 'selector';
-@import '../modules/sort';
-@import '../modules/smart-map-merge';
+@import './extensions/sort';
+@import './extensions/map';
 
 @mixin declaration ($property, $value, $flags: ()) {
   @if not variable-exists('block') or $block == null {
@@ -28,13 +27,13 @@
         $previous-block: map-get-deep($block, append($flags, 'default'));
 
         @if $previous-block {
-          $previous-block: smart-map-merge($previous-block, ($property: $value));
+          $previous-block: map-smart-merge($previous-block, ($property: $value));
           $block: map-set-deep($block, append($flags, 'default'), $previous-block) !global;
         } @else {
           $block: map-set-deep($block, append($flags, 'default'), ($property: $value)) !global;
         }
       } @else {
-        $block: smart-map-merge($block, ('default': ($property: $value))) !global;
+        $block: map-smart-merge($block, ('default': ($property: $value))) !global;
       }
     }
   }

@@ -1,15 +1,7 @@
-$trowel-debug: true !default;
+@import 'config';
 
-@import 'helper/map-to-string';
-@import 'helper/map-get';
-@import 'helper/map-set';
-@import 'helper/memo';
-
-@import 'class/selector';
-@import 'class/breakpoints';
-@import 'class/declaration';
-@import 'class/block';
-
-@import 'modules/value';
-
+@import 'selector';
 @import 'breakpoints';
+@import 'declaration';
+@import 'block';
+@import 'value';
