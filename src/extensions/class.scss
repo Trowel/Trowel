@@ -66,6 +66,11 @@
 // attribute setter
 // ---------------
 @function class--set-attribute($class, $prop, $value) {
+  // avoid to return prop with null as value
+  @if not $value {
+    @return $class;
+  }
+
   @return map-merge($class, ($prop: $value));
 }
 
