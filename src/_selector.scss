@@ -1,6 +1,4 @@
-@import 'utils';
-@import 'breakpoints';
-@import 'block';
+@import './extensions/class';
 
 $selector--prototype: (
   '~': (

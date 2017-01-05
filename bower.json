@@ -20,8 +20,5 @@
     "test",
     "demo",
     "media"
-  ],
-  "dependencies": {
-    "sassy-maps": "^0.4.0"
-  }
+  ]
 }

@@ -1,0 +1,29 @@
+$memoization-table: () !default;
+
+//////////////////////////////
+// Memoization Set
+//////////////////////////////
+@function memo-set($module, $key, $value) {
+  $module: "#{$module}";
+  $key: "#{$key}";
+
+  $memoization-table: map-set-deep($memoization-table, ($module $key), $value) !global;
+
+  @return true;
+}
+
+@mixin memo-set($module, $key, $value) {
+  $holder: memo-set($module, $key, $value);
+}
+
+//////////////////////////////
+// Memoization Get
+//////////////////////////////
+@function memo-get($module, $key) {
+  $module: "#{$module}";
+  $key: "#{$key}";
+  $private-sassy-maps-suppress-warnings: true !global;
+  $result: map-get-deep($memoization-table, $module, $key);
+  $private-sassy-maps-suppress-warnings: false !global;
+  @return $result;
+}
