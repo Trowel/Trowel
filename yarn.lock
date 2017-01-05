@@ -2888,6 +2888,22 @@ trowel-buttons@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/trowel-buttons/-/trowel-buttons-0.1.0.tgz#9c24e89ed5bee30c84b268d5be3661aef81099d9"
 
+trowel-core@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/trowel-core/-/trowel-core-2.0.0.tgz#8b7c4113e1d78c2d5d2668ad4bf5a20527c6f2cc"
+
+trowel-drops:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/trowel-drops/-/trowel-drops-1.0.0.tgz#ad3592a3df896979faa9d0a8e2f67c064d64eb3b"
+  dependencies:
+    trowel-core "^2.0.0"
+
+trowel-forms:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/trowel-forms/-/trowel-forms-1.0.0.tgz#cb2f1c0051013d7da5b1a8dc3822077ff1d6ab89"
+  dependencies:
+    trowel-core "^2.0.0"
+
 tunnel-agent@~0.4.1:
   version "0.4.3"
   resolved "https://registry.yarnpkg.com/tunnel-agent/-/tunnel-agent-0.4.3.tgz#6373db76909fe570e08d73583365ed828a74eeeb"

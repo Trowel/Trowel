@@ -30,7 +30,7 @@ var report_error = function(error) {
 };
 
 gulp.task('scss', function () {
-    return gulp.src('demo/src/scss/style.scss')
+    return gulp.src('demo/src/style.scss')
     .pipe($.sass({
         precision: 6,
         outputStyle: 'expanded',
