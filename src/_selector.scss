@@ -1,74 +1,75 @@
 @import './extensions/class';
 
-$selector--prototype: (
-  '~': (
-    'classname': 'selector',
-  ),
-  'prefix': (
-    'type': 'string',
-    'nullable': true,
-  ),
-  'prefix-separator': (
-    'type': 'string',
-    'nullable': false,
-    'value': '-'
-  ),
-  'block': (
-    'type': 'string',
-  ),
-  'element': (
-    'type': 'string',
-    'nullable': true,
-  ),
-  'element-separator': (
-    'type': 'string',
-    'nullable': false,
-    'value': '__'
-  ),
-  'modifier': (
-    'type': 'string',
-    'nullable': true,
-    'collection': true,
-  ),
-  'modifier-separator': (
-    'type': 'string',
-    'nullable': false,
-    'value': '--'
-  ),
-  'tag': (
-    'type': 'string',
-    'nullable': true,
-  ),
-  'pseudo-classes': (
-    'type': 'string',
-    'nullable': true,
-    'collection': true,
-  ),
-  'pseudo-element': (
-    'type': 'string',
-    'nullable': true,
-  ),
-  'attribute': (
-    'type': 'string',
-    'nullable': true,
-    'collection': true,
-  ),
-  'breakpoint': (
-    'type': 'string',
-    'nullable': true,
-  ),
-  'is-nested': (
-    'type': 'bool',
-  ),
-  'parents': (
-    'type': 'map',
-    'nullable': true,
-    'collection': true,
-  )
-);
+// $selector--prototype: (
+//   'prefix': (
+//     'type': 'string',
+//     'nullable': true,
+//   ),
+//   'prefix-separator': (
+//     'type': 'string',
+//     'nullable': false,
+//     'value': '-'
+//   ),
+//   'block': (
+//     'type': 'string',
+//   ),
+//   'element': (
+//     'type': 'string',
+//     'nullable': true,
+//   ),
+//   'element-separator': (
+//     'type': 'string',
+//     'nullable': false,
+//     'value': '__'
+//   ),
+//   'modifier': (
+//     'type': 'string',
+//     'nullable': true,
+//     'collection': true,
+//   ),
+//   'modifier-separator': (
+//     'type': 'string',
+//     'nullable': false,
+//     'value': '--'
+//   ),
+//   'tag': (
+//     'type': 'string',
+//     'nullable': true,
+//   ),
+//   'pseudo-classes': (
+//     'type': 'string',
+//     'nullable': true,
+//     'collection': true,
+//   ),
+//   'pseudo-element': (
+//     'type': 'string',
+//     'nullable': true,
+//   ),
+//   'attribute': (
+//     'type': 'string',
+//     'nullable': true,
+//     'collection': true,
+//   ),
+//   'breakpoint': (
+//     'type': 'string',
+//     'nullable': true,
+//   ),
+//   'is-nested': (
+//     'type': 'bool',
+//   ),
+//   'parents': (
+//     'type': 'map',
+//     'nullable': true,
+//     'collection': true,
+//   )
+// );
 
 @function selector--constructor($synthax, $block, $tag: null, $pseudo-classes: null, $element: null, $modifier: null, $pseudo-element: null, $attribute: null, $breakpoint: null, $is-nested: false, $parents: null) {
-  $this: $selector--prototype;
+  $this: (
+    'prefix-separator': '-',
+    'element-separator': '__',
+    'modifier-separator': '--',
+  );
 
   // Synthax
   @if $synthax {
@@ -113,7 +114,7 @@ $selector--prototype: (
 /// @param {map} $this - the `selector class object`
 /// @return {string} prefix
 @function selector--get-prefix($this) {
-  @return class--get-attribute-value($this, 'prefix');
+  @return class--get-attribute($this, 'prefix');
 }
 
 /// @name set prefix
@@ -123,7 +124,10 @@ $selector--prototype: (
 /// @param {string} $prefix
 /// @return {map} selector class object updated with new 'prefix' value
 @function selector--set-prefix($this, $prefix) {
-  @return class--set-attribute-value($this, 'prefix', $prefix);
+  $type: class--type('selector', 'prefix', $prefix, 'string');
+  $nullable: class--nullable('selector', 'prefix', $prefix, true);
+
+  @return class--set-attribute($this, 'prefix', $prefix);
 }
 
 /// @name get prefix-separator
@@ -132,7 +136,7 @@ $selector--prototype: (
 /// @param {map} $this - the `selector class object`
 /// @return {string} prefix-separator
 @function selector--get-prefix-separator($this) {
-  @return class--get-attribute-value($this, 'prefix-separator');
+  @return class--get-attribute($this, 'prefix-separator');
 }
 
 /// @name set prefix-separator
@@ -142,7 +146,10 @@ $selector--prototype: (
 /// @param {string} $prefix-separator
 /// @return {map} selector class object updated with new 'prefix-separator' value
 @function selector--set-prefix-separator($this, $prefix-separator) {
-  @return class--set-attribute-value($this, 'prefix-separator', $prefix-separator);
+  $type: selector--type('selector', 'prefix-separator', $prefix-separator, 'string');
+  $nullable: selector--nullable('selector', 'prefix-separator', $prefix-separator, false);
+
+  @return class--set-attribute($this, 'prefix-separator', $prefix-separator);
 }
 
 /// @name get print prefix
@@ -161,7 +168,7 @@ $selector--prototype: (
 /// @param {map} $this - the `selector class object`
 /// @return {string} block
 @function selector--get-block($this) {
-  @return class--get-attribute-value($this, 'block');
+  @return class--get-attribute($this, 'block');
 }
 
 /// @name set block
@@ -171,15 +178,17 @@ $selector--prototype: (
 /// @param {string} $block
 /// @return {map} selector class object updated with new 'block' value
 @function selector--set-block($this, $block) {
-  @return class--set-attribute-value($this, 'block', $block);
+  $type: class--type('selector', 'block', $block, 'string');
+  @return class--set-attribute($this, 'block', $block);
 }
+
 /// @name get tag
 /// @access public
 /// @group class selector
 /// @param {map} $this - the `selector class object`
 /// @return {string} tag
 @function selector--get-tag($this) {
-  @return class--get-attribute-value($this, 'tag');
+  @return class--get-attribute($this, 'tag');
 }
 
 /// @name set tag
@@ -189,7 +198,10 @@ $selector--prototype: (
 /// @param {string} $tag
 /// @return {map} selector class object updated with new 'tag' value
 @function selector--set-tag($this, $tag) {
-  @return class--set-attribute-value($this, 'tag', $tag);
+  $type: class--type('selector', 'tag', $tag, 'string');
+  $nullable: class--nullable('selector', 'tag', $tag, true);
+
+  @return class--set-attribute($this, 'tag', $tag);
 }
 
 /// @name get print tag
@@ -207,7 +219,7 @@ $selector--prototype: (
 /// @param {map} $this - the `selector class object`
 /// @return {string} pseudo-classes
 @function selector--get-pseudo-classes($this, $nth: null) {
-  @return class--get-attribute-value($this, 'pseudo-classes', $nth);
+  @return class--get-attribute($this, 'pseudo-classes', $nth);
 }
 
 /// @name set pseudo-classes
@@ -217,7 +229,9 @@ $selector--prototype: (
 /// @param {string} $pseudo-classes
 /// @return {map} selector class object updated with new 'pseudo-classes' value
 @function selector--set-pseudo-classes($this, $pseudo-classes) {
-  @return class--set-attribute-value($this, 'pseudo-classes', $pseudo-classes);
+  $nullable: selector--nullable('selector', 'pseudo-classes', $pseudo-classes, true);
+
+  @return class--set-attribute($this, 'pseudo-classes', $pseudo-classes);
 }
 
 /// @name append pseudo-classes
@@ -227,17 +241,9 @@ $selector--prototype: (
 /// @param {string} $pseudo-classes
 /// @return {map} selector class object updated with new 'pseudo-classes' appended to the previous list
 @function selector--append-pseudo-classes($this, $pseudo-classes) {
-  $new-pseudo-classes: $pseudo-classes;
+  $type: selector--type('selector', 'pseudo-classes', $pseudo-classes, 'string');
 
-  @if type-of($pseudo-classes) != 'list' {
-    $new-pseudo-classes: ($pseudo-classes,);
-  }
-
-  @if selector--get-pseudo-classes($this) {
-    $new-pseudo-classes: append(selector--get-pseudo-classes($this), $pseudo-classes);
-  }
-
-  @return class--set-attribute-value($this, 'pseudo-classes', $new-pseudo-classes);
+  @return class--append-attribute($this, 'pseudo-classes', $pseudo-classes);
 }
 
 /// @name get print tag
@@ -255,7 +261,7 @@ $selector--prototype: (
 /// @param {map} $this - the `selector class object`
 /// @return {string} element
 @function selector--get-element($this) {
-  @return class--get-attribute-value($this, 'element');
+  @return class--get-attribute($this, 'element');
 }
 
 /// @name set element
@@ -265,7 +271,10 @@ $selector--prototype: (
 /// @param {string} $element
 /// @return {map} selector class object updated with new 'element' value
 @function selector--set-element($this, $element) {
-  @return class--set-attribute-value($this, 'element', $element);
+  $type: class--type('selector', 'element', $element, 'string');
+  $nullable: class--nullable('selector', 'element', $element, true);
+
+  @return class--set-attribute($this, 'element', $element);
 }
 
 /// @name get element-separator
@@ -274,7 +283,7 @@ $selector--prototype: (
 /// @param {map} $this - the `selector class object`
 /// @return {string} element-separator
 @function selector--get-element-separator($this) {
-  @return class--get-attribute-value($this, 'element-separator');
+  @return class--get-attribute($this, 'element-separator');
 }
 
 /// @name set element-separator
@@ -284,7 +293,10 @@ $selector--prototype: (
 /// @param {string} $element-separator
 /// @return {map} selector class object updated with new 'element-separator' value
 @function selector--set-element-separator($this, $element-separator) {
-  @return class--set-attribute-value($this, 'element-separator', $element-separator);
+  $type: class--type('selector', 'element-separator', $element-separator, 'string');
+  $nullable: class--nullable('selector', 'element-separator', $element-separator, false);
+
+  @return class--set-attribute($this, 'element-separator', $element-separator);
 }
 
 /// @name get print element
@@ -303,7 +315,7 @@ $selector--prototype: (
 /// @param {map} $this - the `selector class object`
 /// @return {string} modifier
 @function selector--get-modifier($this, $nth: null) {
-  @return class--get-attribute-value($this, 'modifier', $nth);
+  @return class--get-attribute($this, 'modifier', $nth);
 }
 
 /// @name set modifier
@@ -313,7 +325,9 @@ $selector--prototype: (
 /// @param {string} $modifier
 /// @return {map} selector class object updated with new 'modifier' value
 @function selector--set-modifier($this, $modifier) {
-  @return class--set-attribute-value($this, 'modifier', $modifier);
+  $nullable: selector--nullable('selector', 'nullable', $modifier, true);
+
+  @return class--set-attribute($this, 'modifier', $modifier);
 }
 
 /// @name append modifier
@@ -323,19 +337,10 @@ $selector--prototype: (
 /// @param {string} $modifier
 /// @return {map} selector class object updated with new 'modifier' appended to the previous list
 @function selector--append-modifier($this, $modifier) {
-  $new-modifier: $modifier;
+  $type: selector--type('selector', 'modifier', $modifier, 'string');
 
-  @if type-of($modifier) != 'list' {
-    $new-modifier: ($modifier,);
-  }
-
-  @if selector--get-modifier($this) {
-    $new-modifier: append(selector--get-modifier($this), $modifier);
-  }
-
-  @return class--set-attribute-value($this, 'modifier', $new-modifier);
+  @return class--append-attribute($this, 'modifier', $modifier);
 }
-
 
 /// @name get modifier-separator
 /// @access public
@@ -343,7 +348,7 @@ $selector--prototype: (
 /// @param {map} $this - the `selector class object`
 /// @return {string} modifier-separator
 @function selector--get-modifier-separator($this) {
-  @return class--get-attribute-value($this, 'modifier-separator');
+  @return class--get-attribute($this, 'modifier-separator');
 }
 
 /// @name set modifier-separator
@@ -353,7 +358,10 @@ $selector--prototype: (
 /// @param {string} $modifier-separator
 /// @return {map} selector class object updated with new 'modifier-separator' value
 @function selector--set-modifier-separator($this, $modifier-separator) {
-  @return class--set-attribute-value($this, 'modifier-separator', $modifier-separator);
+  $type: class--type('selector', 'modifier-separator', $modifier-separator, 'string');
+  $nullable: class--nullable('selector', 'modifier-separator', $modifier-separator, false);
+
+  @return class--set-attribute($this, 'modifier-separator', $modifier-separator);
 }
 
 /// @name get print modifier
@@ -373,7 +381,7 @@ $selector--prototype: (
 /// @param {map} $this - the `selector class object`
 /// @return {string} attribute
 @function selector--get-attribute($this, $nth: null) {
-  @return class--get-attribute-value($this, 'attribute', $nth);
+  @return class--get-attribute($this, 'attribute', $nth);
 }
 
 /// @name set attribute
@@ -383,7 +391,9 @@ $selector--prototype: (
 /// @param {string} $attribute
 /// @return {map} selector class object updated with new 'attribute' value
 @function selector--set-attribute($this, $attribute) {
-  @return class--set-attribute-value($this, 'attribute', $attribute);
+  $nullable: class--nullable('selector', 'attribute', $attribute, true);
+
+  @return class--set-attribute($this, 'attribute', $attribute);
 }
 
 /// @name append attribute
@@ -393,17 +403,9 @@ $selector--prototype: (
 /// @param {string} $attribute
 /// @return {map} selector class object updated with new 'attribute' appended to the previous list
 @function selector--append-attribute($this, $attribute) {
-  $new-attribute: $attribute;
+  $type: class--type('selector', 'attribute', $attribute, 'string');
 
-  @if type-of($attribute) != 'list' {
-    $new-attribute: ($attribute,);
-  }
-
-  @if selector--get-attribute($this) {
-    $new-attribute: append(selector--get-attribute($this), $attribute);
-  }
-
-  @return class--set-attribute-value($this, 'attribute', $new-attribute);
+  @return class--append-attribute($this, 'attribute', $attribute);
 }
 
 /// @name get print attribute
@@ -422,7 +424,7 @@ $selector--prototype: (
 /// @param {map} $this - the `selector class object`
 /// @return {string} is-nested
 @function selector--get-is-nested($this) {
-  @return class--get-attribute-value($this, 'is-nested');
+  @return class--get-attribute($this, 'is-nested');
 }
 
 /// @name set is-nested
@@ -432,7 +434,8 @@ $selector--prototype: (
 /// @param {string} $is-nested
 /// @return {map} selector class object updated with new 'is-nested' value
 @function selector--set-is-nested($this, $is-nested) {
-  @return class--set-attribute-value($this, 'is-nested', $is-nested);
+  $type: class--type('selector', 'is-nested', $is-nested, 'bool');
+  @return class--set-attribute($this, 'is-nested', $is-nested);
 }
 
 /// @name get breakpoint
@@ -441,7 +444,7 @@ $selector--prototype: (
 /// @param {map} $this - the `selector class object`
 /// @return {string} breakpoint
 @function selector--get-breakpoint($this) {
-  @return class--get-attribute-value($this, 'breakpoint');
+  @return class--get-attribute($this, 'breakpoint');
 }
 
 /// @name set breakpoint
@@ -451,7 +454,10 @@ $selector--prototype: (
 /// @param {string} $breakpoint
 /// @return {map} selector class object updated with new 'breakpoint' value
 @function selector--set-breakpoint($this, $breakpoint) {
-  @return class--set-attribute-value($this, 'breakpoint', $breakpoint);
+  $type: selector--type('selector', 'breakpoint', $breakpoint, 'string');
+  $nullable: selector--nullable('selector', 'breakpoint', $breakpoint, true);
+
+  @return class--set-attribute($this, 'breakpoint', $breakpoint);
 }
 
 /// @name get pseudo-element
@@ -460,7 +466,7 @@ $selector--prototype: (
 /// @param {map} $this - the `selector class object`
 /// @return {string} pseudo-element
 @function selector--get-pseudo-element($this) {
-  @return class--get-attribute-value($this, 'pseudo-element');
+  @return class--get-attribute($this, 'pseudo-element');
 }
 
 /// @name set pseudo-element
@@ -470,7 +476,10 @@ $selector--prototype: (
 /// @param {string} $pseudo-element
 /// @return {map} selector class object updated with new 'pseudo-element' value
 @function selector--set-pseudo-element($this, $pseudo-element) {
-  @return class--set-attribute-value($this, 'pseudo-element', $pseudo-element);
+  $type: class--type('selector', 'pseudo-element', $pseudo-element, 'string');
+  $nullable: class--nullable('selector', 'pseudo-element', $pseudo-element, true);
+
+  @return class--set-attribute($this, 'pseudo-element', $pseudo-element);
 }
 
 /// @name get print pseudo-element
@@ -479,7 +488,7 @@ $selector--prototype: (
 /// @param {map} $this - the `selector class object`
 /// @return {string} pseudo-element or empty array if no pseudo-element is setted
 @function selector--get-print-pseudo-element($this) {
-  @return if(class--get-attribute-value($this, 'pseudo-element'), '::' + class--get-attribute-value($this, 'pseudo-element'), '');
+  @return if(selector--get-pseudo-element($this), '::' + selector--get-pseudo-element($this), '');
 }
 
 /// @name get parents
@@ -488,7 +497,7 @@ $selector--prototype: (
 /// @param {map} $this - the `selector class object`
 /// @return {string} parents
 @function selector--get-parents($this, $nth: null) {
-  @return class--get-attribute-value($this, 'parents', $nth);
+  @return class--get-attribute($this, 'parents', $nth);
 }
 
 /// @name set parents
@@ -498,7 +507,9 @@ $selector--prototype: (
 /// @param {string} $parents
 /// @return {map} selector class object updated with new 'parents' value
 @function selector--set-parents($this, $parents) {
-  @return class--set-attribute-value($this, 'parents', $parents);
+  $nullable: selector--nullable('selector', 'parents', $parents, true);
+
+  @return class--set-attribute($this, 'parents', $parents);
 }
 
 /// @name append parents
@@ -517,19 +528,12 @@ $selector--prototype: (
     $relationship: ' #{$relationship} ';
   }
 
-  $parents: ((
+  $parent: (
     'selector': $parent,
     'relationship': $relationship,
-  ), );
+  );
 
-  @if selector--get-parents($this) {
-    $parents: append(selector--get-parents($this), (
-      'selector': $parent,
-      'relationship': $relationship,
-    ));
-  }
-
-  @return class--set-attribute-value($this, 'parents', $parents);
+  @return class--append-attribute($this, 'parents', $parent);
 }
 
 /// @name get print parents
@@ -554,7 +558,6 @@ $selector--prototype: (
 
   @return $print;
 }
-
 
 @function selector--get-print($this) {
   $print--tag: selector--get-print-tag($this);
