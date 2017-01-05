@@ -19,8 +19,7 @@ npm install trowel-core
 
 Then include thoses lines before any trowel library in your `.scss` file
 ```
-@import './bower_components/sassy-maps/sass/sassy-maps';
-@import './bower_components/trowel-core/src/trowel';
+@import './path/to/dependencies/trowel-core/src/trowel';
 ```
 
 ## Run the demo
