@@ -20,5 +20,11 @@
     "test",
     "demo",
     "media"
-  ]
+  ],
+  "version": "1.3.0",
+  "repository": {
+    "url": "git+https://github.com/Trowel/trowel.git",
+    "type": "git"
+  },
+  "author": "Trowel Team <loic@troopers.email>"
 }

@@ -9,8 +9,8 @@
     "register": "bower register trowel https://github.com/Trowel/trowel"
   },
   "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Trowel/trowel.git"
+    "url": "git+https://github.com/Trowel/trowel.git",
+    "type": "git"
   },
   "author": "Trowel Team <loic@troopers.email>",
   "license": "MIT",
@@ -33,6 +33,8 @@
     "gulp-notify": "^2.2.0",
     "gulp-sass": "^2.3.2",
     "gulp-sourcemaps": "^1.6.0",
-    "sassytester": "^1.1.0"
-  }
+    "sassytester": "^1.1.0",
+    "trowel-buttons": "^0.1.0"
+  },
+  "main": "src/trowel.scss"
 }
