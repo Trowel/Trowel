@@ -1,9 +1,13 @@
+@import './map';
+
 $memoization-table: () !default;
 
 //////////////////////////////
 // Memoization Set
 //////////////////////////////
 @function memo-set($module, $key, $value) {
+  @if not $trowel-memo { @return true }
+
   $module: "#{$module}";
   $key: "#{$key}";
 
@@ -20,6 +24,8 @@ $memoization-table: () !default;
 // Memoization Get
 //////////////////////////////
 @function memo-get($module, $key) {
+  @if not $trowel-memo { @return null }
+
   $module: "#{$module}";
   $key: "#{$key}";
   $private-sassy-maps-suppress-warnings: true !global;

@@ -1,4 +1,9 @@
+@import './memo';
+
 @function str-compare($string-a, $string-b, $order: $default-sort-order) {
+  $result: memo-get(str-compare, $string-a $string-b $order);
+  @if $result { @return $result }
+
   // Cast values to strings
   $string-a: to-lower-case($string-a + unquote(''));
   $string-b: to-lower-case($string-b + unquote(''));
@@ -13,26 +18,41 @@
     // If characters exist in $order list and are different
     // return true if first comes before second
     @if $char-a and $char-b and index($order, $char-a) != index($order, $char-b) {
-      @return index($order, $char-a) < index($order, $char-b);
+      $result: index($order, $char-a) < index($order, $char-b);
+      $holder: memo-set(str-compare, $string-a $string-b $order, $result);
+      @return $result;
     }
   }
 
   // In case they are equal after all characters in one string are compared,
   // return the shortest first
-  @return str-length($string-a) < str-length($string-b);
+  $result: str-length($string-a) < str-length($string-b);
+  $holder: memo-set(str-compare, $string-a $string-b $order, $result);
+  @return $result;
 }
 
 @function swap($list, $index-a, $index-b) {
+  $result: memo-get(swap, $list $index-a $index-b);
+  @if $result { @return $result }
+
   @if abs($index-a) > length($list) or abs($index-b) > length($list) {
+    $holder: memo-set(swap, $list $index-a $index-b, $list);
     @return $list;
   }
+
   $tmp: nth($list, $index-a);
   $list: set-nth($list, $index-a, nth($list, $index-b));
   $list: set-nth($list, $index-b, $tmp);
+
+  $holder: memo-set(swap, $list $index-a $index-b, $list);
   @return $list;
 }
 
 @function sort($list) {
+  $param-list: $list;
+  $result: memo-get(sort, $param-list);
+  @if $result { @return $result }
+
   $order: 'a' 'b' 'c' 'e' 'f' 'g' 'h' 'i' 'j' 'k' 'l' 'm' 'n' 'o' 'p' 'q' 'r' 's' 't' 'u' 'v' 'w' 'x' 'y' 'd' '<' '[' ':' '@' '-';
 
   // Cycle through each item in the list
@@ -53,5 +73,6 @@
   }
 
   // Return the sorted list
+  $holder: memo-set(sort, $param-list, $list);
   @return $list;
 }

@@ -1,3 +1,5 @@
+@import './memo';
+
 @function class--get-attribute-property($object, $attribute, $property) {
   @return map-get(map-get($object, $attribute), $property);
 }
@@ -11,12 +13,16 @@
 };
 
 @function class--get-attribute-value($object, $attribute, $nth: null) {
+  // $result: memo-get(class--get-attribute-value, $object $attribute $nth);
+  // @if $result { @return $result }
+
   $value: class--get-attribute-property($object, $attribute, 'value');
 
   @if type-of($value) == 'list' and class--get-attribute-collection($object, $attribute) and type-of($nth) == 'number' {
     $value: if(length($value) >= $nth, nth($value, $nth), null);
   }
 
+  // $holder: memo-set(class--get-attribute-value, $object $attribute $nth, $value);
   @return $value;
 };
 
@@ -33,6 +39,9 @@
 };
 
 @function class--attribute-nullable-is-ok($attribute, $value, $classname, $nullable) {
+  // $result: memo-get(class--attribute-nullable-is-ok, $attribute $value $classname $nullable);
+  // @if $result { @return $result }
+
   $nullable--is-ok: ($value == null and $nullable) or $value != null;
 
   @if not $nullable--is-ok {
@@ -40,10 +49,14 @@
     @return false;
   }
 
+  // $holder: memo-set(class--attribute-nullable-is-ok, $attribute $value $classname $nullable, $nullable--is-ok);
   @return $nullable--is-ok;
 }
 
 @function class--attribute-choices-is-ok($attribute, $value, $classname, $choices, $nullable) {
+  // $result: memo-get(class--attribute-choices-is-ok, $attribute $value $classname $choices $nullable);
+  // @if $result { @return $result }
+
   $choices--is-ok: ($choices and index($choices, $value)) or not $choices or (not index($choices, $value) and $value == null and $nullable);
   @if not $choices--is-ok {
     $choices--error: 'the attribute \"#{$attribute}\" from the \"#{$classname}\" must be ';
@@ -57,31 +70,43 @@
     @return false;
   }
 
+  // $holder: memo-set(class--attribute-choices-is-ok, $attribute $value $classname $choices $nullable, $choices--is-ok);
   @return $choices--is-ok;
 }
 
 @function class--attribute-type-is-ok($attribute, $value, $classname, $type, $nullable) {
+  // $result: memo-get(class--attribute-type-is-ok, $attribute $value $classname $type $nullable);
+  // @if $result { @return $result }
+
   $type--is-ok: (type-of($value) == $type) or ($value == null and $nullable);
   @if not $type--is-ok {
     @error 'the attribute \"#{$attribute}\" from the \"#{$classname}\" class must be a \"#{$type}\" (currently \"#{type-of($value)}\")';
     @return false;
   }
 
+  // $holder: memo-set(class--attribute-type-is-ok, $attribute $value $classname $type $nullable, $type--is-ok);
   @return $type--is-ok;
 }
 
 @function class--attribute-is-ok($attribute, $value, $classname, $nullable, $choices, $type) {
-// @function class--attribute-is-ok($attribute, $value, $classname, $nullable) {
+  // $result: memo-get(class--attribute-is-ok, $attribute $value $classname $nullable $choices $type);
+  // @if $result { @return $result }
+
   $nullable--is-ok: class--attribute-nullable-is-ok($attribute, $value, $classname, $nullable);
   $choices--is-ok: class--attribute-choices-is-ok($attribute, $value, $classname, $choices, $nullable);
   $type--is-ok: class--attribute-type-is-ok($attribute, $value, $classname, $type, $nullable);
 
-  @return $nullable--is-ok and $choices--is-ok and $type--is-ok;
-  // @return $nullable--is-ok;
+  $result: $nullable--is-ok and $choices--is-ok and $type--is-ok;
+
+  // $holder: memo-set(class--attribute-is-ok, $attribute $value $classname $nullable $choices $type, $result);
+  @return $result;
 }
 
 
 @function class--set-attribute-value($object, $attribute, $value) {
+  $result: memo-get(class--set-attribute-value, $object $attribute $value);
+  @if $result { @return $result }
+
   $classname: '$' + class--get-name($object);
 
   // Get attributes options
@@ -112,5 +137,6 @@
     $object: map-merge($object, ($attribute: $attribute-properties));
   }
 
+  $holder: memo-set(class--set-attribute-value, $object $attribute $value, $object);
   @return $object;
 };
