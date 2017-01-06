@@ -54,9 +54,6 @@
 //     'type': 'string',
 //     'nullable': true,
 //   ),
-//   'is-nested': (
-//     'type': 'bool',
-//   ),
 //   'parents': (
 //     'type': 'map',
 //     'nullable': true,
@@ -64,7 +61,7 @@
 //   )
 // );
 
-@function selector--constructor($synthax, $block, $tag: null, $pseudo-classes: null, $element: null, $modifier: null, $pseudo-element: null, $attribute: null, $breakpoint: null, $is-nested: false, $parents: null) {
+@function selector--constructor($synthax, $block, $tag: null, $pseudo-classes: null, $element: null, $modifier: null, $pseudo-element: null, $attribute: null, $breakpoint: null, $parents: null) {
   $this: (
     'prefix-separator': '-',
     'element-separator': '__',
@@ -102,7 +99,6 @@
   $this: selector--set-tag($this, $tag);
   $this: selector--set-pseudo-classes($this, $pseudo-classes);
   $this: selector--set-breakpoint($this, $breakpoint);
-  $this: selector--set-is-nested($this, $is-nested);
   $this: selector--set-parents($this, $parents);
 
   @return $this;
@@ -418,26 +414,6 @@
   @return if(selector--get-attribute($this, $nth), '[' + selector--get-attribute($this, $nth) + ']', '');
 }
 
-/// @name get is-nested
-/// @access public
-/// @group class selector
-/// @param {map} $this - the `selector class object`
-/// @return {string} is-nested
-@function selector--get-is-nested($this) {
-  @return class--get-attribute($this, 'is-nested');
-}
-
-/// @name set is-nested
-/// @access public
-/// @group class selector
-/// @param {map} $selector
-/// @param {string} $is-nested
-/// @return {map} selector class object updated with new 'is-nested' value
-@function selector--set-is-nested($this, $is-nested) {
-  $type: class--type('selector', 'is-nested', $is-nested, 'bool');
-  @return class--set-attribute($this, 'is-nested', $is-nested);
-}
-
 /// @name get breakpoint
 /// @access public
 /// @group class selector
@@ -600,22 +576,17 @@
   @return $print--tag + $print--base + $print--element + $print--attribute + $print--pseudo-classes + $print--pseudo-element;
 }
 
-@mixin selector($this) {
+@mixin selector($this, $block-start: true) {
   $breakpoint-fork: selector--get-breakpoint($this);
-  $block: () !global;
   $selector: selector--get-print-parents($this) + selector--get-print($this);
 
-  @if selector--get-is-nested($this) {
-    @at-root #{$selector} {
-      @include media-query($breakpoint-fork) {
-        @content;
-      }
-    }
-  } @else {
-    #{$selector} {
-      @include media-query($breakpoint-fork) {
-        @content;
-      }
+  @if $block-start {
+    $block: () !global;
+  }
+
+  @at-root #{$selector} {
+    @include media-query($breakpoint-fork) {
+      @content;
     }
   }
 }
