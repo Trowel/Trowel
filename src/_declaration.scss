@@ -2,10 +2,6 @@
 @import './extensions/map';
 
 @mixin declaration ($property, $value, $flags: ()) {
-  @if not variable-exists('block') or $block == null {
-    $block: () !global;
-  }
-
   @if type-of($value) == 'map' {
     @each $flag, $value in $value {
       $new-flags: $flags;

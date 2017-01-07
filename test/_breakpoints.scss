@@ -35,58 +35,22 @@ $breakpoints-4: (
   )
 );
 
-$breakpoints-object-init: (
-  '~': (
-    'classname': 'breakpoints',
-  ),
-  'forks': (
-    'type': 'map',
-    'nullable': true,
-  )
-);
+$breakpoints-object-init: ();
 
 $breakpoints-object-1: (
-  '~': (
-    'classname': 'breakpoints',
-  ),
-  'forks': (
-    'type': 'map',
-    'nullable': true,
-    'value': $breakpoints-1,
-  )
+  'forks': $breakpoints-1,
 );
 
 $breakpoints-object-2: (
-  '~': (
-    'classname': 'breakpoints',
-  ),
-  'forks': (
-    'type': 'map',
-    'nullable': true,
-    'value': $breakpoints-2,
-  )
+  'forks': $breakpoints-2
 );
 
 $breakpoints-object-3: (
-  '~': (
-    'classname': 'breakpoints',
-  ),
-  'forks': (
-    'type': 'map',
-    'nullable': true,
-    'value': $breakpoints-3,
-  )
+  'forks': $breakpoints-3,
 );
 
 $breakpoints-object-4: (
-  '~': (
-    'classname': 'breakpoints',
-  ),
-  'forks': (
-    'type': 'map',
-    'nullable': true,
-    'value': $breakpoints-4,
-  )
+  'forks': $breakpoints-4,
 );
 
 

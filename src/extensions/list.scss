@@ -1,0 +1,7 @@
+@function convert-into-list($value) {
+  @if type-of($value) != 'list' and $value != null {
+    $value: ($value, );
+  }
+
+  @return $value;
+}

@@ -1,17 +1,15 @@
 @import './extensions/class';
 
-$breakpoints--prototype: (
-  '~': (
-    'classname': 'breakpoints',
-  ),
-  'forks': (
-    'type': 'map',
-    'nullable': true,
-  )
-);
+// $breakpoints--prototype: (
+//   'forks': (
+//     'type': 'map',
+//     'nullable': true,
+//   )
+// );
 
 @function breakpoints--constructor($forks) {
-  $this: $breakpoints--prototype;
+  $this: ();
+
   $this: breakpoints--set-forks($this, $forks);
 
   @return $this;
@@ -23,7 +21,7 @@ $breakpoints--prototype: (
 /// @param {map} $this - the `breakpoints class object`
 /// @return {string} forks
 @function breakpoints--get-forks($this) {
-  @return class--get-attribute-value($this, 'forks');
+  @return class--get-attribute($this, 'forks');
 }
 
 /// @name set forks
@@ -33,7 +31,10 @@ $breakpoints--prototype: (
 /// @param {string} $forks
 /// @return {map} breakpoints class object updated with new 'forks' value
 @function breakpoints--set-forks($this, $forks) {
-  @return class--set-attribute-value($this, 'forks', $forks);
+  $type: class--type('breakpoint', 'forks', $forks, 'map');
+  $nullable: class--nullable('breakpoint', 'forks', $forks, true);
+
+  @return class--set-attribute($this, 'forks', $forks);
 }
 
 @function breakpoints--get-key-fork($this, $key) {

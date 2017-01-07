@@ -13,7 +13,8 @@
     // If characters exist in $order list and are different
     // return true if first comes before second
     @if $char-a and $char-b and index($order, $char-a) != index($order, $char-b) {
-      @return index($order, $char-a) < index($order, $char-b);
+      $result: index($order, $char-a) < index($order, $char-b);
+      @return $result;
     }
   }
 
@@ -26,9 +27,11 @@
   @if abs($index-a) > length($list) or abs($index-b) > length($list) {
     @return $list;
   }
+
   $tmp: nth($list, $index-a);
   $list: set-nth($list, $index-a, nth($list, $index-b));
   $list: set-nth($list, $index-b, $tmp);
+
   @return $list;
 }
 

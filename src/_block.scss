@@ -1,18 +1,6 @@
-@mixin block-generation($optional-selector: null) {
-  @if $optional-selector {
-    @include block--generation($optional-selector, $block);
-  } @elseif variable-exists('selector') {
-    @include block--generation($selector, $block);
-  } @else {
-    @error 'The block generation mixin must have access to a $selector variable or a selector object as param.'
-  }
-
-  $block: null !global;
-}
-
-@mixin block--generation($selector, $block, $flag: null) {
+@mixin block-generation($selector, $original-block: $block, $flag: null) {
   @if $flag != 'default' {
-    @each $flag, $block in $block {
+    @each $flag, $block in $original-block {
       $new-selector: $selector;
 
       $flag-type: str-slice($flag, 0, 1);
@@ -20,31 +8,21 @@
 
       @if $flag-type == ':' {
         $new-selector: selector--append-pseudo-classes($new-selector, $flag-name);
-      }
-
-      @if $flag-type == '<' {
+      } @elseif $flag-type == '<' {
         $new-selector: selector--set-tag($new-selector, $flag-name);
-      }
-
-      @if $flag-type == '@' {
+      } @elseif $flag-type == '@' {
         $new-selector: selector--set-breakpoint($new-selector, $flag-name);
-      }
-
-      @if $flag-type == '-' {
+      } @elseif $flag-type == '-' {
         $new-selector: selector--append-modifier($new-selector, $flag-name);
-      }
-
-      @if $flag-type == '[' {
+      } @elseif $flag-type == '[' {
         $new-selector: selector--append-attribute($new-selector, $flag-name);
       }
 
-      @include block--generation($new-selector, $block, $flag)
+      @include block-generation($new-selector, $block, $flag);
     }
   } @else {
-    $selector: selector--set-is-nested($selector, true);
-
-    @include selector($selector) {
-      @each $property, $value in $block {
+    @include selector($selector, false) {
+      @each $property, $value in $original-block {
         #{$property}: $value;
       }
     }
