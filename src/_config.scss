@@ -1,14 +1,19 @@
-$trowel-debug: false !default;
+$trowel-config: () !default;
 
-$breakpoints: (
-  'xs': (
-    'max': 10rem,
+$trowel-root-config: (
+  'debug': false,
+  'breakpoints': (
+    'xs': (
+      'max': 10rem,
+    ),
+    'sm': (
+      'min': 10rem,
+      'max': 20rem,
+    ),
+    'md': (
+      'min': 20rem,
+    )
   ),
-  'sm': (
-    'min': 10rem,
-    'max': 20rem,
-  ),
-  'md': (
-    'min': 20rem,
-  )
-) !default;
+);
+
+$trowel-config: map-merge($trowel-root-config, $trowel-config);
