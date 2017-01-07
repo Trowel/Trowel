@@ -28,7 +28,7 @@
 }
 
 @function _map-get-deep-warning($warn, $get) {
-  @if $trowel-debug {
+  @if map-get($trowel-config, 'debug') {
     @if $get == null {
       @warn "Map has no value for key search `#{$warn}`";
     } @else if type-of($get) != 'map' {
