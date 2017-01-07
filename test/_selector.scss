@@ -1,314 +1,56 @@
 $selector-object-1: (
-  '~': (
-    'classname': 'selector',
-  ),
-  'prefix': (
-    'type': 'string',
-    'nullable': true,
-  ),
-  'prefix-separator': (
-    'type': 'string',
-    'nullable': false,
-    'value': '-'
-  ),
-  'block': (
-    'type': 'string',
-  ),
-  'element': (
-    'type': 'string',
-    'nullable': true,
-  ),
-  'element-separator': (
-    'type': 'string',
-    'nullable': false,
-    'value': '__'
-  ),
-  'modifier': (
-    'type': 'string',
-    'nullable': true,
-    'collection': true,
-  ),
-  'modifier-separator': (
-    'type': 'string',
-    'nullable': false,
-    'value': '--'
-  ),
-  'tag': (
-    'type': 'string',
-    'nullable': true,
-  ),
-  'pseudo-classes': (
-    'type': 'string',
-    'nullable': true,
-    'collection': true,
-  ),
-  'pseudo-element': (
-    'type': 'string',
-    'nullable': true,
-  ),
-  'attribute': (
-    'type': 'string',
-    'nullable': true,
-    'collection': true,
-  ),
-  'breakpoint': (
-    'type': 'string',
-    'nullable': true,
-  ),
-  'is-nested': (
-    'type': 'bool',
-  ),
-  'parents': (
-    'type': 'map',
-    'nullable': true,
-    'collection': true,
-  )
+  'prefix-separator': '-',
+  'element-separator': '__',
+  'modifier-separator': '--',
 );
 
 $selector-object-2: (
-  '~': (
-    'classname': 'selector',
-  ),
-  'prefix': (
-    'type': 'string',
-    'nullable': true,
-    'value': 'c',
-  ),
-  'prefix-separator': (
-    'type': 'string',
-    'nullable': false,
-    'value': '-'
-  ),
-  'block': (
-    'type': 'string',
-    'value': 'button',
-  ),
-  'element': (
-    'type': 'string',
-    'nullable': true,
-    'value': null,
-  ),
-  'element-separator': (
-    'type': 'string',
-    'nullable': false,
-    'value': '__'
-  ),
-  'modifier': (
-    'type': 'string',
-    'nullable': true,
-    'collection': true,
-    'value': null,
-  ),
-  'modifier-separator': (
-    'type': 'string',
-    'nullable': false,
-    'value': '--'
-  ),
-  'tag': (
-    'type': 'string',
-    'nullable': true,
-    'value': null,
-  ),
-  'pseudo-classes': (
-    'type': 'string',
-    'nullable': true,
-    'collection': true,
-    'value': null,
-  ),
-  'pseudo-element': (
-    'type': 'string',
-    'nullable': true,
-    'value': null,
-  ),
-  'attribute': (
-    'type': 'string',
-    'nullable': true,
-    'collection': true,
-    'value': null,
-  ),
-  'breakpoint': (
-    'type': 'string',
-    'nullable': true,
-    'value': null,
-  ),
-  'is-nested': (
-    'type': 'bool',
-    'value': false,
-  ),
-  'parents': (
-    'type': 'map',
-    'nullable': true,
-    'collection': true,
-    'value': null,
-  ),
+  'prefix': 'c',
+  'prefix-separator': '-',
+  'block': 'button',
+  'element-separator': '__',
+  'modifier-separator': '--',
 );
 
 $selector-object-3: (
-  '~': (
-    'classname': 'selector',
-  ),
-  'prefix': (
-    'type': 'string',
-    'nullable': true,
-    'value': 'c',
-  ),
-  'prefix-separator': (
-    'type': 'string',
-    'nullable': false,
-    'value': '-'
-  ),
-  'block': (
-    'type': 'string',
-    'value': 'button',
-  ),
-  'element': (
-    'type': 'string',
-    'nullable': true,
-    'value': 'label',
-  ),
-  'element-separator': (
-    'type': 'string',
-    'nullable': false,
-    'value': '-'
-  ),
-  'modifier': (
-    'type': 'string',
-    'nullable': true,
-    'collection': true,
-    'value': null,
-  ),
-  'modifier-separator': (
-    'type': 'string',
-    'nullable': false,
-    'value': '-'
-  ),
-  'tag': (
-    'type': 'string',
-    'nullable': true,
-    'value': 'span',
-  ),
-  'pseudo-classes': (
-    'type': 'string',
-    'nullable': true,
-    'collection': true,
-    'value': ('hover',),
-  ),
-  'pseudo-element': (
-    'type': 'string',
-    'nullable': true,
-    'value': 'before',
-  ),
-  'attribute': (
-    'type': 'string',
-    'nullable': true,
-    'collection': true,
-    'value': null,
-  ),
-  'breakpoint': (
-    'type': 'string',
-    'nullable': true,
-    'value': 'md',
-  ),
-  'is-nested': (
-    'type': 'bool',
-    'value': false,
-  ),
+  'prefix': 'c',
+  'prefix-separator': '-',
+  'block': 'button',
+  'element': 'label',
+  'element-separator': '-',
+  'modifier-separator': '-',
+  'tag': 'span',
+  'pseudo-classes': ('hover',),
+  'pseudo-element': 'before',
+  'breakpoint': 'md',
   'parents': (
-    'type': 'map',
-    'nullable': true,
-    'collection': true,
-    'value': (
-        (
-            'selector': $selector-object-2,
-            'relationship': ' > ',
-        ),
+    (
+      'selector': $selector-object-2,
+      'relationship': ' > ',
     ),
   ),
 );
 
 $selector-object-4: (
-  '~': (
-    'classname': 'selector',
-  ),
-  'prefix': (
-    'type': 'string',
-    'nullable': true,
-    'value': 'c',
-  ),
-  'prefix-separator': (
-    'type': 'string',
-    'nullable': false,
-    'value': '-'
-  ),
-  'block': (
-    'type': 'string',
-    'value': 'button',
-  ),
-  'element': (
-    'type': 'string',
-    'nullable': true,
-    'value': 'label',
-  ),
-  'element-separator': (
-    'type': 'string',
-    'nullable': false,
-    'value': '__'
-  ),
-  'modifier': (
-    'type': 'string',
-    'nullable': true,
-    'collection': true,
-    'value': ('primary', 'large'),
-  ),
-  'modifier-separator': (
-    'type': 'string',
-    'nullable': false,
-    'value': '--'
-  ),
-  'tag': (
-    'type': 'string',
-    'nullable': true,
-    'value': 'span',
-  ),
-  'pseudo-classes': (
-    'type': 'string',
-    'nullable': true,
-    'collection': true,
-    'value': ('nth-child(2n + 1)', 'hover', 'focus'),
-  ),
-  'pseudo-element': (
-    'type': 'string',
-    'nullable': true,
-    'value': 'after',
-  ),
-  'attribute': (
-    'type': 'string',
-    'nullable': true,
-    'collection': true,
-    'value': ('disable', ),
-  ),
-  'breakpoint': (
-    'type': 'string',
-    'nullable': true,
-    'value': 'md',
-  ),
-  'is-nested': (
-    'type': 'bool',
-    'value': true,
-  ),
+  'prefix': 'c',
+  'prefix-separator': '-',
+  'block': 'button',
+  'element': 'label',
+  'element-separator': '__',
+  'modifier': ('primary', 'large'),
+  'modifier-separator': '--',
+  'tag': 'span',
+  'pseudo-classes': ('nth-child(2n + 1)', 'hover', 'focus'),
+  'pseudo-element': 'after',
+  'attribute': ('disable', ),
+  'breakpoint': 'md',
   'parents': (
-    'type': 'map',
-    'nullable': true,
-    'collection': true,
-    'value': (
-        (
-            'selector': $selector-object-2,
-            'relationship': ' + ',
-        ),
-        (
-            'selector': $selector-object-2,
-            'relationship': ' ',
-        ),
+    (
+      'selector': $selector-object-2,
+      'relationship': ' + ',
+    ), (
+      'selector': $selector-object-2,
+      'relationship': ' ',
     ),
   ),
 );
@@ -329,9 +71,8 @@ $selector-object-4: (
       'element': '-',
       'modifier': '-',
     ),
-  ), 'button', 'span', ('hover',), 'label', null, 'before', null, 'md', false, (('selector': $selector-object-2, 'relationship': ' > '),)): $selector-object-3,
+  ), 'button', 'span', ('hover',), 'label', null, 'before', null, 'md', (('selector': $selector-object-2, 'relationship': ' > '),)): $selector-object-3,
 )));
-
 
 @include run(test('selector--get-prefix', (
   ($selector-object-1,): null,
@@ -340,138 +81,16 @@ $selector-object-4: (
 
 @include run(test('selector--set-prefix', (
   ($selector-object-1, 'c'): (
-    '~': (
-      'classname': 'selector',
-    ),
-    'prefix': (
-      'type': 'string',
-      'nullable': true,
-      'value': 'c'
-    ),
-    'prefix-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '-'
-    ),
-    'block': (
-      'type': 'string',
-    ),
-    'element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'element-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '__'
-    ),
-    'modifier': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'modifier-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '--'
-    ),
-    'tag': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'pseudo-classes': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'pseudo-element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'attribute': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'breakpoint': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'is-nested': (
-      'type': 'bool',
-    ),
-    'parents': (
-      'type': 'map',
-      'nullable': true,
-      'collection': true,
-    ),
+    'prefix': 'c',
+    'prefix-separator': '-',
+    'element-separator': '__',
+    'modifier-separator': '--',
   ),
   ($selector-object-1, 'blabla07'): (
-    '~': (
-      'classname': 'selector',
-    ),
-    'prefix': (
-      'type': 'string',
-      'nullable': true,
-      'value': 'blabla07'
-    ),
-    'prefix-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '-'
-    ),
-    'block': (
-      'type': 'string',
-    ),
-    'element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'element-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '__'
-    ),
-    'modifier': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'modifier-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '--'
-    ),
-    'tag': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'pseudo-classes': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'pseudo-element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'attribute': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'breakpoint': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'is-nested': (
-      'type': 'bool',
-    ),
-    'parents': (
-      'type': 'map',
-      'nullable': true,
-      'collection': true,
-    ),
+    'prefix': 'blabla07',
+    'prefix-separator': '-',
+    'element-separator': '__',
+    'modifier-separator': '--',
   ),
 )));
 
@@ -484,202 +103,19 @@ $selector-object-4: (
 
 @include run(test('selector--set-prefix-separator', (
   ($selector-object-1, '-'): (
-    '~': (
-      'classname': 'selector',
-    ),
-    'prefix': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'prefix-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '-'
-    ),
-    'block': (
-      'type': 'string',
-    ),
-    'element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'element-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '__'
-    ),
-    'modifier': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'modifier-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '--'
-    ),
-    'tag': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'pseudo-classes': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'pseudo-element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'attribute': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'breakpoint': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'is-nested': (
-      'type': 'bool',
-    ),
-    'parents': (
-      'type': 'map',
-      'nullable': true,
-      'collection': true,
-    ),
+    'prefix-separator': '-',
+    'element-separator': '__',
+    'modifier-separator': '--',
   ),
   ($selector-object-1, '_'): (
-    '~': (
-      'classname': 'selector',
-    ),
-    'prefix': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'prefix-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '_'
-    ),
-    'block': (
-      'type': 'string',
-    ),
-    'element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'element-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '__'
-    ),
-    'modifier': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'modifier-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '--'
-    ),
-    'tag': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'pseudo-classes': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'pseudo-element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'attribute': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'breakpoint': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'is-nested': (
-      'type': 'bool',
-    ),
-    'parents': (
-      'type': 'map',
-      'nullable': true,
-      'collection': true,
-    ),
+    'prefix-separator': '_',
+    'element-separator': '__',
+    'modifier-separator': '--',
   ),
   ($selector-object-1, 'bla-bla'): (
-    '~': (
-      'classname': 'selector',
-    ),
-    'prefix': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'prefix-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': 'bla-bla'
-    ),
-    'block': (
-      'type': 'string',
-    ),
-    'element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'element-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '__'
-    ),
-    'modifier': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'modifier-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '--'
-    ),
-    'tag': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'pseudo-classes': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'pseudo-element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'attribute': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'breakpoint': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'is-nested': (
-      'type': 'bool',
-    ),
-    'parents': (
-      'type': 'map',
-      'nullable': true,
-      'collection': true,
-    ),
+    'prefix-separator': 'bla-bla',
+    'element-separator': '__',
+    'modifier-separator': '--',
   ),
 )));
 
@@ -695,138 +131,16 @@ $selector-object-4: (
 
 @include run(test('selector--set-block', (
   ($selector-object-1, 'button'): (
-    '~': (
-      'classname': 'selector',
-    ),
-    'prefix': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'prefix-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '-'
-    ),
-    'block': (
-      'type': 'string',
-      'value': 'button',
-    ),
-    'element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'element-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '__'
-    ),
-    'modifier': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'modifier-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '--'
-    ),
-    'tag': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'pseudo-classes': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'pseudo-element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'attribute': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'breakpoint': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'is-nested': (
-      'type': 'bool',
-    ),
-    'parents': (
-      'type': 'map',
-      'nullable': true,
-      'collection': true,
-    ),
+    'prefix-separator': '-',
+    'block': 'button',
+    'element-separator': '__',
+    'modifier-separator': '--',
   ),
   ($selector-object-1, 'lkdqjs dlqskjd qslkdjqs ldkqsj dqlskdjqslkjdqs'): (
-    '~': (
-      'classname': 'selector',
-    ),
-    'prefix': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'prefix-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '-'
-    ),
-    'block': (
-      'type': 'string',
-      'value': 'lkdqjs dlqskjd qslkdjqs ldkqsj dqlskdjqslkjdqs',
-    ),
-    'element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'element-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '__'
-    ),
-    'modifier': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'modifier-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '--'
-    ),
-    'tag': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'pseudo-classes': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'pseudo-element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'attribute': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'breakpoint': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'is-nested': (
-      'type': 'bool',
-    ),
-    'parents': (
-      'type': 'map',
-      'nullable': true,
-      'collection': true,
-    ),
+    'prefix-separator': '-',
+    'block': 'lkdqjs dlqskjd qslkdjqs ldkqsj dqlskdjqslkjdqs',
+    'element-separator': '__',
+    'modifier-separator': '--',
   ),
 )));
 
@@ -838,138 +152,16 @@ $selector-object-4: (
 
 @include run(test('selector--set-tag', (
   ($selector-object-1, 'a'): (
-    '~': (
-      'classname': 'selector',
-    ),
-    'prefix': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'prefix-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '-'
-    ),
-    'block': (
-      'type': 'string',
-    ),
-    'element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'element-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '__'
-    ),
-    'modifier': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'modifier-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '--'
-    ),
-    'tag': (
-      'type': 'string',
-      'nullable': true,
-      'value': 'a'
-    ),
-    'pseudo-classes': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'pseudo-element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'attribute': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'breakpoint': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'is-nested': (
-      'type': 'bool',
-    ),
-    'parents': (
-      'type': 'map',
-      'nullable': true,
-      'collection': true,
-    ),
+    'prefix-separator': '-',
+    'element-separator': '__',
+    'modifier-separator': '--',
+    'tag': 'a',
   ),
   ($selector-object-1, 'button'): (
-    '~': (
-      'classname': 'selector',
-    ),
-    'prefix': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'prefix-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '-'
-    ),
-    'block': (
-      'type': 'string',
-    ),
-    'element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'element-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '__'
-    ),
-    'modifier': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'modifier-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '--'
-    ),
-    'tag': (
-      'type': 'string',
-      'nullable': true,
-      'value': 'button'
-    ),
-    'pseudo-classes': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'pseudo-element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'attribute': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'breakpoint': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'is-nested': (
-      'type': 'bool',
-    ),
-    'parents': (
-      'type': 'map',
-      'nullable': true,
-      'collection': true,
-    ),
+    'prefix-separator': '-',
+    'element-separator': '__',
+    'modifier-separator': '--',
+    'tag': 'button',
   ),
 )));
 
@@ -991,342 +183,36 @@ $selector-object-4: (
 
 @include run(test('selector--set-pseudo-classes', (
   ($selector-object-1, ('hover',)): (
-    '~': (
-      'classname': 'selector',
-    ),
-    'prefix': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'prefix-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '-'
-    ),
-    'block': (
-      'type': 'string',
-    ),
-    'element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'element-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '__'
-    ),
-    'modifier': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'modifier-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '--'
-    ),
-    'tag': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'pseudo-classes': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-      'value': ('hover',),
-    ),
-    'pseudo-element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'attribute': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'breakpoint': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'is-nested': (
-      'type': 'bool',
-    ),
-    'parents': (
-      'type': 'map',
-      'nullable': true,
-      'collection': true,
-    ),
+    'prefix-separator': '-',
+    'element-separator': '__',
+    'modifier-separator': '--',
+    'pseudo-classes': ('hover',),
   ),
   ($selector-object-1, ('hover', 'active')): (
-    '~': (
-      'classname': 'selector',
-    ),
-    'prefix': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'prefix-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '-'
-    ),
-    'block': (
-      'type': 'string',
-    ),
-    'element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'element-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '__'
-    ),
-    'modifier': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'modifier-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '--'
-    ),
-    'tag': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'pseudo-classes': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-      'value': ('hover', 'active'),
-    ),
-    'pseudo-element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'attribute': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'breakpoint': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'is-nested': (
-      'type': 'bool',
-    ),
-    'parents': (
-      'type': 'map',
-      'nullable': true,
-      'collection': true,
-    ),
+    'prefix-separator': '-',
+    'element-separator': '__',
+    'modifier-separator': '--',
+    'pseudo-classes': ('hover', 'active'),
   ),
   ($selector-object-1, null): (
-    '~': (
-      'classname': 'selector',
-    ),
-    'prefix': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'prefix-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '-'
-    ),
-    'block': (
-      'type': 'string',
-    ),
-    'element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'element-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '__'
-    ),
-    'modifier': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'modifier-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '--'
-    ),
-    'tag': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'pseudo-classes': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-      'value': null,
-    ),
-    'pseudo-element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'attribute': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'breakpoint': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'is-nested': (
-      'type': 'bool',
-    ),
-    'parents': (
-      'type': 'map',
-      'nullable': true,
-      'collection': true,
-    ),
+    'prefix-separator': '-',
+    'element-separator': '__',
+    'modifier-separator': '--',
   ),
 )));
 
 @include run(test('selector--append-pseudo-classes', (
   ($selector-object-1, 'hover'):  (
-    '~': (
-      'classname': 'selector',
-    ),
-    'prefix': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'prefix-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '-'
-    ),
-    'block': (
-      'type': 'string',
-    ),
-    'element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'element-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '__'
-    ),
-    'modifier': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'modifier-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '--'
-    ),
-    'tag': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'pseudo-classes': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-      'value': ('hover',),
-    ),
-    'pseudo-element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'attribute': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'breakpoint': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'is-nested': (
-      'type': 'bool',
-    ),
-    'parents': (
-      'type': 'map',
-      'nullable': true,
-      'collection': true,
-    ),
+    'prefix-separator': '-',
+    'element-separator': '__',
+    'modifier-separator': '--',
+    'pseudo-classes': ('hover',),
   ),
   ($selector-object-1, ('hover', 'active')):  (
-    '~': (
-      'classname': 'selector',
-    ),
-    'prefix': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'prefix-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '-'
-    ),
-    'block': (
-      'type': 'string',
-    ),
-    'element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'element-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '__'
-    ),
-    'modifier': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'modifier-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '--'
-    ),
-    'tag': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'pseudo-classes': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-      'value': ('hover', 'active'),
-    ),
-    'pseudo-element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'attribute': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'breakpoint': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'is-nested': (
-      'type': 'bool',
-    ),
-    'parents': (
-      'type': 'map',
-      'nullable': true,
-      'collection': true,
-    ),
+    'prefix-separator': '-',
+    'element-separator': '__',
+    'modifier-separator': '--',
+    'pseudo-classes': ('hover', 'active'),
   ),
 )));
 
@@ -1348,138 +234,16 @@ $selector-object-4: (
 
 @include run(test('selector--set-element', (
   ($selector-object-1, 'label'): (
-    '~': (
-      'classname': 'selector',
-    ),
-    'prefix': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'prefix-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '-'
-    ),
-    'block': (
-      'type': 'string',
-    ),
-    'element': (
-      'type': 'string',
-      'nullable': true,
-      'value': 'label'
-    ),
-    'element-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '__'
-    ),
-    'modifier': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'modifier-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '--'
-    ),
-    'tag': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'pseudo-classes': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'pseudo-element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'attribute': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'breakpoint': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'is-nested': (
-      'type': 'bool',
-    ),
-    'parents': (
-      'type': 'map',
-      'nullable': true,
-      'collection': true,
-    ),
+    'prefix-separator': '-',
+    'element-separator': '__',
+    'modifier-separator': '--',
+    'element': 'label',
   ),
   ($selector-object-1, 'lorem ipsum'): (
-    '~': (
-      'classname': 'selector',
-    ),
-    'prefix': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'prefix-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '-'
-    ),
-    'block': (
-      'type': 'string',
-    ),
-    'element': (
-      'type': 'string',
-      'nullable': true,
-      'value': 'lorem ipsum'
-    ),
-    'element-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '__'
-    ),
-    'modifier': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'modifier-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '--'
-    ),
-    'tag': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'pseudo-classes': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'pseudo-element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'attribute': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'breakpoint': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'is-nested': (
-      'type': 'bool',
-    ),
-    'parents': (
-      'type': 'map',
-      'nullable': true,
-      'collection': true,
-    ),
+    'prefix-separator': '-',
+    'element-separator': '__',
+    'modifier-separator': '--',
+    'element': 'lorem ipsum',
   ),
 )));
 
@@ -1492,202 +256,19 @@ $selector-object-4: (
 
 @include run(test('selector--set-element-separator', (
   ($selector-object-1, '__'): (
-    '~': (
-      'classname': 'selector',
-    ),
-    'prefix': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'prefix-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '-'
-    ),
-    'block': (
-      'type': 'string',
-    ),
-    'element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'element-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '__'
-    ),
-    'modifier': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'modifier-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '--'
-    ),
-    'tag': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'pseudo-classes': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'pseudo-element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'attribute': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'breakpoint': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'is-nested': (
-      'type': 'bool',
-    ),
-    'parents': (
-      'type': 'map',
-      'nullable': true,
-      'collection': true,
-    ),
+    'prefix-separator': '-',
+    'element-separator': '__',
+    'modifier-separator': '--',
   ),
   ($selector-object-1, '--'): (
-    '~': (
-      'classname': 'selector',
-    ),
-    'prefix': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'prefix-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '-'
-    ),
-    'block': (
-      'type': 'string',
-    ),
-    'element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'element-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '--'
-    ),
-    'modifier': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'modifier-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '--'
-    ),
-    'tag': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'pseudo-classes': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'pseudo-element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'attribute': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'breakpoint': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'is-nested': (
-      'type': 'bool',
-    ),
-    'parents': (
-      'type': 'map',
-      'nullable': true,
-      'collection': true,
-    ),
+    'prefix-separator': '-',
+    'element-separator': '--',
+    'modifier-separator': '--',
   ),
   ($selector-object-1, 'abcde'): (
-    '~': (
-      'classname': 'selector',
-    ),
-    'prefix': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'prefix-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '-'
-    ),
-    'block': (
-      'type': 'string',
-    ),
-    'element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'element-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': 'abcde'
-    ),
-    'modifier': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'modifier-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '--'
-    ),
-    'tag': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'pseudo-classes': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'pseudo-element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'attribute': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'breakpoint': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'is-nested': (
-      'type': 'bool',
-    ),
-    'parents': (
-      'type': 'map',
-      'nullable': true,
-      'collection': true,
-    ),
+    'prefix-separator': '-',
+    'element-separator': 'abcde',
+    'modifier-separator': '--',
   ),
 )));
 
@@ -1707,276 +288,32 @@ $selector-object-4: (
 )));
 
 @include run(test('selector--set-modifier', (
-  ($selector-object-1, ('lorem', )): (
-    '~': (
-      'classname': 'selector',
-    ),
-    'prefix': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'prefix-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '-'
-    ),
-    'block': (
-      'type': 'string',
-    ),
-    'element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'element-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '__'
-    ),
-    'modifier': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-      'value': ('lorem',)
-    ),
-    'modifier-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '--'
-    ),
-    'tag': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'pseudo-classes': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'pseudo-element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'attribute': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'breakpoint': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'is-nested': (
-      'type': 'bool',
-    ),
-    'parents': (
-      'type': 'map',
-      'nullable': true,
-      'collection': true,
-    ),
+  ($selector-object-1, ('lorem',)): (
+    'prefix-separator': '-',
+    'element-separator': '__',
+    'modifier-separator': '--',
+    'modifier': ('lorem',),
   ),
   ($selector-object-1, ('lorem', 'ipsum')): (
-    '~': (
-      'classname': 'selector',
-    ),
-    'prefix': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'prefix-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '-'
-    ),
-    'block': (
-      'type': 'string',
-    ),
-    'element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'element-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '__'
-    ),
-    'modifier': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-      'value': ('lorem', 'ipsum')
-    ),
-    'modifier-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '--'
-    ),
-    'tag': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'pseudo-classes': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'pseudo-element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'attribute': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'breakpoint': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'is-nested': (
-      'type': 'bool',
-    ),
-    'parents': (
-      'type': 'map',
-      'nullable': true,
-      'collection': true,
-    ),
+    'prefix-separator': '-',
+    'element-separator': '__',
+    'modifier-separator': '--',
+    'modifier': ('lorem', 'ipsum'),
   ),
 )));
 
 @include run(test('selector--append-modifier', (
   ($selector-object-1, 'lorem'): (
-    '~': (
-      'classname': 'selector',
-    ),
-    'prefix': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'prefix-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '-'
-    ),
-    'block': (
-      'type': 'string',
-    ),
-    'element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'element-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '__'
-    ),
-    'modifier': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-      'value': ('lorem',)
-    ),
-    'modifier-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '--'
-    ),
-    'tag': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'pseudo-classes': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'pseudo-element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'attribute': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'breakpoint': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'is-nested': (
-      'type': 'bool',
-    ),
-    'parents': (
-      'type': 'map',
-      'nullable': true,
-      'collection': true,
-    ),
+    'prefix-separator': '-',
+    'element-separator': '__',
+    'modifier-separator': '--',
+    'modifier': ('lorem',),
   ),
   ($selector-object-1, ('lorem', 'ipsum')): (
-    '~': (
-      'classname': 'selector',
-    ),
-    'prefix': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'prefix-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '-'
-    ),
-    'block': (
-      'type': 'string',
-    ),
-    'element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'element-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '__'
-    ),
-    'modifier': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-      'value': ('lorem', 'ipsum')
-    ),
-    'modifier-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '--'
-    ),
-    'tag': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'pseudo-classes': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'pseudo-element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'attribute': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'breakpoint': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'is-nested': (
-      'type': 'bool',
-    ),
-    'parents': (
-      'type': 'map',
-      'nullable': true,
-      'collection': true,
-    ),
+    'prefix-separator': '-',
+    'element-separator': '__',
+    'modifier-separator': '--',
+    'modifier': ('lorem', 'ipsum'),
   ),
 )));
 
@@ -1989,202 +326,19 @@ $selector-object-4: (
 
 @include run(test('selector--set-modifier-separator', (
   ($selector-object-1, '--'): (
-    '~': (
-      'classname': 'selector',
-    ),
-    'prefix': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'prefix-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '-'
-    ),
-    'block': (
-      'type': 'string',
-    ),
-    'element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'element-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '__'
-    ),
-    'modifier': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'modifier-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '--'
-    ),
-    'tag': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'pseudo-classes': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'pseudo-element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'attribute': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'breakpoint': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'is-nested': (
-      'type': 'bool',
-    ),
-    'parents': (
-      'type': 'map',
-      'nullable': true,
-      'collection': true,
-    ),
+    'prefix-separator': '-',
+    'element-separator': '__',
+    'modifier-separator': '--',
   ),
   ($selector-object-1, '__'): (
-    '~': (
-      'classname': 'selector',
-    ),
-    'prefix': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'prefix-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '-'
-    ),
-    'block': (
-      'type': 'string',
-    ),
-    'element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'element-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '__'
-    ),
-    'modifier': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'modifier-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '__'
-    ),
-    'tag': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'pseudo-classes': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'pseudo-element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'attribute': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'breakpoint': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'is-nested': (
-      'type': 'bool',
-    ),
-    'parents': (
-      'type': 'map',
-      'nullable': true,
-      'collection': true,
-    ),
+    'prefix-separator': '-',
+    'element-separator': '__',
+    'modifier-separator': '__',
   ),
   ($selector-object-1, 'bla-bla'): (
-    '~': (
-      'classname': 'selector',
-    ),
-    'prefix': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'prefix-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '-'
-    ),
-    'block': (
-      'type': 'string',
-    ),
-    'element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'element-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '__'
-    ),
-    'modifier': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'modifier-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': 'bla-bla'
-    ),
-    'tag': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'pseudo-classes': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'pseudo-element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'attribute': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'breakpoint': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'is-nested': (
-      'type': 'bool',
-    ),
-    'parents': (
-      'type': 'map',
-      'nullable': true,
-      'collection': true,
-    ),
+    'prefix-separator': '-',
+    'element-separator': '__',
+    'modifier-separator': 'bla-bla',
   ),
 )));
 
@@ -2207,276 +361,32 @@ $selector-object-4: (
 )));
 
 @include run(test('selector--set-attribute', (
-  ($selector-object-1, ('disable', )): (
-    '~': (
-      'classname': 'selector',
-    ),
-    'prefix': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'prefix-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '-'
-    ),
-    'block': (
-      'type': 'string',
-    ),
-    'element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'element-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '__'
-    ),
-    'modifier': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'modifier-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '--'
-    ),
-    'tag': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'pseudo-classes': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'pseudo-element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'attribute': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-      'value': ('disable', ),
-    ),
-    'breakpoint': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'is-nested': (
-      'type': 'bool',
-    ),
-    'parents': (
-      'type': 'map',
-      'nullable': true,
-      'collection': true,
-    ),
+  ($selector-object-1, ('disable',)): (
+    'prefix-separator': '-',
+    'element-separator': '__',
+    'modifier-separator': '--',
+    'attribute': ('disable',),
   ),
   ($selector-object-1, ('disable', 'data-test')): (
-    '~': (
-      'classname': 'selector',
-    ),
-    'prefix': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'prefix-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '-'
-    ),
-    'block': (
-      'type': 'string',
-    ),
-    'element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'element-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '__'
-    ),
-    'modifier': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'modifier-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '--'
-    ),
-    'tag': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'pseudo-classes': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'pseudo-element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'attribute': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-      'value': ('disable', 'data-test'),
-    ),
-    'breakpoint': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'is-nested': (
-      'type': 'bool',
-    ),
-    'parents': (
-      'type': 'map',
-      'nullable': true,
-      'collection': true,
-    ),
+    'prefix-separator': '-',
+    'element-separator': '__',
+    'modifier-separator': '--',
+    'attribute': ('disable', 'data-test'),
   ),
 )));
 
 @include run(test('selector--append-attribute', (
   ($selector-object-1, 'data-test'): (
-    '~': (
-      'classname': 'selector',
-    ),
-    'prefix': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'prefix-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '-'
-    ),
-    'block': (
-      'type': 'string',
-    ),
-    'element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'element-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '__'
-    ),
-    'modifier': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'modifier-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '--'
-    ),
-    'tag': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'pseudo-classes': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'pseudo-element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'attribute': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-      'value': ('data-test', ),
-    ),
-    'breakpoint': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'is-nested': (
-      'type': 'bool',
-    ),
-    'parents': (
-      'type': 'map',
-      'nullable': true,
-      'collection': true,
-    ),
+    'prefix-separator': '-',
+    'element-separator': '__',
+    'modifier-separator': '--',
+    'attribute': ('data-test',),
   ),
   ($selector-object-1, ('disable', 'data-test')): (
-    '~': (
-      'classname': 'selector',
-    ),
-    'prefix': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'prefix-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '-'
-    ),
-    'block': (
-      'type': 'string',
-    ),
-    'element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'element-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '__'
-    ),
-    'modifier': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'modifier-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '--'
-    ),
-    'tag': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'pseudo-classes': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'pseudo-element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'attribute': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-      'value': ('disable', 'data-test'),
-    ),
-    'breakpoint': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'is-nested': (
-      'type': 'bool',
-    ),
-    'parents': (
-      'type': 'map',
-      'nullable': true,
-      'collection': true,
-    ),
+    'prefix-separator': '-',
+    'element-separator': '__',
+    'modifier-separator': '--',
+    'attribute': ('disable', 'data-test'),
   ),
 )));
 
@@ -2489,150 +399,6 @@ $selector-object-4: (
   ($selector-object-4, 3): '',
 )));
 
-@include run(test('selector--get-is-nested', (
-  ($selector-object-1, ): null,
-  ($selector-object-2, ): false,
-  ($selector-object-3, ): false,
-  ($selector-object-4, ): true,
-)));
-
-@include run(test('selector--set-is-nested', (
-  ($selector-object-1, true): (
-    '~': (
-      'classname': 'selector',
-    ),
-    'prefix': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'prefix-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '-'
-    ),
-    'block': (
-      'type': 'string',
-    ),
-    'element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'element-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '__'
-    ),
-    'modifier': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'modifier-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '--'
-    ),
-    'tag': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'pseudo-classes': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'pseudo-element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'attribute': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'breakpoint': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'is-nested': (
-      'type': 'bool',
-      'value': true,
-    ),
-    'parents': (
-      'type': 'map',
-      'nullable': true,
-      'collection': true,
-    ),
-  ),
-  ($selector-object-1, false): (
-    '~': (
-      'classname': 'selector',
-    ),
-    'prefix': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'prefix-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '-'
-    ),
-    'block': (
-      'type': 'string',
-    ),
-    'element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'element-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '__'
-    ),
-    'modifier': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'modifier-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '--'
-    ),
-    'tag': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'pseudo-classes': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'pseudo-element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'attribute': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'breakpoint': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'is-nested': (
-      'type': 'bool',
-      'value': false,
-    ),
-    'parents': (
-      'type': 'map',
-      'nullable': true,
-      'collection': true,
-    ),
-  ),
-)));
-
 @include run(test('selector--get-breakpoint', (
   ($selector-object-1,): null,
   ($selector-object-2,): null,
@@ -2642,71 +408,10 @@ $selector-object-4: (
 
 @include run(test('selector--set-breakpoint', (
   ($selector-object-1, 'md'): (
-    '~': (
-      'classname': 'selector',
-    ),
-    'prefix': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'prefix-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '-'
-    ),
-    'block': (
-      'type': 'string',
-    ),
-    'element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'element-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '__'
-    ),
-    'modifier': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'modifier-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '--'
-    ),
-    'tag': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'pseudo-classes': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'pseudo-element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'attribute': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'breakpoint': (
-      'type': 'string',
-      'nullable': true,
-      'value': 'md',
-    ),
-    'is-nested': (
-      'type': 'bool',
-    ),
-    'parents': (
-      'type': 'map',
-      'nullable': true,
-      'collection': true,
-    ),
+    'prefix-separator': '-',
+    'element-separator': '__',
+    'modifier-separator': '--',
+    'breakpoint': 'md',
   ),
 )));
 
@@ -2719,138 +424,16 @@ $selector-object-4: (
 
 @include run(test('selector--set-pseudo-element', (
   ($selector-object-1, 'before'): (
-    '~': (
-      'classname': 'selector',
-    ),
-    'prefix': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'prefix-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '-'
-    ),
-    'block': (
-      'type': 'string',
-    ),
-    'element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'element-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '__'
-    ),
-    'modifier': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'modifier-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '--'
-    ),
-    'tag': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'pseudo-classes': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'pseudo-element': (
-      'type': 'string',
-      'nullable': true,
-      'value': 'before',
-    ),
-    'attribute': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'breakpoint': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'is-nested': (
-      'type': 'bool',
-    ),
-    'parents': (
-      'type': 'map',
-      'nullable': true,
-      'collection': true,
-    ),
+    'prefix-separator': '-',
+    'element-separator': '__',
+    'modifier-separator': '--',
+    'pseudo-element': 'before',
   ),
   ($selector-object-1, 'after'): (
-    '~': (
-      'classname': 'selector',
-    ),
-    'prefix': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'prefix-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '-'
-    ),
-    'block': (
-      'type': 'string',
-    ),
-    'element': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'element-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '__'
-    ),
-    'modifier': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'modifier-separator': (
-      'type': 'string',
-      'nullable': false,
-      'value': '--'
-    ),
-    'tag': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'pseudo-classes': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'pseudo-element': (
-      'type': 'string',
-      'nullable': true,
-      'value': 'after',
-    ),
-    'attribute': (
-      'type': 'string',
-      'nullable': true,
-      'collection': true,
-    ),
-    'breakpoint': (
-      'type': 'string',
-      'nullable': true,
-    ),
-    'is-nested': (
-      'type': 'bool',
-    ),
-    'parents': (
-      'type': 'map',
-      'nullable': true,
-      'collection': true,
-    ),
+    'prefix-separator': '-',
+    'element-separator': '__',
+    'modifier-separator': '--',
+    'pseudo-element': 'after',
   ),
 )));
 
@@ -2861,547 +444,102 @@ $selector-object-4: (
   ($selector-object-4,): '::after',
 )));
 
-
 @include run(test('selector--get-parents', (
   ($selector-object-1,): null,
   ($selector-object-2,): null,
   ($selector-object-3,): (
-      (
-          'selector': $selector-object-2,
-          'relationship': ' > ',
-      ),
+    (
+      'selector': $selector-object-2,
+      'relationship': ' > ',
+    ),
   ),
   ($selector-object-4,): (
-      (
-          'selector': $selector-object-2,
-          'relationship': ' + ',
-      ),
-      (
-          'selector': $selector-object-2,
-          'relationship': ' ',
-      ),
+    (
+      'selector': $selector-object-2,
+      'relationship': ' + ',
+    ), (
+      'selector': $selector-object-2,
+      'relationship': ' ',
+    ),
   ),
 )));
 
 @include run(test('selector--set-parents', (
     ($selector-object-1, null): (
-      '~': (
-        'classname': 'selector',
-      ),
-      'prefix': (
-        'type': 'string',
-        'nullable': true,
-      ),
-      'prefix-separator': (
-        'type': 'string',
-        'nullable': false,
-        'value': '-'
-      ),
-      'block': (
-        'type': 'string',
-      ),
-      'element': (
-        'type': 'string',
-        'nullable': true,
-      ),
-      'element-separator': (
-        'type': 'string',
-        'nullable': false,
-        'value': '__'
-      ),
-      'modifier': (
-        'type': 'string',
-        'nullable': true,
-        'collection': true,
-      ),
-      'modifier-separator': (
-        'type': 'string',
-        'nullable': false,
-        'value': '--'
-      ),
-      'tag': (
-        'type': 'string',
-        'nullable': true,
-      ),
-      'pseudo-classes': (
-        'type': 'string',
-        'nullable': true,
-        'collection': true,
-      ),
-      'pseudo-element': (
-        'type': 'string',
-        'nullable': true,
-      ),
-      'attribute': (
-        'type': 'string',
-        'nullable': true,
-        'collection': true,
-      ),
-      'breakpoint': (
-        'type': 'string',
-        'nullable': true,
-      ),
-      'is-nested': (
-        'type': 'bool',
-      ),
-      'parents': (
-        'type': 'map',
-        'nullable': true,
-        'collection': true,
-        'value': null,
-      )
+      'prefix-separator': '-',
+      'element-separator': '__',
+      'modifier-separator': '--',
     ),
     ($selector-object-1, (('selector': $selector-object-2, 'relationship': ''),)): (
-      '~': (
-        'classname': 'selector',
-      ),
-      'prefix': (
-        'type': 'string',
-        'nullable': true,
-      ),
-      'prefix-separator': (
-        'type': 'string',
-        'nullable': false,
-        'value': '-'
-      ),
-      'block': (
-        'type': 'string',
-      ),
-      'element': (
-        'type': 'string',
-        'nullable': true,
-      ),
-      'element-separator': (
-        'type': 'string',
-        'nullable': false,
-        'value': '__'
-      ),
-      'modifier': (
-        'type': 'string',
-        'nullable': true,
-        'collection': true,
-      ),
-      'modifier-separator': (
-        'type': 'string',
-        'nullable': false,
-        'value': '--'
-      ),
-      'tag': (
-        'type': 'string',
-        'nullable': true,
-      ),
-      'pseudo-classes': (
-        'type': 'string',
-        'nullable': true,
-        'collection': true,
-      ),
-      'pseudo-element': (
-        'type': 'string',
-        'nullable': true,
-      ),
-      'attribute': (
-        'type': 'string',
-        'nullable': true,
-        'collection': true,
-      ),
-      'breakpoint': (
-        'type': 'string',
-        'nullable': true,
-      ),
-      'is-nested': (
-        'type': 'bool',
-      ),
-      'parents': (
-        'type': 'map',
-        'nullable': true,
-        'collection': true,
-        'value': ((
-            'selector': $selector-object-2,
-            'relationship': '',
-        ),),
-      )
+      'prefix-separator': '-',
+      'element-separator': '__',
+      'modifier-separator': '--',
+      'parents': (('selector': $selector-object-2, 'relationship': ''),),
     ),
     ($selector-object-1, (('selector': $selector-object-2, 'relationship': ' + '), ('selector': $selector-object-2, 'relationship': ' > '))): (
-      '~': (
-        'classname': 'selector',
-      ),
-      'prefix': (
-        'type': 'string',
-        'nullable': true,
-      ),
-      'prefix-separator': (
-        'type': 'string',
-        'nullable': false,
-        'value': '-'
-      ),
-      'block': (
-        'type': 'string',
-      ),
-      'element': (
-        'type': 'string',
-        'nullable': true,
-      ),
-      'element-separator': (
-        'type': 'string',
-        'nullable': false,
-        'value': '__'
-      ),
-      'modifier': (
-        'type': 'string',
-        'nullable': true,
-        'collection': true,
-      ),
-      'modifier-separator': (
-        'type': 'string',
-        'nullable': false,
-        'value': '--'
-      ),
-      'tag': (
-        'type': 'string',
-        'nullable': true,
-      ),
-      'pseudo-classes': (
-        'type': 'string',
-        'nullable': true,
-        'collection': true,
-      ),
-      'pseudo-element': (
-        'type': 'string',
-        'nullable': true,
-      ),
-      'attribute': (
-        'type': 'string',
-        'nullable': true,
-        'collection': true,
-      ),
-      'breakpoint': (
-        'type': 'string',
-        'nullable': true,
-      ),
-      'is-nested': (
-        'type': 'bool',
-      ),
-      'parents': (
-        'type': 'map',
-        'nullable': true,
-        'collection': true,
-        'value': ((
-            'selector': $selector-object-2,
-            'relationship': ' + ',
-        ), (
-            'selector': $selector-object-2,
-            'relationship': ' > ',
-        )),
-      )
+      'prefix-separator': '-',
+      'element-separator': '__',
+      'modifier-separator': '--',
+      'parents': (('selector': $selector-object-2, 'relationship': ' + '), ('selector': $selector-object-2, 'relationship': ' > ')),
     ),
 )));
 
-
-
 @include run(test('selector--append-parent', (
-    ($selector-object-1, $selector-object-2): (
-      '~': (
-        'classname': 'selector',
+  ($selector-object-1, $selector-object-2): (
+    'prefix-separator': '-',
+    'element-separator': '__',
+    'modifier-separator': '--',
+    'parents': ((
+      'selector': $selector-object-2,
+      'relationship': ' ',
+    ),),
+  ),
+  ($selector-object-1, $selector-object-2, ''): (
+    'prefix-separator': '-',
+    'element-separator': '__',
+    'modifier-separator': '--',
+    'parents': ((
+      'selector': $selector-object-2,
+      'relationship': ' ',
+    ),),
+  ),
+  ($selector-object-1, $selector-object-2, '>'): (
+    'prefix-separator': '-',
+    'element-separator': '__',
+    'modifier-separator': '--',
+    'parents': ((
+      'selector': $selector-object-2,
+      'relationship': ' > ',
+    ),),
+  ),
+  ($selector-object-3, $selector-object-2, '~'): (
+    'prefix': 'c',
+    'prefix-separator': '-',
+    'block': 'button',
+    'element': 'label',
+    'element-separator': '-',
+    'modifier-separator': '-',
+    'tag': 'span',
+    'pseudo-classes': ('hover',),
+    'pseudo-element': 'before',
+    'breakpoint': 'md',
+    'parents': (
+      (
+        'selector': $selector-object-2,
+        'relationship': ' > ',
+      ), (
+        'selector': $selector-object-2,
+        'relationship': ' ~ ',
       ),
-      'prefix': (
-        'type': 'string',
-        'nullable': true,
-      ),
-      'prefix-separator': (
-        'type': 'string',
-        'nullable': false,
-        'value': '-'
-      ),
-      'block': (
-        'type': 'string',
-      ),
-      'element': (
-        'type': 'string',
-        'nullable': true,
-      ),
-      'element-separator': (
-        'type': 'string',
-        'nullable': false,
-        'value': '__'
-      ),
-      'modifier': (
-        'type': 'string',
-        'nullable': true,
-        'collection': true,
-      ),
-      'modifier-separator': (
-        'type': 'string',
-        'nullable': false,
-        'value': '--'
-      ),
-      'tag': (
-        'type': 'string',
-        'nullable': true,
-      ),
-      'pseudo-classes': (
-        'type': 'string',
-        'nullable': true,
-        'collection': true,
-      ),
-      'pseudo-element': (
-        'type': 'string',
-        'nullable': true,
-      ),
-      'attribute': (
-        'type': 'string',
-        'nullable': true,
-        'collection': true,
-      ),
-      'breakpoint': (
-        'type': 'string',
-        'nullable': true,
-      ),
-      'is-nested': (
-        'type': 'bool',
-      ),
-      'parents': (
-        'type': 'map',
-        'nullable': true,
-        'collection': true,
-        'value': ((
-            'selector': $selector-object-2,
-            'relationship': ' ',
-        ),)
-      )
     ),
-    ($selector-object-1, $selector-object-2, ''): (
-      '~': (
-        'classname': 'selector',
-      ),
-      'prefix': (
-        'type': 'string',
-        'nullable': true,
-      ),
-      'prefix-separator': (
-        'type': 'string',
-        'nullable': false,
-        'value': '-'
-      ),
-      'block': (
-        'type': 'string',
-      ),
-      'element': (
-        'type': 'string',
-        'nullable': true,
-      ),
-      'element-separator': (
-        'type': 'string',
-        'nullable': false,
-        'value': '__'
-      ),
-      'modifier': (
-        'type': 'string',
-        'nullable': true,
-        'collection': true,
-      ),
-      'modifier-separator': (
-        'type': 'string',
-        'nullable': false,
-        'value': '--'
-      ),
-      'tag': (
-        'type': 'string',
-        'nullable': true,
-      ),
-      'pseudo-classes': (
-        'type': 'string',
-        'nullable': true,
-        'collection': true,
-      ),
-      'pseudo-element': (
-        'type': 'string',
-        'nullable': true,
-      ),
-      'attribute': (
-        'type': 'string',
-        'nullable': true,
-        'collection': true,
-      ),
-      'breakpoint': (
-        'type': 'string',
-        'nullable': true,
-      ),
-      'is-nested': (
-        'type': 'bool',
-      ),
-      'parents': (
-        'type': 'map',
-        'nullable': true,
-        'collection': true,
-        'value': ((
-            'selector': $selector-object-2,
-            'relationship': ' ',
-        ),)
-      )
-    ),
-    ($selector-object-1, $selector-object-2, '>'): (
-      '~': (
-        'classname': 'selector',
-      ),
-      'prefix': (
-        'type': 'string',
-        'nullable': true,
-      ),
-      'prefix-separator': (
-        'type': 'string',
-        'nullable': false,
-        'value': '-'
-      ),
-      'block': (
-        'type': 'string',
-      ),
-      'element': (
-        'type': 'string',
-        'nullable': true,
-      ),
-      'element-separator': (
-        'type': 'string',
-        'nullable': false,
-        'value': '__'
-      ),
-      'modifier': (
-        'type': 'string',
-        'nullable': true,
-        'collection': true,
-      ),
-      'modifier-separator': (
-        'type': 'string',
-        'nullable': false,
-        'value': '--'
-      ),
-      'tag': (
-        'type': 'string',
-        'nullable': true,
-      ),
-      'pseudo-classes': (
-        'type': 'string',
-        'nullable': true,
-        'collection': true,
-      ),
-      'pseudo-element': (
-        'type': 'string',
-        'nullable': true,
-      ),
-      'attribute': (
-        'type': 'string',
-        'nullable': true,
-        'collection': true,
-      ),
-      'breakpoint': (
-        'type': 'string',
-        'nullable': true,
-      ),
-      'is-nested': (
-        'type': 'bool',
-      ),
-      'parents': (
-        'type': 'map',
-        'nullable': true,
-        'collection': true,
-        'value': ((
-            'selector': $selector-object-2,
-            'relationship': ' > ',
-        ),)
-      )
-    ),
-    ($selector-object-3, $selector-object-2, '~'): (
-      '~': (
-        'classname': 'selector',
-      ),
-      'prefix': (
-        'type': 'string',
-        'nullable': true,
-        'value': 'c',
-      ),
-      'prefix-separator': (
-        'type': 'string',
-        'nullable': false,
-        'value': '-'
-      ),
-      'block': (
-        'type': 'string',
-        'value': 'button',
-      ),
-      'element': (
-        'type': 'string',
-        'nullable': true,
-        'value': 'label',
-      ),
-      'element-separator': (
-        'type': 'string',
-        'nullable': false,
-        'value': '-'
-      ),
-      'modifier': (
-        'type': 'string',
-        'nullable': true,
-        'collection': true,
-        'value': null,
-      ),
-      'modifier-separator': (
-        'type': 'string',
-        'nullable': false,
-        'value': '-'
-      ),
-      'tag': (
-        'type': 'string',
-        'nullable': true,
-        'value': 'span',
-      ),
-      'pseudo-classes': (
-        'type': 'string',
-        'nullable': true,
-        'collection': true,
-        'value': ('hover',),
-      ),
-      'pseudo-element': (
-        'type': 'string',
-        'nullable': true,
-        'value': 'before',
-      ),
-      'attribute': (
-        'type': 'string',
-        'nullable': true,
-        'collection': true,
-        'value': null,
-      ),
-      'breakpoint': (
-        'type': 'string',
-        'nullable': true,
-        'value': 'md',
-      ),
-      'is-nested': (
-        'type': 'bool',
-        'value': false,
-      ),
-      'parents': (
-        'type': 'map',
-        'nullable': true,
-        'collection': true,
-        'value': (
-            (
-                'selector': $selector-object-2,
-                'relationship': ' > ',
-            ),
-            (
-                'selector': $selector-object-2,
-                'relationship': ' ~ ',
-            ),
-        ),
-      ),
-    )
+  )
 )));
 
 @include run(test('selector--get-print-parents', (
-    ($selector-object-1, ): '',
-    ($selector-object-2, ): '',
-    ($selector-object-3, ): '.c-button > ',
-    ($selector-object-4, ): '.c-button + .c-button ',
+  ($selector-object-1, ): '',
+  ($selector-object-2, ): '',
+  ($selector-object-3, ): '.c-button > ',
+  ($selector-object-4, ): '.c-button + .c-button ',
 )));
 
 @include run(test('selector--get-print', (

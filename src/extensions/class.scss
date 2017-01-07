@@ -37,13 +37,34 @@
 // type checker
 // ------------
 @function class--type($classname, $prop, $value, $type) {
-  // if the $value do not respect the $type passed
-  @if type-of($value) != $type and $value != null {
+  $error: not check-type($value, $type);
+
+  // if the $value is a list, check all value
+  @if type-of($value) == 'list' and $type != 'list' {
+    $error: false;
+
+    @each $value-item in $value {
+      // if there is error already found through the loop
+      @if not $error {
+        $error: not check-type($value-item, $type);
+      }
+    }
+  }
+
+  @if $error {
     @error '#{class--throw-error($classname, $prop, 'must be a #{$type}')}';
   }
 
   @return true;
 }
+
+@function check-type($value, $type) {
+  @if type-of($value) != $type and $value != null {
+    @return false;
+  }
+
+  @return true;
+};
 
 
 // collection
@@ -56,6 +77,10 @@
   $value: map-get($class, $prop);
 
   @if $nth and type-of($value) == 'list' {
+    @if $nth > length($value) {
+      @return null;
+    }
+
     @return nth($value, $nth);
   }
 
@@ -77,11 +102,15 @@
 // append attribute
 @function class--append-attribute($class, $prop, $value) {
   $previous-value: class--get-attribute($class, $prop);
+  $value: if(type-of($value) != 'list', ($value, ), $value);
 
   @if not $previous-value {
-    @return class--set-attribute($class, $prop, ($value, ));
+    @return class--set-attribute($class, $prop, $value);
   }
 
-  $previous-value: convert-into-list($previous-value);
-  @return class--set-attribute($class, $prop, append($previous-value, $value));
+  $updated-values: convert-into-list($previous-value);
+  @each $new-value in $value {
+    $updated-values: append($updated-values, $new-value);
+  }
+  @return class--set-attribute($class, $prop, $updated-values);
 }
