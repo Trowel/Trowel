@@ -32,7 +32,7 @@ $test-map-32: (
   ),
 );
 
-@include run(test('smart-map-merge', (
+@include run(test('map-smart-merge', (
   ($test-map-11, $test-map-12): (
     'foo1': 'bar1',
     'foo2': 'bar2',
