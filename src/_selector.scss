@@ -61,7 +61,7 @@
 //   )
 // );
 
-@function selector--constructor($synthax, $block, $tag: null, $pseudo-classes: null, $element: null, $modifier: null, $pseudo-element: null, $attribute: null, $breakpoint: null, $parents: null) {
+@function selector--constructor($synthax, $block, $tag: null, $pseudo-classes: null, $element: null, $modifier: null, $modifier-element: null, $pseudo-element: null, $attribute: null, $breakpoint: null, $parents: null) {
   $this: (
     'prefix-separator': '-',
     'element-separator': '__',
@@ -94,6 +94,7 @@
   $this: selector--set-block($this, $block);
   $this: selector--set-element($this, $element);
   $this: selector--set-modifier($this, $modifier);
+  $this: selector--set-modifier-element($this, $modifier-element);
   $this: selector--set-pseudo-element($this, $pseudo-element);
   $this: selector--set-attribute($this, $attribute);
   $this: selector--set-tag($this, $tag);
@@ -338,6 +339,47 @@
   @return class--append-attribute($this, 'modifier', $modifier);
 }
 
+/// @name get modifier-element
+/// @access public
+/// @group class selector
+/// @param {map} $this - the `selector class object`
+/// @return {string} modifier-element
+@function selector--get-modifier-element($this, $nth: null) {
+  @return class--get-attribute($this, 'modifier-element', $nth);
+}
+
+/// @name set modifier-element
+/// @access public
+/// @group class selector
+/// @param {map} $selector
+/// @param {string} $modifier-element
+/// @return {map} selector class object updated with new 'modifier-element' value
+@function selector--set-modifier-element($this, $modifier-element) {
+
+  @if selector--get-element($this) {
+    $nullable: selector--nullable('selector', 'nullable', $modifier-element, true);
+    @return class--set-attribute($this, 'modifier-element', $modifier-element);
+  } @else {
+    @return selector--set-modifier($this, $modifier-element);
+  }
+
+}
+
+/// @name append modifier-element
+/// @access public
+/// @group class selector
+/// @param {map} $selector
+/// @param {string} $modifier-element
+/// @return {map} selector class object updated with new 'modifier-element' appended to the previous list
+@function selector--append-modifier-element($this, $modifier-element) {
+  @if selector--get-element($this) {
+    $type: selector--type('selector', 'modifier-element', $modifier-element, 'string');
+    @return class--append-attribute($this, 'modifier-element', $modifier-element);
+  } @else {
+    @return selector--append-modifier($this, $modifier-element);
+  }
+}
+
 /// @name get modifier-separator
 /// @access public
 /// @group class selector
@@ -369,6 +411,17 @@
 @function selector--get-print-modifier($this, $nth) {
   $separator: selector--get-modifier-separator($this);
   @return if(selector--get-modifier($this, $nth), $separator + selector--get-modifier($this, $nth), '');
+}
+
+/// @name get print modifier-element
+/// @access public
+/// @group class selector
+/// @param {map} $this - the `selector class object`
+/// @param {map} $nth - the index of the modifier-element item
+/// @return {string} modifier-element or empty array if no modifier-element is setted
+@function selector--get-print-modifier-element($this, $nth) {
+  $separator: selector--get-modifier-separator($this);
+  @return if(selector--get-modifier-element($this, $nth), $separator + selector--get-modifier-element($this, $nth), '');
 }
 
 /// @name get attribute
@@ -551,6 +604,13 @@
     }
   }
 
+  $print--modifier-element: '';
+  @if selector--get-modifier-element($this) {
+    @for $index from 1 through length(selector--get-modifier-element($this)) {
+      $print--modifier-element: $print--modifier-element + $print--base + $print--element + selector--get-print-modifier-element($this, $index);
+    }
+  }
+
   $print--attribute: '';
   @if selector--get-attribute($this) {
     @for $index from 1 through length(selector--get-attribute($this)) {
@@ -565,12 +625,20 @@
     }
   }
 
+  @if selector--get-modifier($this) and selector--get-modifier-element($this) {
+    @return $print--modifier + ' ' + $print--tag + $print--modifier-element + $print--attribute + $print--pseudo-classes + $print--pseudo-element;
+  }
+
   @if selector--get-modifier($this) and selector--get-element($this) {
     @return $print--modifier + ' ' + $print--tag + $print--base + $print--element + $print--attribute + $print--pseudo-classes + $print--pseudo-element;
   }
 
   @if selector--get-modifier($this) {
     @return $print--tag + $print--modifier + $print--attribute + $print--pseudo-classes + $print--pseudo-element;
+  }
+
+  @if selector--get-modifier-element($this) {
+    @return $print--tag + $print--modifier-element + $print--attribute + $print--pseudo-classes + $print--pseudo-element;
   }
 
   @return $print--tag + $print--base + $print--element + $print--attribute + $print--pseudo-classes + $print--pseudo-element;
