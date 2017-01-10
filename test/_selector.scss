@@ -55,6 +55,31 @@ $selector-object-4: (
   ),
 );
 
+$selector-object-5: (
+  'prefix': 'c',
+  'prefix-separator': '-',
+  'block': 'button',
+  'element': 'label',
+  'element-separator': '__',
+  'modifier': ('animated'),
+  'modifier-element': ('light', 'sm'),
+  'modifier-separator': '--',
+  'tag': 'span',
+  'pseudo-classes': ('nth-child(2n + 1)', 'hover', 'focus'),
+  'pseudo-element': 'after',
+  'attribute': ('disable', ),
+  'breakpoint': 'md',
+  'parents': (
+    (
+      'selector': $selector-object-2,
+      'relationship': ' + ',
+    ), (
+      'selector': $selector-object-2,
+      'relationship': ' ',
+    ),
+  ),
+);
+
 @include run(test('selector--constructor', (
   ((
     'prefix': 'c',
@@ -71,7 +96,7 @@ $selector-object-4: (
       'element': '-',
       'modifier': '-',
     ),
-  ), 'button', 'span', ('hover',), 'label', null, 'before', null, 'md', (('selector': $selector-object-2, 'relationship': ' > '),)): $selector-object-3,
+  ), 'button', 'span', ('hover',), 'label', null, null, 'before', null, 'md', (('selector': $selector-object-2, 'relationship': ' > '),)): $selector-object-3,
 )));
 
 @include run(test('selector--get-prefix', (
@@ -317,6 +342,122 @@ $selector-object-4: (
   ),
 )));
 
+@include run(test('selector--get-modifier-element', (
+  ($selector-object-1, ): null,
+  ($selector-object-2, ): null,
+  ($selector-object-3, ): null,
+  ($selector-object-5, ): ('light', 'sm'),
+  ($selector-object-5, 1): 'light',
+  ($selector-object-5, 2): 'sm',
+  ($selector-object-5, 3): null,
+)));
+
+@include run(test('selector--set-modifier-element', (
+  ($selector-object-1, ('lorem',)): (
+    'prefix-separator': '-',
+    'element-separator': '__',
+    'modifier-separator': '--',
+    'modifier': ('lorem',),
+  ),
+  ($selector-object-1, ('lorem', 'ipsum')): (
+    'prefix-separator': '-',
+    'element-separator': '__',
+    'modifier-separator': '--',
+    'modifier': ('lorem', 'ipsum'),
+  ),
+  ($selector-object-3, ('lorem', )): (
+    'prefix': 'c',
+    'prefix-separator': '-',
+    'block': 'button',
+    'element': 'label',
+    'modifier-element': ('lorem', ),
+    'element-separator': '-',
+    'modifier-separator': '-',
+    'tag': 'span',
+    'pseudo-classes': ('hover',),
+    'pseudo-element': 'before',
+    'breakpoint': 'md',
+    'parents': (
+      (
+        'selector': $selector-object-2,
+        'relationship': ' > ',
+      ),
+    ),
+  ),
+  ($selector-object-3, ('lorem', 'ipsum')): (
+    'prefix': 'c',
+    'prefix-separator': '-',
+    'block': 'button',
+    'element': 'label',
+    'modifier-element': ('lorem', 'ipsum'),
+    'element-separator': '-',
+    'modifier-separator': '-',
+    'tag': 'span',
+    'pseudo-classes': ('hover',),
+    'pseudo-element': 'before',
+    'breakpoint': 'md',
+    'parents': (
+      (
+        'selector': $selector-object-2,
+        'relationship': ' > ',
+      ),
+    ),
+  ),
+)));
+
+@include run(test('selector--append-modifier-element', (
+  ($selector-object-1, 'lorem'): (
+    'prefix-separator': '-',
+    'element-separator': '__',
+    'modifier-separator': '--',
+    'modifier': ('lorem',),
+  ),
+  ($selector-object-1, ('lorem', 'ipsum')): (
+    'prefix-separator': '-',
+    'element-separator': '__',
+    'modifier-separator': '--',
+    'modifier': ('lorem', 'ipsum'),
+  ),
+  ($selector-object-3, 'lorem'): (
+    'prefix': 'c',
+    'prefix-separator': '-',
+    'block': 'button',
+    'element': 'label',
+    'modifier-element': ('lorem', ),
+    'element-separator': '-',
+    'modifier-separator': '-',
+    'tag': 'span',
+    'pseudo-classes': ('hover',),
+    'pseudo-element': 'before',
+    'breakpoint': 'md',
+    'parents': (
+      (
+        'selector': $selector-object-2,
+        'relationship': ' > ',
+      ),
+    ),
+  ),
+  ($selector-object-3, ('lorem', 'ipsum')): (
+    'prefix': 'c',
+    'prefix-separator': '-',
+    'block': 'button',
+    'element': 'label',
+    'modifier-element': ('lorem', 'ipsum'),
+    'element-separator': '-',
+    'modifier-separator': '-',
+    'tag': 'span',
+    'pseudo-classes': ('hover',),
+    'pseudo-element': 'before',
+    'breakpoint': 'md',
+    'parents': (
+      (
+        'selector': $selector-object-2,
+        'relationship': ' > ',
+      ),
+    ),
+  ),
+)));
+
 @include run(test('selector--get-modifier-separator', (
   ($selector-object-1, ): '--',
   ($selector-object-2, ): '--',
@@ -546,4 +687,5 @@ $selector-object-4: (
   ($selector-object-2,): '.c-button',
   ($selector-object-3,): 'span.c-button-label:hover::before',
   ($selector-object-4,): '.c-button--primary.c-button--large span.c-button__label[disable]:nth-child(2n + 1):hover:focus::after',
+  ($selector-object-5,): '.c-button--animated span.c-button__label--light.c-button__label--sm[disable]:nth-child(2n + 1):hover:focus::after',
 )));

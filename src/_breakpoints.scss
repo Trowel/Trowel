@@ -15,21 +15,10 @@
   @return $this;
 }
 
-/// @name get forks
-/// @access public
-/// @group class breakpoints
-/// @param {map} $this - the `breakpoints class object`
-/// @return {string} forks
 @function breakpoints--get-forks($this) {
   @return class--get-attribute($this, 'forks');
 }
 
-/// @name set forks
-/// @access public
-/// @group class breakpoints
-/// @param {map} $breakpoints
-/// @param {string} $forks
-/// @return {map} breakpoints class object updated with new 'forks' value
 @function breakpoints--set-forks($this, $forks) {
   $type: class--type('breakpoint', 'forks', $forks, 'map');
   $nullable: class--nullable('breakpoint', 'forks', $forks, true);
