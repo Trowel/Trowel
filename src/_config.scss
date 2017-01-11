@@ -14,6 +14,14 @@ $trowel-root-config: (
       'min': 20rem,
     )
   ),
+  'synthax': (
+    'prefix': null,
+    'separator': (
+      'prefix': '-',
+      'element': '__',
+      'modifier': '--',
+    ),
+  )
 );
 
 $trowel-config: map-merge($trowel-root-config, $trowel-config);
