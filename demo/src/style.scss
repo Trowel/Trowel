@@ -2,15 +2,6 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
-$formgroup-label--font-size: (
-  'default': 0.875em,
-  '-modifier': (
-    '~element-modifier-1': (
-      '~element-modifier-2': 12em,
-    ),
-  )
-);
-
 @import '../../src/trowel';
 @import '../../node_modules/trowel-buttons/src/scss/buttons';
 @import '../../node_modules/trowel-drops/src/scss/drops';

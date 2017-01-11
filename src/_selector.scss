@@ -1,4 +1,5 @@
 @import './extensions/class';
+@import './extensions/map';
 
 // $selector--prototype: (
 //   'prefix': (
@@ -63,10 +64,14 @@
 
 @function selector--constructor($synthax, $block, $tag: null, $pseudo-classes: null, $element: null, $modifier: null, $modifier-element: null, $pseudo-element: null, $attribute: null, $breakpoint: null, $parents: null) {
   $this: (
-    'prefix-separator': '-',
-    'element-separator': '__',
-    'modifier-separator': '--',
+    'prefix-separator': map-get-deep($trowel-config, 'synthax' 'separator' 'prefix'),
+    'element-separator': map-get-deep($trowel-config, 'synthax' 'separator' 'element'),
+    'modifier-separator': map-get-deep($trowel-config, 'synthax' 'separator' 'modifier'),
   );
+
+  @if map-get-deep($trowel-config, 'synthax' 'prefix') {
+    $this: selector--set-prefix($this, map-get-deep($trowel-config, 'synthax' 'prefix'));
+  }
 
   // Synthax
   @if $synthax {
