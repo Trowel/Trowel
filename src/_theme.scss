@@ -1,0 +1,39 @@
+// scss-lint:disable ColorVariable
+
+$trwl-theme: (
+  'colors': (
+   'gray-light': rgb(248, 248, 250),
+   'gray-medium': rgb(232, 232, 236),
+   'gray-dark': rgb(207, 207, 213),
+   'gray-darker': rgb(155, 155, 157),
+   'primary': rgb(31, 13, 51),
+   'success': rgb(55, 211, 189),
+   'warning': rgb(255, 176, 0),
+   'danger': rgb(253, 65, 100),
+  ),
+  'font-sizes': (
+    'xs': 0.65rem,
+    'sm': 0.8rem,
+    'md': 1rem,
+    'lg': 1.2rem,
+  ),
+  'font-family': #{"'Open Sans', verdana, sans-serif"},
+  'line-height': 1.2,
+  'padding-y': 0.65em,
+  'padding-x': 1.65em,
+  'border-width': 0.0625em,
+  'border-style': solid,
+  'border-radius': 0.2em,
+);
+
+@function trwl-theme($property) {
+  @return map-get($trwl-theme, $property);
+}
+
+@function trwl-theme-color($color) {
+  @return map-get(map-get($trwl-theme, 'colors'), $color);
+}
+
+@function trwl-theme-size($size) {
+  @return map-get(map-get($trwl-theme, 'font-sizes'), $size);
+}
