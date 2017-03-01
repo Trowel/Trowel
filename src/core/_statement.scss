@@ -1,3 +1,7 @@
+@import '../extensions/sort';
+@import '../extensions/map';
+@import 'selector';
+
 @function declaration($block, $property, $value, $flags: ()) {
   @if type-of($value) == 'map' {
     @each $flag, $value in $value {
@@ -72,15 +76,10 @@
       @include print-statement($new-selector, $block, $flag);
     }
   } @else {
-    @include selector($selector, false) {
+    @include selector($selector) {
       @each $property, $value in $block {
         #{$property}: $value;
       }
     }
   }
-}
-
-@mixin statement($selector, $block, $flag: null) {
-  $block: block-sorted($block);
-  @include print-statement($selector, $block, $flag);
 }

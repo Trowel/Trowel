@@ -1,66 +1,5 @@
-@import './extensions/class';
-@import './extensions/map';
-
-// $selector--prototype: (
-//   'prefix': (
-//     'type': 'string',
-//     'nullable': true,
-//   ),
-//   'prefix-separator': (
-//     'type': 'string',
-//     'nullable': false,
-//     'value': '-'
-//   ),
-//   'block': (
-//     'type': 'string',
-//   ),
-//   'element': (
-//     'type': 'string',
-//     'nullable': true,
-//   ),
-//   'element-separator': (
-//     'type': 'string',
-//     'nullable': false,
-//     'value': '__'
-//   ),
-//   'modifier': (
-//     'type': 'string',
-//     'nullable': true,
-//     'collection': true,
-//   ),
-//   'modifier-separator': (
-//     'type': 'string',
-//     'nullable': false,
-//     'value': '--'
-//   ),
-//   'tag': (
-//     'type': 'string',
-//     'nullable': true,
-//   ),
-//   'pseudo-classes': (
-//     'type': 'string',
-//     'nullable': true,
-//     'collection': true,
-//   ),
-//   'pseudo-element': (
-//     'type': 'string',
-//     'nullable': true,
-//   ),
-//   'attribute': (
-//     'type': 'string',
-//     'nullable': true,
-//     'collection': true,
-//   ),
-//   'breakpoint': (
-//     'type': 'string',
-//     'nullable': true,
-//   ),
-//   'parents': (
-//     'type': 'map',
-//     'nullable': true,
-//     'collection': true,
-//   )
-// );
+@import '../extensions/class';
+@import '../extensions/map';
 
 @function selector--constructor($block, $synthax: null, $tag: null, $pseudo-classes: null, $element: null, $modifier: null, $modifier-element: null, $pseudo-element: null, $attribute: null, $breakpoint: null, $parents: null) {
   $this: (
@@ -229,14 +168,12 @@
 }
 
 @function selector--set-modifier-element($this, $modifier-element) {
-
   @if selector--get-element($this) {
     $nullable: selector--nullable('selector', 'nullable', $modifier-element, true);
     @return class--set-attribute($this, 'modifier-element', $modifier-element);
   } @else {
     @return selector--set-modifier($this, $modifier-element);
   }
-
 }
 
 @function selector--append-modifier-element($this, $modifier-element) {
@@ -335,8 +272,8 @@
   }
 
   $parent: (
-    'selector': $parent,
-    'relationship': $relationship,
+          'selector': $parent,
+          'relationship': $relationship,
   );
 
   @return class--append-attribute($this, 'parents', $parent);
@@ -416,17 +353,6 @@
   @return $print--tag + $print--base + $print--element + $print--attribute + $print--pseudo-classes + $print--pseudo-element;
 }
 
-@mixin selector($this, $block-start: true) {
-  $breakpoint-fork: selector--get-breakpoint($this);
-  $selector: selector--get-print-parents($this) + selector--get-print($this);
 
-  @if $block-start {
-    $block: () !global;
-  }
 
-  @at-root #{$selector} {
-    @include media-query($breakpoint-fork) {
-      @content;
-    }
-  }
-}
+

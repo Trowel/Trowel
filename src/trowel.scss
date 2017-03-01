@@ -1,9 +1,5 @@
 @import 'config';
-@import 'theme';
-
-@import 'selector';
-@import 'breakpoints';
-@import 'declaration';
+@import 'core/selector';
 @import 'value';
 
-@import 'ugly';
+@import 'trowel-api';
