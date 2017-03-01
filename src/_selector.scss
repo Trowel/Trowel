@@ -62,7 +62,7 @@
 //   )
 // );
 
-@function selector--constructor($synthax, $block, $tag: null, $pseudo-classes: null, $element: null, $modifier: null, $modifier-element: null, $pseudo-element: null, $attribute: null, $breakpoint: null, $parents: null) {
+@function selector--constructor($block, $synthax: null, $tag: null, $pseudo-classes: null, $element: null, $modifier: null, $modifier-element: null, $pseudo-element: null, $attribute: null, $breakpoint: null, $parents: null) {
   $this: (
     'prefix-separator': map-get-deep($trowel-config, 'synthax' 'separator' 'prefix'),
     'element-separator': map-get-deep($trowel-config, 'synthax' 'separator' 'element'),
