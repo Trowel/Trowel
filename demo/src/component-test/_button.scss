@@ -1,7 +1,13 @@
 @import '../../../node_modules/trowel-buttons/src/scss/variables/synthax';
 @import '../../../node_modules/trowel-buttons/src/scss/variables/theme-trowel';
 
-@function trwl-button--background-color ($value, $flags) {
+@function button-btn-group--margin-x ($value, $flags) {
+  @return (
+    ('margin-left', $value * -1, $flags),
+  );
+}
+
+@function button--background-color ($value, $flags) {
   $default-value: null;
   $state-value: null;
 
@@ -25,7 +31,7 @@
 $button--selector: selector(new 'btn' with $button--synthax);
 
 @include statement($button--selector, (
-  ('@include trwl-button--background-color', $button--background-color),
+  ('@include button--background-color', $button--background-color),
   ('display', $button--display),
   ('color', $button--color),
   ('font-family', $button--font-family),
@@ -56,4 +62,35 @@ $button--selector: selector(new 'btn' with $button--synthax);
   ('height', $button--height),
   ('opacity', $button--opacity),
   ('cursor', pointer),
+));
+
+#{print-selector($button--selector)} svg {
+  vertical-align: middle;
+}
+
+
+$button-group--selector: selector(new 'btn-group' with $button--synthax);
+@include statement($button-group--selector, (
+  ('display', flex),
+));
+
+
+$button-inside-group--selector: selector(append $button--selector parent $button-group--selector as '>');
+
+@include statement($button-inside-group--selector, (
+  ('position', relative),
+  ('z-index', 2, ':hover'),
+  ('z-index', 2, ':active'),
+  ('z-index', 2, ':focus'),
+  ('border-top-left-radius', 0, ':not(:first-child)'),
+  ('border-bottom-left-radius', 0, ':not(:first-child)'),
+  ('border-top-right-radius', 0, ':not(:last-child)'),
+  ('border-bottom-right-radius', 0, ':not(:last-child)'),
+));
+
+
+$button-inside-group-not-first--selector: selector(append $button-inside-group--selector parent $button--selector as '+');
+
+@include statement($button-inside-group-not-first--selector, (
+  ('@include button-btn-group--margin-x', $button--border-width),
 ));
