@@ -1,0 +1,86 @@
+@function declaration($block, $property, $value, $flags: ()) {
+  @if type-of($value) == 'map' {
+    @each $flag, $value in $value {
+      $new-flags: $flags;
+
+      @if index((':', '<', '@', '-', '~', '['), str-slice($flag, 0, 1)) {
+        $new-flags: append($new-flags, $flag);
+        $new-flags: sort($new-flags);
+      }
+
+      $block: declaration($block, $property, $value, $new-flags);
+    }
+  } @else {
+    @if str-slice($property, 1, 9) == '@include ' {
+      $mixin: str-slice($property, 10);
+      $mixin-result: call($mixin, $value, $flags);
+      $block: block-sorted($mixin-result, $block);
+      @return $block;
+    } @else {
+      @if length($flags) >= 1 {
+        $previous-block: map-get-deep($block, append($flags, 'default'));
+
+        @if $previous-block {
+          $previous-block: map-smart-merge($previous-block, ($property: $value));
+          $block: map-set-deep($block, append($flags, 'default'), $previous-block);
+        } @else {
+          $block: map-set-deep($block, append($flags, 'default'), ($property: $value));
+        }
+      } @else {
+        $block: map-smart-merge($block, ('default': ($property: $value)));
+      }
+    }
+  }
+
+  @return $block;
+}
+
+@function block-sorted($declarations, $block: ()) {
+  @each $declaration in $declarations {
+    $property: nth($declaration, 1);
+    $value: nth($declaration, 2);
+    $flags: if(length($declaration) >= 3, nth($declaration, 3), ());
+
+    $block: declaration($block, $property, $value, $flags);
+  }
+
+  @return $block;
+}
+
+@mixin print-statement($selector, $block, $flag) {
+  @if $flag != 'default' {
+    @each $flag, $block in $block {
+      $new-selector: $selector;
+
+      $flag-type: str-slice($flag, 0, 1);
+      $flag-name: str-slice($flag, 2);
+
+      @if $flag-type == ':' {
+        $new-selector: selector--append-pseudo-classes($new-selector, $flag-name);
+      } @elseif $flag-type == '<' {
+        $new-selector: selector--set-tag($new-selector, $flag-name);
+      } @elseif $flag-type == '@' {
+        $new-selector: selector--set-breakpoint($new-selector, $flag-name);
+      } @elseif $flag-type == '-' {
+        $new-selector: selector--append-modifier($new-selector, $flag-name);
+      } @elseif $flag-type == '~' {
+        $new-selector: selector--append-modifier-element($new-selector, $flag-name);
+      } @elseif $flag-type == '[' {
+        $new-selector: selector--append-attribute($new-selector, $flag-name);
+      }
+
+      @include print-statement($new-selector, $block, $flag);
+    }
+  } @else {
+    @include selector($selector, false) {
+      @each $property, $value in $block {
+        #{$property}: $value;
+      }
+    }
+  }
+}
+
+@mixin statement($selector, $block, $flag: null) {
+  $block: block-sorted($block);
+  @include print-statement($selector, $block, $flag);
+}
