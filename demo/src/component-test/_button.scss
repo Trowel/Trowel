@@ -22,7 +22,7 @@
 }
 
 
-$button--selector: selector--constructor('btn', $button--synthax);
+$button--selector: selector(new 'btn' with $button--synthax);
 
 @include statement($button--selector, (
   ('@include trwl-button--background-color', $button--background-color),

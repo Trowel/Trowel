@@ -29,12 +29,47 @@
 }
 
 
+// selector
+@function print-selector($selector) {
+  @return selector--get-print-parents($selector) + selector--get-print($selector);
+}
+
 @mixin selector($selector) {
   $breakpoint-fork: selector--get-breakpoint($selector);
 
-  @at-root #{selector--get-print-parents($selector) + selector--get-print($selector)} {
+  @at-root #{print-selector($selector)} {
     @include media-query($breakpoint-fork) {
       @content;
     }
   }
+}
+
+@function selector($args) {
+  $args-length: length($args);
+  $directive: nth($args, 1);
+
+  @if $directive == 'new' {
+    @if not ($args-length == 2 or $args-length == 4) {
+      @error 'selector() function with `new` as first argument must have 2 or 4 arguments';
+    }
+
+    $block: nth($args, 2);
+    $synthax: if($args-length >= 4, nth($args, 4), null);
+    @return selector--constructor(nth($args, 2), $synthax);
+  }
+
+  @if not ($args-length == 4 or $args-length == 6) {
+    @error 'selector() function with `set` or `append` as first argument must have 4 or 6 arguments';
+  }
+
+  $selector: nth($args, 2);
+  $property: nth($args, 3);
+  $param-1: nth($args, 4);
+  $param-2: if($args-length >= 6, nth($args, 6), null);
+
+  @if $param-2 {
+    @return call('selector--#{$directive}-#{$property}', $selector, $param-1, $param-2);
+  }
+
+  @return call('selector--#{$directive}-#{$property}', $selector, $param-1);
 }
