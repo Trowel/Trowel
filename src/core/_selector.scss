@@ -307,8 +307,8 @@
   $print--base: '.' + $print--prefix + $print--block;
 
   $print--modifier: '';
-  @if selector--get-modifier($this) {
-    @for $index from 1 through length(selector--get-modifier($this)) {
+  @if selector--get-modifiers($this) {
+    @for $index from 1 through length(selector--get-modifiers($this)) {
       $print--modifier: $print--modifier + $print--base + selector--get-print-modifiers($this, $index);
     }
   }
@@ -321,8 +321,8 @@
   }
 
   $print--attribute: '';
-  @if selector--get-attribute($this) {
-    @for $index from 1 through length(selector--get-attribute($this)) {
+  @if selector--get-attributes($this) {
+    @for $index from 1 through length(selector--get-attributes($this)) {
       $print--attribute: $print--attribute + selector--get-print-attributes($this, $index);
     }
   }
@@ -334,15 +334,15 @@
     }
   }
 
-  @if selector--get-modifier($this) and selector--get-modifiers-element($this) {
+  @if selector--get-modifiers($this) and selector--get-modifiers-element($this) {
     @return $print--modifier + ' ' + $print--tag + $print--modifiers-element + $print--attribute + $print--pseudo-classes + $print--pseudo-element;
   }
 
-  @if selector--get-modifier($this) and selector--get-element($this) {
+  @if selector--get-modifiers($this) and selector--get-element($this) {
     @return $print--modifier + ' ' + $print--tag + $print--base + $print--element + $print--attribute + $print--pseudo-classes + $print--pseudo-element;
   }
 
-  @if selector--get-modifier($this) {
+  @if selector--get-modifiers($this) {
     @return $print--tag + $print--modifier + $print--attribute + $print--pseudo-classes + $print--pseudo-element;
   }
 
