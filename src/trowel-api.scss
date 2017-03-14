@@ -1,6 +1,7 @@
 @import 'core/statement';
 @import 'core/breakpoints';
 @import 'core/selector';
+@import 'core/value';
 
 // statement
 @mixin statement($selector, $block, $flag: null) {
@@ -72,4 +73,32 @@
   }
 
   @return call('selector--#{$directive}-#{$property}', $selector, $param-1);
+}
+
+
+// value
+
+@function value($value, $flags: null) {
+  @if type-of($value) != 'map' {
+    @return $value;
+  }
+
+  @if $flags == null {
+    @return map-get($value, 'default');
+  }
+
+  $values-correspondant: values-correspondant($value, $flags);
+
+  @if length($values-correspondant) == 0 {
+    @return map-get($value, 'default');
+  }
+
+  $value: nth($values-correspondant, 1);
+  @each $value-correspondant in $values-correspondant {
+    @if value-correspondant--get-flags-length($value-correspondant) >= value-correspondant--get-flags-length($value) {
+      $value: $value-correspondant;
+    }
+  }
+
+  @return value-correspondant--get-value($value);
 }
