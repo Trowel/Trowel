@@ -5,34 +5,22 @@
 [![Bower](https://img.shields.io/bower/v/trowel-core.svg?maxAge=2592000)]()
 [![npm](https://img.shields.io/npm/v/trowel-core.svg?maxAge=2592000)]()
 
+The most evolving way to write scss code
 
-Core of trowel, framework for sass libraries
-
-## install
+## Download
 ```sh
 # with bower
-bower install trowel-core
+bower install trowel-core --save
 
 # with npm
-npm install trowel-core
+npm install trowel-core --save
+
+# with yarn
+yarn add trowel-core
 ```
 
-Then include thoses lines before any trowel library in your `.scss` file
-```
-@import './path/to/dependencies/trowel-core/src/trowel';
-```
+## Getting Started
+A tutorial is available [right here](./doc/1-the-concept.md) to understand the concept and learn how to use it.
 
-## Run the demo
-```sh
-npm install
-bower install
-bower start
-```
-
-## Understand the demo
-* All the code relative to the library itself is in `src/` folder
-* Into the `demo/src/scss/trowel-component/` folder contains code that simulate what a trowel-component could look like.
-* The files `demo/src/scss/style.scss` and `demo/src/scss/_variables.scss` simulate the code of a project that includes `trowel-component`
-
-## Manifest of trowel
-The reason of why trowel exists are available in french at `manifest-fr.md`
+## Contribution
+A contribution guide is coming soon
