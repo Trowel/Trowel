@@ -4,15 +4,24 @@ $trowel-root-config: (
   'debug': false,
   'breakpoints': (
     'xs': (
-      'max': 10rem,
+      'max': 35.9999rem,
     ),
     'sm': (
-      'min': 10rem,
-      'max': 20rem,
+      'min': 36rem,
+      'max': 47.9999rem,
     ),
     'md': (
-      'min': 20rem,
-    )
+      'min': 48rem,
+      'max': 61.9999rem,
+    ),
+
+    'lg': (
+      'min': 62rem,
+      'max': 74.9999rem,
+    ),
+    'xl': (
+      'min': 75rem,
+    ),
   ),
   'synthax': (
     'prefix': null,
