@@ -60,7 +60,7 @@
       $flag-name: str-slice($flag, 2);
 
       @if $flag-type == ':' {
-        $new-selector: selector--append-pseudo-classes($new-selector, $flag-name);
+        $new-selector: selector--append-pseudo-class($new-selector, $flag-name);
       } @elseif $flag-type == '<' {
         $new-selector: selector--set-tag($new-selector, $flag-name);
       } @elseif $flag-type == '@' {

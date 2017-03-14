@@ -1,7 +1,7 @@
 @import '../extensions/class';
 @import '../extensions/map';
 
-@function selector--constructor($block, $synthax: null, $tag: null, $pseudo-classes: null, $element: null, $modifier: null, $modifier-element: null, $pseudo-element: null, $attribute: null, $breakpoint: null, $parents: null) {
+@function selector--constructor($block, $synthax: null, $tag: null, $pseudo-classes: null, $element: null, $modifier: null, $modifiers-element: null, $pseudo-element: null, $attribute: null, $breakpoint: null, $parents: null) {
   $this: (
     'prefix-separator': map-get-deep($trowel-config, 'synthax' 'separator' 'prefix'),
     'element-separator': map-get-deep($trowel-config, 'synthax' 'separator' 'element'),
@@ -37,10 +37,10 @@
 
   $this: selector--set-block($this, $block);
   $this: selector--set-element($this, $element);
-  $this: selector--set-modifier($this, $modifier);
-  $this: selector--set-modifier-element($this, $modifier-element);
+  $this: selector--set-modifiers($this, $modifier);
+  $this: selector--set-modifiers-element($this, $modifiers-element);
   $this: selector--set-pseudo-element($this, $pseudo-element);
-  $this: selector--set-attribute($this, $attribute);
+  $this: selector--set-attributes($this, $attribute);
   $this: selector--set-tag($this, $tag);
   $this: selector--set-pseudo-classes($this, $pseudo-classes);
   $this: selector--set-breakpoint($this, $breakpoint);
@@ -110,10 +110,10 @@
   @return class--set-attribute($this, 'pseudo-classes', $pseudo-classes);
 }
 
-@function selector--append-pseudo-classes($this, $pseudo-classes) {
-  $type: selector--type('selector', 'pseudo-classes', $pseudo-classes, 'string');
+@function selector--append-pseudo-class($this, $pseudo-class) {
+  $type: selector--type('selector', 'pseudo-classes', $pseudo-class, 'string');
 
-  @return class--append-attribute($this, 'pseudo-classes', $pseudo-classes);
+  @return class--append-attribute($this, 'pseudo-classes', $pseudo-class);
 }
 
 @function selector--get-print-pseudo-classes($this, $nth) {
@@ -147,39 +147,44 @@
   @return if(selector--get-element($this), $separator + selector--get-element($this), '');
 }
 
-@function selector--get-modifier($this, $nth: null) {
-  @return class--get-attribute($this, 'modifier', $nth);
+@function selector--get-modifiers($this, $nth: null) {
+  @return class--get-attribute($this, 'modifiers', $nth);
 }
 
-@function selector--set-modifier($this, $modifier) {
-  $nullable: selector--nullable('selector', 'nullable', $modifier, true);
+@function selector--set-modifiers($this, $modifiers) {
+  $nullable: selector--nullable('selector', 'nullable', $modifiers, true);
 
-  @return class--set-attribute($this, 'modifier', $modifier);
+  @return class--set-attribute($this, 'modifiers', $modifiers);
 }
 
 @function selector--append-modifier($this, $modifier) {
-  $type: selector--type('selector', 'modifier', $modifier, 'string');
+  $type: selector--type('selector', 'modifiers', $modifier, 'string');
 
-  @return class--append-attribute($this, 'modifier', $modifier);
+  @return class--append-attribute($this, 'modifiers', $modifier);
 }
 
-@function selector--get-modifier-element($this, $nth: null) {
-  @return class--get-attribute($this, 'modifier-element', $nth);
+@function selector--get-print-modifiers($this, $nth) {
+  $separator: selector--get-modifier-separator($this);
+  @return if(selector--get-modifiers($this, $nth), $separator + selector--get-modifiers($this, $nth), '');
 }
 
-@function selector--set-modifier-element($this, $modifier-element) {
+@function selector--get-modifiers-element($this, $nth: null) {
+  @return class--get-attribute($this, 'modifiers-element', $nth);
+}
+
+@function selector--set-modifiers-element($this, $modifiers-element) {
   @if selector--get-element($this) {
-    $nullable: selector--nullable('selector', 'nullable', $modifier-element, true);
-    @return class--set-attribute($this, 'modifier-element', $modifier-element);
+    $nullable: selector--nullable('selector', 'nullable', $modifiers-element, true);
+    @return class--set-attribute($this, 'modifiers-element', $modifiers-element);
   } @else {
-    @return selector--set-modifier($this, $modifier-element);
+    @return selector--set-modifiers($this, $modifiers-element);
   }
 }
 
 @function selector--append-modifier-element($this, $modifier-element) {
   @if selector--get-element($this) {
-    $type: selector--type('selector', 'modifier-element', $modifier-element, 'string');
-    @return class--append-attribute($this, 'modifier-element', $modifier-element);
+    $type: selector--type('selector', 'modifiers-element', $modifier-element, 'string');
+    @return class--append-attribute($this, 'modifiers-element', $modifier-element);
   } @else {
     @return selector--append-modifier($this, $modifier-element);
   }
@@ -196,34 +201,29 @@
   @return class--set-attribute($this, 'modifier-separator', $modifier-separator);
 }
 
-@function selector--get-print-modifier($this, $nth) {
+@function selector--get-print-modifiers-element($this, $nth) {
   $separator: selector--get-modifier-separator($this);
-  @return if(selector--get-modifier($this, $nth), $separator + selector--get-modifier($this, $nth), '');
+  @return if(selector--get-modifiers-element($this, $nth), $separator + selector--get-modifiers-element($this, $nth), '');
 }
 
-@function selector--get-print-modifier-element($this, $nth) {
-  $separator: selector--get-modifier-separator($this);
-  @return if(selector--get-modifier-element($this, $nth), $separator + selector--get-modifier-element($this, $nth), '');
+@function selector--get-attributes($this, $nth: null) {
+  @return class--get-attribute($this, 'attributes', $nth);
 }
 
-@function selector--get-attribute($this, $nth: null) {
-  @return class--get-attribute($this, 'attribute', $nth);
-}
+@function selector--set-attributes($this, $attribute) {
+  $nullable: class--nullable('selector', 'attributes', $attribute, true);
 
-@function selector--set-attribute($this, $attribute) {
-  $nullable: class--nullable('selector', 'attribute', $attribute, true);
-
-  @return class--set-attribute($this, 'attribute', $attribute);
+  @return class--set-attribute($this, 'attributes', $attribute);
 }
 
 @function selector--append-attribute($this, $attribute) {
-  $type: class--type('selector', 'attribute', $attribute, 'string');
+  $type: class--type('selector', 'attributes', $attribute, 'string');
 
-  @return class--append-attribute($this, 'attribute', $attribute);
+  @return class--append-attribute($this, 'attributes', $attribute);
 }
 
-@function selector--get-print-attribute($this, $nth) {
-  @return if(selector--get-attribute($this, $nth), '[' + selector--get-attribute($this, $nth) + ']', '');
+@function selector--get-print-attributes($this, $nth) {
+  @return if(selector--get-attributes($this, $nth), '[' + selector--get-attributes($this, $nth) + ']', '');
 }
 
 @function selector--get-breakpoint($this) {
@@ -272,8 +272,8 @@
   }
 
   $parent: (
-          'selector': $parent,
-          'relationship': $relationship,
+    'selector': $parent,
+    'relationship': $relationship,
   );
 
   @return class--append-attribute($this, 'parents', $parent);
@@ -309,21 +309,21 @@
   $print--modifier: '';
   @if selector--get-modifier($this) {
     @for $index from 1 through length(selector--get-modifier($this)) {
-      $print--modifier: $print--modifier + $print--base + selector--get-print-modifier($this, $index);
+      $print--modifier: $print--modifier + $print--base + selector--get-print-modifiers($this, $index);
     }
   }
 
-  $print--modifier-element: '';
-  @if selector--get-modifier-element($this) {
-    @for $index from 1 through length(selector--get-modifier-element($this)) {
-      $print--modifier-element: $print--modifier-element + $print--base + $print--element + selector--get-print-modifier-element($this, $index);
+  $print--modifiers-element: '';
+  @if selector--get-modifiers-element($this) {
+    @for $index from 1 through length(selector--get-modifiers-element($this)) {
+      $print--modifiers-element: $print--modifiers-element + $print--base + $print--element + selector--get-print-modifiers-element($this, $index);
     }
   }
 
   $print--attribute: '';
   @if selector--get-attribute($this) {
     @for $index from 1 through length(selector--get-attribute($this)) {
-      $print--attribute: $print--attribute + selector--get-print-attribute($this, $index);
+      $print--attribute: $print--attribute + selector--get-print-attributes($this, $index);
     }
   }
 
@@ -334,8 +334,8 @@
     }
   }
 
-  @if selector--get-modifier($this) and selector--get-modifier-element($this) {
-    @return $print--modifier + ' ' + $print--tag + $print--modifier-element + $print--attribute + $print--pseudo-classes + $print--pseudo-element;
+  @if selector--get-modifier($this) and selector--get-modifiers-element($this) {
+    @return $print--modifier + ' ' + $print--tag + $print--modifiers-element + $print--attribute + $print--pseudo-classes + $print--pseudo-element;
   }
 
   @if selector--get-modifier($this) and selector--get-element($this) {
@@ -346,13 +346,9 @@
     @return $print--tag + $print--modifier + $print--attribute + $print--pseudo-classes + $print--pseudo-element;
   }
 
-  @if selector--get-modifier-element($this) {
-    @return $print--tag + $print--modifier-element + $print--attribute + $print--pseudo-classes + $print--pseudo-element;
+  @if selector--get-modifiers-element($this) {
+    @return $print--tag + $print--modifiers-element + $print--attribute + $print--pseudo-classes + $print--pseudo-element;
   }
 
   @return $print--tag + $print--base + $print--element + $print--attribute + $print--pseudo-classes + $print--pseudo-element;
 }
-
-
-
-
