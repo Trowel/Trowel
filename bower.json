@@ -14,11 +14,9 @@
   "ignore": [
     ".gitignore",
     "gulpfile.js",
-    "manifest-fr.md",
     "node_modules",
     "bower_components",
-    "test",
-    "demo",
+    "tests",
     "media"
   ],
   "version": "3.3.0",

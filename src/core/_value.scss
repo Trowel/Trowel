@@ -10,32 +10,6 @@
   @return length(value-correspondant--get-flags($value));
 }
 
-@function value($value, $flags: null) {
-  @if type-of($value) != 'map' {
-    @return $value;
-  }
-
-  @if $flags == null {
-    @return map-get($value, 'default');
-  }
-
-  $values-correspondant: values-correspondant($value, $flags);
-
-  @if length($values-correspondant) == 0 {
-    @return map-get($value, 'default');
-  }
-
-  $value: nth($values-correspondant, 1);
-  @each $value-correspondant in $values-correspondant {
-    @if value-correspondant--get-flags-length($value-correspondant) >= value-correspondant--get-flags-length($value) {
-      $value: $value-correspondant;
-    }
-  }
-
-  @return value-correspondant--get-value($value);
-}
-
-
 @function values-correspondant($value, $flags, $values-correspondant: (), $flag-current: ()) {
   @each $flag, $value in $value {
 

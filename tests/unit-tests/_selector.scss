@@ -37,12 +37,12 @@ $selector-object-4: (
   'block': 'button',
   'element': 'label',
   'element-separator': '__',
-  'modifier': ('primary', 'large'),
+  'modifiers': ('primary', 'large'),
   'modifier-separator': '--',
   'tag': 'span',
   'pseudo-classes': ('nth-child(2n + 1)', 'hover', 'focus'),
   'pseudo-element': 'after',
-  'attribute': ('disable', ),
+  'attributes': ('disable', ),
   'breakpoint': 'md',
   'parents': (
     (
@@ -61,13 +61,13 @@ $selector-object-5: (
   'block': 'button',
   'element': 'label',
   'element-separator': '__',
-  'modifier': ('animated'),
-  'modifier-element': ('light', 'sm'),
+  'modifiers': ('animated'),
+  'modifiers-element': ('light', 'sm'),
   'modifier-separator': '--',
   'tag': 'span',
   'pseudo-classes': ('nth-child(2n + 1)', 'hover', 'focus'),
   'pseudo-element': 'after',
-  'attribute': ('disable', ),
+  'attributes': ('disable', ),
   'breakpoint': 'md',
   'parents': (
     (
@@ -81,22 +81,22 @@ $selector-object-5: (
 );
 
 @include run(test('selector--constructor', (
-  ((
+  ('button', (
     'prefix': 'c',
     'separator': (
       'prefix': '-',
       'element': '__',
       'modifier': '--',
     ),
-  ), 'button'): $selector-object-2,
-  ((
+  )): $selector-object-2,
+  ('button', (
     'prefix': 'c',
     'separator': (
       'prefix': '-',
       'element': '-',
       'modifier': '-',
     ),
-  ), 'button', 'span', ('hover',), 'label', null, null, 'before', null, 'md', (('selector': $selector-object-2, 'relationship': ' > '),)): $selector-object-3,
+  ), 'span', ('hover',), 'label', null, null, 'before', null, 'md', (('selector': $selector-object-2, 'relationship': ' > '),)): $selector-object-3,
 )));
 
 @include run(test('selector--get-prefix', (
@@ -226,7 +226,7 @@ $selector-object-5: (
   ),
 )));
 
-@include run(test('selector--append-pseudo-classes', (
+@include run(test('selector--append-pseudo-class', (
   ($selector-object-1, 'hover'):  (
     'prefix-separator': '-',
     'element-separator': '__',
@@ -302,7 +302,7 @@ $selector-object-5: (
   ($selector-object-3, ): '-label',
 )));
 
-@include run(test('selector--get-modifier', (
+@include run(test('selector--get-modifiers', (
   ($selector-object-1, ): null,
   ($selector-object-2, ): null,
   ($selector-object-3, ): null,
@@ -312,18 +312,18 @@ $selector-object-5: (
   ($selector-object-4, 3): null,
 )));
 
-@include run(test('selector--set-modifier', (
+@include run(test('selector--set-modifiers', (
   ($selector-object-1, ('lorem',)): (
     'prefix-separator': '-',
     'element-separator': '__',
     'modifier-separator': '--',
-    'modifier': ('lorem',),
+    'modifiers': ('lorem',),
   ),
   ($selector-object-1, ('lorem', 'ipsum')): (
     'prefix-separator': '-',
     'element-separator': '__',
     'modifier-separator': '--',
-    'modifier': ('lorem', 'ipsum'),
+    'modifiers': ('lorem', 'ipsum'),
   ),
 )));
 
@@ -332,17 +332,17 @@ $selector-object-5: (
     'prefix-separator': '-',
     'element-separator': '__',
     'modifier-separator': '--',
-    'modifier': ('lorem',),
+    'modifiers': ('lorem',),
   ),
   ($selector-object-1, ('lorem', 'ipsum')): (
     'prefix-separator': '-',
     'element-separator': '__',
     'modifier-separator': '--',
-    'modifier': ('lorem', 'ipsum'),
+    'modifiers': ('lorem', 'ipsum'),
   ),
 )));
 
-@include run(test('selector--get-modifier-element', (
+@include run(test('selector--get-modifiers-element', (
   ($selector-object-1, ): null,
   ($selector-object-2, ): null,
   ($selector-object-3, ): null,
@@ -352,25 +352,25 @@ $selector-object-5: (
   ($selector-object-5, 3): null,
 )));
 
-@include run(test('selector--set-modifier-element', (
+@include run(test('selector--set-modifiers-element', (
   ($selector-object-1, ('lorem',)): (
     'prefix-separator': '-',
     'element-separator': '__',
     'modifier-separator': '--',
-    'modifier': ('lorem',),
+    'modifiers': ('lorem',),
   ),
   ($selector-object-1, ('lorem', 'ipsum')): (
     'prefix-separator': '-',
     'element-separator': '__',
     'modifier-separator': '--',
-    'modifier': ('lorem', 'ipsum'),
+    'modifiers': ('lorem', 'ipsum'),
   ),
   ($selector-object-3, ('lorem', )): (
     'prefix': 'c',
     'prefix-separator': '-',
     'block': 'button',
     'element': 'label',
-    'modifier-element': ('lorem', ),
+    'modifiers-element': ('lorem', ),
     'element-separator': '-',
     'modifier-separator': '-',
     'tag': 'span',
@@ -389,7 +389,7 @@ $selector-object-5: (
     'prefix-separator': '-',
     'block': 'button',
     'element': 'label',
-    'modifier-element': ('lorem', 'ipsum'),
+    'modifiers-element': ('lorem', 'ipsum'),
     'element-separator': '-',
     'modifier-separator': '-',
     'tag': 'span',
@@ -410,20 +410,20 @@ $selector-object-5: (
     'prefix-separator': '-',
     'element-separator': '__',
     'modifier-separator': '--',
-    'modifier': ('lorem',),
+    'modifiers': ('lorem',),
   ),
   ($selector-object-1, ('lorem', 'ipsum')): (
     'prefix-separator': '-',
     'element-separator': '__',
     'modifier-separator': '--',
-    'modifier': ('lorem', 'ipsum'),
+    'modifiers': ('lorem', 'ipsum'),
   ),
   ($selector-object-3, 'lorem'): (
     'prefix': 'c',
     'prefix-separator': '-',
     'block': 'button',
     'element': 'label',
-    'modifier-element': ('lorem', ),
+    'modifiers-element': ('lorem', ),
     'element-separator': '-',
     'modifier-separator': '-',
     'tag': 'span',
@@ -442,7 +442,7 @@ $selector-object-5: (
     'prefix-separator': '-',
     'block': 'button',
     'element': 'label',
-    'modifier-element': ('lorem', 'ipsum'),
+    'modifiers-element': ('lorem', 'ipsum'),
     'element-separator': '-',
     'modifier-separator': '-',
     'tag': 'span',
@@ -483,7 +483,7 @@ $selector-object-5: (
   ),
 )));
 
-@include run(test('selector--get-print-modifier', (
+@include run(test('selector--get-print-modifiers', (
   ($selector-object-1, 1): '',
   ($selector-object-2, 1): '',
   ($selector-object-3, 1): '',
@@ -492,7 +492,7 @@ $selector-object-5: (
   ($selector-object-4, 3): '',
 )));
 
-@include run(test('selector--get-attribute', (
+@include run(test('selector--get-attributes', (
   ($selector-object-1, ): null,
   ($selector-object-2, ): null,
   ($selector-object-3, ): null,
@@ -501,18 +501,18 @@ $selector-object-5: (
   ($selector-object-4, 2): null,
 )));
 
-@include run(test('selector--set-attribute', (
+@include run(test('selector--set-attributes', (
   ($selector-object-1, ('disable',)): (
     'prefix-separator': '-',
     'element-separator': '__',
     'modifier-separator': '--',
-    'attribute': ('disable',),
+    'attributes': ('disable',),
   ),
   ($selector-object-1, ('disable', 'data-test')): (
     'prefix-separator': '-',
     'element-separator': '__',
     'modifier-separator': '--',
-    'attribute': ('disable', 'data-test'),
+    'attributes': ('disable', 'data-test'),
   ),
 )));
 
@@ -521,17 +521,17 @@ $selector-object-5: (
     'prefix-separator': '-',
     'element-separator': '__',
     'modifier-separator': '--',
-    'attribute': ('data-test',),
+    'attributes': ('data-test',),
   ),
   ($selector-object-1, ('disable', 'data-test')): (
     'prefix-separator': '-',
     'element-separator': '__',
     'modifier-separator': '--',
-    'attribute': ('disable', 'data-test'),
+    'attributes': ('disable', 'data-test'),
   ),
 )));
 
-@include run(test('selector--get-print-attribute', (
+@include run(test('selector--get-print-attributes', (
   ($selector-object-1, 1): '',
   ($selector-object-2, 1): '',
   ($selector-object-3, 1): '',
