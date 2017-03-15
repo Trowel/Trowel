@@ -1,7 +1,7 @@
 {
   "name": "trowel-core",
-  "version": "3.3.0",
-  "description": "Core of trowel, framework for sass libraries",
+  "version": "4.0.0",
+  "description": "The most evolving way to write scss code",
   "scripts": {
     "test": "npm run unit-test && npm run visual-test",
     "unit-test": "gulp unit-tests",
