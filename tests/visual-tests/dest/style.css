@@ -1,0 +1,254 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.c-btn {
+    background-color: white;
+    display: inline-block;
+    color: #1f0d33;
+    font-size: 1rem;
+    line-height: 1.2em;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    user-select: none;
+    white-space: nowrap;
+    border-radius: 0.2em;
+    padding: 0.666667em 1.666667em;
+    border-width: 0;
+    border-style: solid;
+}
+
+.c-btn:hover {
+    background-color: #e6e6e6;
+}
+
+.c-btn--link:hover {
+    text-decoration: underline;
+}
+
+.c-btn:focus {
+    background-color: #e6e6e6;
+}
+
+.c-btn:active {
+    background-color: #e6e6e6;
+}
+
+.c-btn[disabled="true"] {
+    background-color: white;
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.c-btn[disabled="true"]:hover {
+    background-color: white;
+}
+
+.c-btn[disabled="true"]:focus {
+    background-color: white;
+}
+
+.c-btn[disabled="true"]:active {
+    background-color: white;
+}
+
+.c-btn--primary[disabled="true"] {
+    background-color: #1f0d33;
+}
+
+.c-btn--primary[disabled="true"]:hover {
+    background-color: #1f0d33;
+}
+
+.c-btn--primary[disabled="true"]:focus {
+    background-color: #1f0d33;
+}
+
+.c-btn--primary[disabled="true"]:active {
+    background-color: #1f0d33;
+}
+
+.c-btn--success[disabled="true"] {
+    background-color: #37d3bd;
+}
+
+.c-btn--success[disabled="true"]:hover {
+    background-color: #37d3bd;
+}
+
+.c-btn--success[disabled="true"]:focus {
+    background-color: #37d3bd;
+}
+
+.c-btn--success[disabled="true"]:active {
+    background-color: #37d3bd;
+}
+
+.c-btn--warning[disabled="true"] {
+    background-color: #ffb000;
+}
+
+.c-btn--warning[disabled="true"]:hover {
+    background-color: #ffb000;
+}
+
+.c-btn--warning[disabled="true"]:focus {
+    background-color: #ffb000;
+}
+
+.c-btn--warning[disabled="true"]:active {
+    background-color: #ffb000;
+}
+
+.c-btn--danger[disabled="true"] {
+    background-color: #fd4164;
+}
+
+.c-btn--danger[disabled="true"]:hover {
+    background-color: #fd4164;
+}
+
+.c-btn--danger[disabled="true"]:focus {
+    background-color: #fd4164;
+}
+
+.c-btn--danger[disabled="true"]:active {
+    background-color: #fd4164;
+}
+
+.c-btn--primary {
+    background-color: #1f0d33;
+    color: white;
+}
+
+.c-btn--primary:hover {
+    background-color: #06030a;
+}
+
+.c-btn--primary:focus {
+    background-color: #06030a;
+}
+
+.c-btn--primary:active {
+    background-color: #06030a;
+}
+
+.c-btn--success {
+    background-color: #37d3bd;
+    color: white;
+}
+
+.c-btn--success:hover {
+    background-color: #27b09d;
+}
+
+.c-btn--success:focus {
+    background-color: #27b09d;
+}
+
+.c-btn--success:active {
+    background-color: #27b09d;
+}
+
+.c-btn--warning {
+    background-color: #ffb000;
+    color: white;
+}
+
+.c-btn--warning:hover {
+    background-color: #cc8d00;
+}
+
+.c-btn--warning:focus {
+    background-color: #cc8d00;
+}
+
+.c-btn--warning:active {
+    background-color: #cc8d00;
+}
+
+.c-btn--danger {
+    background-color: #fd4164;
+    color: white;
+}
+
+.c-btn--danger:hover {
+    background-color: #fc0f3b;
+}
+
+.c-btn--danger:focus {
+    background-color: #fc0f3b;
+}
+
+.c-btn--danger:active {
+    background-color: #fc0f3b;
+}
+
+.c-btn--block {
+    display: block;
+    width: 100%;
+}
+
+.c-btn--lg {
+    font-size: 1.2rem;
+}
+
+.c-btn--sm {
+    font-size: 0.8rem;
+}
+
+.c-btn--xs {
+    font-size: 0.65rem;
+    padding: 0.666667em 1.333333em;
+}
+
+.c-btn--default {
+    padding: 0.604167em 1.604167em;
+    border-width: 0.0625em;
+    border-color: currentColor;
+}
+
+.c-btn svg {
+    vertical-align: middle;
+}
+
+.c-btn-group {
+    display: flex;
+}
+
+.c-btn-group > .c-btn {
+    position: relative;
+}
+
+.c-btn-group > .c-btn:hover {
+    z-index: 2;
+}
+
+.c-btn-group > .c-btn:active {
+    z-index: 2;
+}
+
+.c-btn-group > .c-btn:focus {
+    z-index: 2;
+}
+
+.c-btn-group > .c-btn:not(:first-child) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.c-btn-group > .c-btn:not(:last-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.c-btn-group > .c-btn + .c-btn {
+    margin-left: 0;
+}
+
+.c-btn-group > .c-btn + .c-btn--default {
+    margin-left: -0.0625em;
+}

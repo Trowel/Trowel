@@ -3,10 +3,10 @@
   "version": "3.3.0",
   "description": "Core of trowel, framework for sass libraries",
   "scripts": {
-    "test": "gulp test",
-    "demo": "gulp",
-    "start": "gulp watch",
-    "register": "bower register trowel https://github.com/Trowel/trowel"
+    "test": "npm run unit-test && npm run visual-test",
+    "unit-test": "gulp unit-tests",
+    "visual-test": "gulp visual-tests",
+    "start": "gulp watch"
   },
   "repository": {
     "url": "git+https://github.com/Trowel/trowel.git",

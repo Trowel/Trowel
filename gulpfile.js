@@ -3,9 +3,9 @@ var $ = require('gulp-load-plugins')();
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
 
-gulp.task('template', function() {
-  return gulp.src('demo/src/index.html')
-    .pipe(gulp.dest('demo/dest'));
+gulp.task('visual-tests-template', function() {
+  return gulp.src('tests/visual-tests/src/index.html')
+    .pipe(gulp.dest('tests/visual-tests/dest'));
 });
 
 AUTOPREFIXER_BROWSERS = [
@@ -29,8 +29,8 @@ var report_error = function(error) {
   this.emit('end');
 };
 
-gulp.task('scss', function () {
-    return gulp.src('demo/src/style.scss')
+gulp.task('visual-tests-scss', function () {
+    return gulp.src('tests/visual-tests/src/style.scss')
     .pipe($.sass({
         precision: 6,
         outputStyle: 'expanded',
@@ -38,23 +38,26 @@ gulp.task('scss', function () {
         indentWidth: 4,
     }))
     .on('error', report_error)
-    .pipe(gulp.dest('demo/dest'));
+    .pipe(gulp.dest('tests/visual-tests/dest'));
 });
 
-gulp.task('test', function () {
-    return gulp.src('test/test.scss')
+gulp.task('visual-tests', ['visual-tests-template', 'visual-tests-scss'])
+
+gulp.task('unit-tests', function () {
+    return gulp.src('./tests/unit-tests/unit-tests.scss')
     .pipe($.sass());
 });
+
 
 gulp.task('watch', ['default'], function() {
   browserSync({
     notify: false,
     logPrefix: 'trowel',
-    server: ['demo/dest']
+    server: ['tests/visual-tests/dest']
   });
 
-  gulp.watch(['src/**/*.scss', 'demo/src/**/*.scss'], ['scss', reload]);
-  gulp.watch('demo/src/**/*.html', ['template', reload]);
+  gulp.watch(['src/**/*.scss', 'tests/visual-tests/src/**/*.scss'], ['visual-tests-scss', reload]);
+  gulp.watch('tests/visual-tests/src/**/*.html', ['visual-tests-template', reload]);
 });
 
-gulp.task('default', ['template', 'scss']);
+gulp.task('default', ['visual-tests']);

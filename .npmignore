@@ -1,6 +1,4 @@
 .gitignore
 gulpfile.js
-manifest-fr.md
-/test
-/demo
+/tests
 /media

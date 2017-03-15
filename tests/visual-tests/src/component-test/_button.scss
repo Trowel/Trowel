@@ -1,5 +1,5 @@
-@import '../../../node_modules/trowel-buttons/src/scss/variables/synthax';
-@import '../../../node_modules/trowel-buttons/src/scss/variables/theme-trowel';
+@import '../../../../node_modules/trowel-buttons/src/scss/variables/synthax';
+@import '../../../../node_modules/trowel-buttons/src/scss/variables/theme-trowel';
 
 @function button-btn-group--margin-x ($value, $flags) {
   @return (
