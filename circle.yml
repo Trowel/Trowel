@@ -6,4 +6,3 @@ dependencies:
 test:
   override:
     - npm test
-    - gulp scss
