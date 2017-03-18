@@ -1,12 +1,6 @@
 @import '../../../../node_modules/trowel-buttons/src/scss/variables/synthax';
 @import '../../../../node_modules/trowel-buttons/src/scss/variables/theme-trowel';
 
-@function button-btn-group--margin-x ($value, $flags) {
-  @return (
-    ('margin-left', $value * -1, $flags),
-  );
-}
-
 @function button--background-color ($value, $flags) {
   $default-value: null;
   $state-value: null;
