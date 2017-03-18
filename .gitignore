@@ -43,4 +43,4 @@ test/dest
 bower_components
 
 # Demo
-demo/dest/
+tests/visual-tests/dest/
