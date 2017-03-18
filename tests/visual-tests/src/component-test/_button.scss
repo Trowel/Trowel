@@ -1,12 +1,6 @@
 @import '../../../../node_modules/trowel-buttons/src/scss/variables/synthax';
 @import '../../../../node_modules/trowel-buttons/src/scss/variables/theme-trowel';
 
-@function button-btn-group--margin-x ($value, $flags) {
-  @return (
-    ('margin-left', $value * -1, $flags),
-  );
-}
-
 @function button--background-color ($value, $flags) {
   $default-value: null;
   $state-value: null;
@@ -27,6 +21,9 @@
   );
 }
 
+$button--synthax: (
+  'prefix': 'c',
+);
 
 $button--selector: selector(new 'btn' with $button--synthax);
 
@@ -44,7 +41,7 @@ $button--selector: selector(new 'btn' with $button--synthax);
   ('touch-action', manipulation),
   ('cursor', $button--cursor),
   ('cursor', not-allowed, ('[disabled="true"')),
-  ('background-image', none), // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214,
+  ('background-image', none), // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
   ('user-select', none),
   ('white-space', nowrap),
   ('border-radius', $button--border-radius),
@@ -61,36 +58,6 @@ $button--selector: selector(new 'btn' with $button--synthax);
   ('width', $button--width),
   ('height', $button--height),
   ('opacity', $button--opacity),
-  ('cursor', pointer),
-));
-
-#{print-selector($button--selector)} svg {
-  vertical-align: middle;
-}
-
-
-$button-group--selector: selector(new 'btn-group' with $button--synthax);
-@include statement($button-group--selector, (
-  ('display', flex),
-));
-
-
-$button-inside-group--selector: selector(append $button--selector parent $button-group--selector as '>');
-
-@include statement($button-inside-group--selector, (
-  ('position', relative),
-  ('z-index', 2, ':hover'),
-  ('z-index', 2, ':active'),
-  ('z-index', 2, ':focus'),
-  ('border-top-left-radius', 0, ':not(:first-child)'),
-  ('border-bottom-left-radius', 0, ':not(:first-child)'),
-  ('border-top-right-radius', 0, ':not(:last-child)'),
-  ('border-bottom-right-radius', 0, ':not(:last-child)'),
-));
-
-
-$button-inside-group-not-first--selector: selector(append $button-inside-group--selector parent $button--selector as '+');
-
-@include statement($button-inside-group-not-first--selector, (
-  ('@include button-btn-group--margin-x', $button--border-width),
+  ('cursor', default),
+  ('cursor', pointer, ('<button')),
 ));

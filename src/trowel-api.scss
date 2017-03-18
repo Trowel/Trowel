@@ -55,8 +55,8 @@
     }
 
     $block: nth($args, 2);
-    $synthax: if($args-length >= 4, nth($args, 4), null);
-    @return selector--constructor(nth($args, 2), $synthax);
+    $syntax: if($args-length >= 4, nth($args, 4), null);
+    @return selector--constructor(nth($args, 2), $syntax);
   }
 
   @if not ($args-length == 4 or $args-length == 6) {

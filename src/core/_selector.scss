@@ -1,25 +1,25 @@
 @import '../extensions/class';
 @import '../extensions/map';
 
-@function selector--constructor($block, $synthax: null, $tag: null, $pseudo-classes: null, $element: null, $modifier: null, $modifiers-element: null, $pseudo-element: null, $attribute: null, $breakpoint: null, $parents: null) {
+@function selector--constructor($block, $syntax: null, $tag: null, $pseudo-classes: null, $element: null, $modifier: null, $modifiers-element: null, $pseudo-element: null, $attribute: null, $breakpoint: null, $parents: null) {
   $this: (
-    'prefix-separator': map-get-deep($trowel-config, 'synthax' 'separator' 'prefix'),
-    'element-separator': map-get-deep($trowel-config, 'synthax' 'separator' 'element'),
-    'modifier-separator': map-get-deep($trowel-config, 'synthax' 'separator' 'modifier'),
+    'prefix-separator': map-get-deep($trowel-config, 'syntax' 'separator' 'prefix'),
+    'element-separator': map-get-deep($trowel-config, 'syntax' 'separator' 'element'),
+    'modifier-separator': map-get-deep($trowel-config, 'syntax' 'separator' 'modifier'),
   );
 
-  @if map-get-deep($trowel-config, 'synthax' 'prefix') {
-    $this: selector--set-prefix($this, map-get-deep($trowel-config, 'synthax' 'prefix'));
+  @if map-get-deep($trowel-config, 'syntax' 'prefix') {
+    $this: selector--set-prefix($this, map-get-deep($trowel-config, 'syntax' 'prefix'));
   }
 
-  // Synthax
-  @if $synthax {
-    @if map-has-key($synthax, 'prefix') {
-      $this: selector--set-prefix($this, map-get($synthax, 'prefix'));
+  // Syntax
+  @if $syntax {
+    @if map-has-key($syntax, 'prefix') {
+      $this: selector--set-prefix($this, map-get($syntax, 'prefix'));
     }
 
-    @if map-has-key($synthax, 'separator') {
-      $separators: map-get($synthax, 'separator');
+    @if map-has-key($syntax, 'separator') {
+      $separators: map-get($syntax, 'separator');
 
       @if map-has-key($separators, 'prefix') {
         $this: selector--set-prefix-separator($this, map-get($separators, 'prefix'));
